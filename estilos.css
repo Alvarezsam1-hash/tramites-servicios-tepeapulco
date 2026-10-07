@@ -1,1461 +1,1531 @@
-:root{
-  --vino:#650d2b;
-  --vino-oscuro:#3d0719;
-  --vino-medio:#861b3d;
-  --dorado:#c9a34a;
-  --dorado-claro:#ead79b;
-  --crema:#f8f3e9;
-  --blanco:#fff;
-  --texto:#292529;
-  --gris:#777176;
-  --borde:#e5ddd1;
-  --sombra:0 12px 30px rgba(60,15,30,.10);
-  --sombra-fuerte:0 22px 50px rgba(60,15,30,.18);
-}
+/* =========================================================
+   PORTAL DE TRÁMITES Y SERVICIOS MUNICIPALES
+   MUNICIPIO DE TEPEAPULCO, HIDALGO
+========================================================= */
 
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+:root {
+  --vino: #64152b;
+  --vino-oscuro: #3f0d1b;
+  --vino-medio: #7b1d38;
 
-html{
-  scroll-behavior:smooth;
-}
+  --dorado: #d5b35a;
+  --dorado-claro: #f0d98c;
 
-body{
-  font-family:Arial,Helvetica,sans-serif;
-  color:var(--texto);
-  background:#fff;
-  line-height:1.6;
-  overflow-x:hidden;
-}
+  --crema: #fbf7ee;
+  --blanco: #ffffff;
 
-a{
-  text-decoration:none;
-  color:inherit;
-}
+  --gris: #66636a;
+  --gris-claro: #ece9e4;
 
-img{
-  max-width:100%;
-  display:block;
-}
-
-button,input{
-  font-family:inherit;
-}
-
-.container{
-  width:min(1180px,92%);
-  margin:auto;
+  --sombra:
+    0 12px 30px rgba(63, 13, 27, 0.12);
 }
 
 
-/* =====================================================
-   ENCABEZADO OCULTO
-===================================================== */
+/* =========================================================
+   CONFIGURACIÓN GENERAL
+========================================================= */
 
-.topbar{
-  display:none!important;
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family:
+    Arial,
+    Helvetica,
+    sans-serif;
+
+  color: var(--vino-oscuro);
+  background: var(--crema);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input {
+  font: inherit;
 }
 
 
-/* =====================================================
-   PORTADA
-===================================================== */
+/* =========================================================
+   HERO / PORTADA
+========================================================= */
 
-.hero{
-  position:relative;
-  min-height:590px;
-  overflow:hidden;
-  background:
-    linear-gradient(
-      135deg,
-      var(--vino-oscuro),
-      var(--vino)
-    );
-}
+.hero {
+  position: relative;
 
-.hero-image{
-  position:absolute;
-  inset:0;
+  min-height: 650px;
 
-  background-image:url("portada.jpg");
+  overflow: hidden;
 
-  background-size:cover;
-  background-position:center;
-
-  opacity:.52;
-}
-
-.hero-overlay{
-  position:absolute;
-  inset:0;
+  color: var(--blanco);
 
   background:
+    radial-gradient(
+      circle at 80% 20%,
+      rgba(213, 179, 90, 0.18),
+      transparent 25%
+    ),
     linear-gradient(
-      90deg,
-      rgba(50,3,18,.96),
-      rgba(101,13,43,.80),
-      rgba(101,13,43,.22)
+      120deg,
+      #3f0d1b 0%,
+      #64152b 58%,
+      #7d203d 100%
     );
 }
 
 
-/* MARCA DE AGUA DEL LOGO */
+/* Brillo decorativo */
 
-.hero-copy{
-  position:relative;
-  z-index:2;
+.hero::before {
+  content: "";
+
+  position: absolute;
+
+  inset: 0;
+
+  background:
+    radial-gradient(
+      circle at 20% 30%,
+      rgba(255,255,255,0.06),
+      transparent 22%
+    ),
+    radial-gradient(
+      circle at 85% 70%,
+      rgba(213,179,90,0.10),
+      transparent 25%
+    );
+
+  pointer-events: none;
 }
 
-.hero-copy::after{
-  content:"";
 
-  position:absolute;
+/* =========================================================
+   LOGO COMO MARCA DE AGUA
+========================================================= */
 
-  width:430px;
-  height:430px;
+.hero-watermark {
 
-  left:160px;
-  top:50%;
+  position: absolute;
 
-  transform:
-    translate(-50%,-50%);
+  right: 5%;
+  top: 4%;
+
+  width: 560px;
+  height: 560px;
 
   background-image:
     url("logo-tepeapulco.jpeg");
 
-  background-repeat:no-repeat;
-  background-position:center;
-  background-size:contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
 
-  opacity:.075;
+  opacity: 0.10;
 
-  pointer-events:none;
+  filter:
+    grayscale(1)
+    brightness(0)
+    invert(1);
 
-  z-index:-1;
+  pointer-events: none;
 }
 
 
-.hero-content{
-  position:relative;
-  z-index:3;
+/* =========================================================
+   CONTENIDO DEL HERO
+========================================================= */
 
-  min-height:590px;
+.hero-content {
 
-  display:grid;
+  position: relative;
 
-  grid-template-columns:
-    1.08fr
-    .72fr;
+  z-index: 2;
 
-  align-items:center;
-
-  gap:65px;
-
-  padding:75px 0;
-}
-
-
-.hero-copy{
-  color:white;
-}
-
-.eyebrow{
-  display:inline-block;
-
-  color:var(--dorado-claro);
-
-  font-size:11px;
-
-  font-weight:900;
-
-  letter-spacing:3px;
-
-  margin-bottom:15px;
-}
-
-.hero-copy h1{
-  position:relative;
-
-  font-size:
-    clamp(45px,6vw,78px);
-
-  line-height:.95;
-
-  font-weight:900;
-
-  letter-spacing:-2px;
-
-  margin-bottom:25px;
-
-  text-transform:uppercase;
-}
-
-.hero-copy p{
-  max-width:650px;
-
-  color:#f8eef2;
-
-  font-size:17px;
-}
-
-
-/* BOTONES */
-
-.hero-actions{
-  display:flex;
-  flex-wrap:wrap;
-  gap:12px;
-  margin-top:30px;
-}
-
-.btn{
-  display:inline-flex;
-
-  align-items:center;
-  justify-content:center;
-
-  padding:14px 25px;
-
-  border-radius:50px;
-
-  font-size:13px;
-
-  font-weight:900;
-
-  transition:.25s;
-}
-
-.btn-gold{
-  background:
-    linear-gradient(
-      135deg,
-      #d6b35b,
-      #b68b2e
+  width:
+    min(
+      1180px,
+      calc(100% - 60px)
     );
 
-  color:white;
+  min-height: 610px;
 
-  box-shadow:
-    0 10px 25px
-    rgba(0,0,0,.2);
-}
+  margin: 0 auto;
 
-.btn-gold:hover{
-  transform:translateY(-4px);
-}
-
-.btn-light{
-  color:white;
-
-  border:
-    1px solid
-    rgba(255,255,255,.7);
-}
-
-.btn-light:hover{
-  background:white;
-  color:var(--vino);
-}
-
-
-/* =====================================================
-   BUSCADOR PORTADA
-===================================================== */
-
-.hero-card{
-  position:relative;
-  z-index:5;
-
-  background:
-    rgba(255,255,255,.97);
-
-  padding:30px;
-
-  border-radius:25px;
-
-  border-top:
-    5px solid
-    var(--dorado);
-
-  box-shadow:
-    0 30px 70px
-    rgba(0,0,0,.25);
-}
-
-.hero-card-icon{
-  width:50px;
-  height:50px;
-
-  display:grid;
-  place-items:center;
-
-  border-radius:50%;
-
-  background:var(--crema);
-
-  color:var(--vino);
-
-  font-size:25px;
-
-  margin-bottom:12px;
-}
-
-.hero-card strong{
-  display:block;
-
-  color:var(--vino);
-
-  font-size:22px;
-
-  line-height:1.25;
-
-  margin-bottom:6px;
-}
-
-.hero-card p{
-  color:var(--gris);
-
-  font-size:13px;
-
-  margin-bottom:18px;
-}
-
-
-/* BUSCADOR */
-
-.search-box{
-  display:flex;
-
-  align-items:center;
-
-  overflow:hidden;
-
-  background:white;
-
-  border:
-    1px solid
-    var(--borde);
-
-  border-radius:12px;
-}
-
-.search-box input{
-  flex:1;
-
-  min-width:0;
-
-  border:0;
-
-  outline:0;
-
-  padding:15px;
-
-  font-size:13px;
-}
-
-.search-box button{
-  border:0;
-
-  background:var(--vino);
-
-  color:white;
-
-  padding:14px 20px;
-
-  font-weight:900;
-
-  cursor:pointer;
-}
-
-.search-box button:hover{
-  background:var(--vino-oscuro);
-}
-
-.gold-line{
-  position:absolute;
-
-  left:0;
-  right:0;
-  bottom:0;
-
-  height:7px;
-
-  background:var(--dorado);
-
-  z-index:10;
-}
-
-
-/* =====================================================
-   FRANJA
-===================================================== */
-
-.quick-strip{
-  background:var(--crema);
-
-  border-bottom:
-    1px solid
-    var(--borde);
-}
-
-.quick-grid{
-  display:grid;
+  display: grid;
 
   grid-template-columns:
-    repeat(3,1fr);
+    1.15fr
+    0.85fr;
 
-  padding:23px 0;
-}
+  align-items: center;
 
-.quick-item{
-  display:flex;
-
-  align-items:center;
-  justify-content:center;
-
-  gap:12px;
-
-  border-right:
-    1px solid
-    #ddd4c7;
-}
-
-.quick-item:last-child{
-  border-right:0;
-}
-
-.quick-icon{
-  width:43px;
-  height:43px;
-
-  display:grid;
-  place-items:center;
-
-  border-radius:50%;
-
-  background:var(--vino);
-
-  color:white;
-
-  font-size:11px;
-
-  font-weight:900;
-}
-
-.quick-item strong{
-  display:block;
-
-  color:var(--vino);
-
-  font-size:12px;
-}
-
-.quick-item small{
-  display:block;
-
-  color:var(--gris);
-
-  font-size:10px;
+  gap: 60px;
 }
 
 
-/* =====================================================
-   SERVICIOS
-===================================================== */
+/* =========================================================
+   TEXTO PRINCIPAL
+========================================================= */
 
-.services-section{
-  position:relative;
+.hero-copy {
 
-  overflow:hidden;
+  position: relative;
+
+  padding: 60px 0;
+}
+
+
+/* Texto pequeño superior */
+
+.eyebrow {
+
+  display: inline-block;
+
+  margin-bottom: 14px;
+
+  color: var(--dorado-claro);
+
+  font-size: 12px;
+
+  font-weight: 800;
+
+  letter-spacing: 2px;
+}
+
+
+/* Título */
+
+.hero h1 {
+
+  position: relative;
+
+  margin: 0;
+
+  max-width: 750px;
+
+  font-size:
+    clamp(
+      48px,
+      6vw,
+      82px
+    );
+
+  line-height: 0.94;
+
+  letter-spacing: -2px;
+
+  font-weight: 900;
+}
+
+
+/* Palabra SERVICIOS */
+
+.hero h1 span {
+
+  color: var(--dorado-claro);
+}
+
+
+/* Descripción */
+
+.hero-copy p {
+
+  max-width: 650px;
+
+  margin:
+    28px
+    0
+    30px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.90
+    );
+
+  font-size: 18px;
+
+  line-height: 1.65;
+}
+
+
+/* =========================================================
+   BOTONES DEL HERO
+========================================================= */
+
+.hero-actions {
+
+  display: flex;
+
+  gap: 14px;
+
+  flex-wrap: wrap;
+}
+
+
+.btn {
+
+  display: inline-flex;
+
+  align-items: center;
+
+  justify-content: center;
+
+  min-height: 52px;
 
   padding:
-    90px 0
-    105px;
+    0
+    25px;
 
-  background:
-    linear-gradient(
-      180deg,
-      #fff,
-      #faf7f0
-    );
-}
+  border-radius: 30px;
 
-
-/* MARCA DE AGUA */
-
-.services-section::after{
-  content:"";
-
-  position:absolute;
-
-  width:550px;
-  height:550px;
-
-  right:-260px;
-  bottom:-250px;
-
-  background:
-    url("logo-tepeapulco.jpeg")
-    center/contain
-    no-repeat;
-
-  opacity:.035;
-
-  pointer-events:none;
-}
-
-
-.section-heading{
-  position:relative;
-  z-index:2;
-
-  text-align:center;
-
-  max-width:750px;
-
-  margin:
-    0 auto
-    40px;
-}
-
-.section-kicker{
-  color:var(--dorado);
-
-  font-size:11px;
-
-  font-weight:900;
-
-  letter-spacing:3px;
-}
-
-.section-heading h2{
-  color:var(--vino);
-
-  font-size:
-    clamp(34px,4vw,48px);
-
-  line-height:1.1;
-
-  margin:
-    8px 0
-    12px;
-}
-
-.section-heading p{
-  color:var(--gris);
-
-  font-size:14px;
-}
-
-
-/* =====================================================
-   BUSCADOR GENERAL
-===================================================== */
-
-.filters{
-  position:relative;
-  z-index:3;
-
-  display:flex;
-
-  align-items:center;
-
-  gap:15px;
-
-  margin-bottom:28px;
-}
-
-.full-search{
-  flex:1;
-
-  border-radius:50px;
-
-  box-shadow:
-    0 8px 25px
-    rgba(50,15,28,.06);
-}
-
-.search-symbol{
-  color:var(--vino);
-
-  font-size:20px;
-
-  padding-left:20px;
-}
-
-.full-search button{
-  border:0;
-
-  background:transparent;
-
-  color:#888;
-
-  font-size:24px;
-
-  padding:0 15px;
-
-  cursor:pointer;
-
-  display:none;
-}
-
-.result-count{
-  color:var(--vino);
-
-  font-size:11px;
-
-  font-weight:900;
-
-  white-space:nowrap;
-}
-
-
-/* =====================================================
-   LAS 18 TARJETAS
-===================================================== */
-
-.cards-grid{
-  position:relative;
-  z-index:2;
-
-  display:grid;
-
-  grid-template-columns:
-    repeat(4,1fr);
-
-  gap:18px;
-}
-
-
-.service-card{
-  position:relative;
-
-  min-height:205px;
-
-  overflow:hidden;
-
-  display:block;
-
-  background:white;
-
-  border:
-    1px solid
-    var(--borde);
-
-  border-radius:17px;
-
-  box-shadow:
-    0 7px 20px
-    rgba(45,15,25,.07);
+  font-weight: 800;
 
   transition:
-    transform .3s,
-    box-shadow .3s,
-    border-color .3s;
+    0.25s ease;
 }
 
 
-/* IMAGEN */
+/* Botón dorado */
 
-.service-card::before{
-  content:"";
+.btn-gold {
 
-  position:absolute;
-
-  left:0;
-  right:0;
-  top:0;
-
-  height:120px;
-
-  z-index:1;
-
-  background-size:cover;
-
-  background-position:center;
-
-  background-repeat:no-repeat;
-
-  transition:
-    transform .5s;
-}
-
-
-/* OSCURECER IMAGEN */
-
-.service-card::after{
-  content:"";
-
-  position:absolute;
-
-  left:0;
-  right:0;
-  top:0;
-
-  height:120px;
-
-  z-index:2;
+  color:
+    var(--vino-oscuro);
 
   background:
-    linear-gradient(
-      180deg,
-      rgba(40,0,15,.05),
-      rgba(60,5,25,.48)
-    );
-}
-
-
-/* =====================================================
-   IMÁGENES DE LAS DIRECCIONES
-===================================================== */
-
-.service-card:nth-child(1)::before{
-  background-image:url("foto-01.jpg");
-}
-
-.service-card:nth-child(2)::before{
-  background-image:url("foto-02.jpg");
-}
-
-.service-card:nth-child(3)::before{
-  background-image:url("foto-03.jpg");
-}
-
-.service-card:nth-child(4)::before{
-  background-image:url("foto-04.jpg");
-}
-
-.service-card:nth-child(5)::before{
-  background-image:url("foto-05.jpg");
-}
-
-.service-card:nth-child(6)::before{
-  background-image:url("foto-06.jpg");
-}
-
-.service-card:nth-child(7)::before{
-  background-image:url("foto-07.jpg");
-}
-
-.service-card:nth-child(8)::before{
-  background-image:url("foto-08.jpg");
-}
-
-.service-card:nth-child(9)::before{
-  background-image:url("foto-09.jpg");
-}
-
-.service-card:nth-child(10)::before{
-  background-image:url("foto-10.jpg");
-}
-
-.service-card:nth-child(11)::before{
-  background-image:url("foto-11.jpg");
-}
-
-.service-card:nth-child(12)::before{
-  background-image:url("foto-12.jpg");
-}
-
-.service-card:nth-child(13)::before{
-  background-image:url("foto-13.jpg");
-}
-
-.service-card:nth-child(14)::before{
-  background-image:url("foto-14.jpg");
-}
-
-.service-card:nth-child(15)::before{
-  background-image:url("foto-15.jpg");
-}
-
-.service-card:nth-child(16)::before{
-  background-image:url("foto-16.jpg");
-}
-
-.service-card:nth-child(17)::before{
-  background-image:url("foto-17.jpg");
-}
-
-.service-card:nth-child(18)::before{
-  background-image:url("foto-18.jpg");
-}
-
-
-/* EFECTO */
-
-.service-card:hover{
-  transform:
-    translateY(-8px);
-
-  box-shadow:
-    var(--sombra-fuerte);
-
-  border-color:
-    #d3bd8c;
-}
-
-.service-card:hover::before{
-  transform:
-    scale(1.08);
-}
-
-
-/* NÚMERO */
-
-.card-number{
-  position:absolute;
-
-  left:12px;
-  top:10px;
-
-  z-index:5;
-
-  width:28px;
-  height:28px;
-
-  display:grid;
-  place-items:center;
-
-  border-radius:50%;
-
-  background:
-    rgba(255,255,255,.93);
-
-  color:var(--vino);
-
-  font-size:9px;
-
-  font-weight:900;
-}
-
-
-/* ICONO */
-
-.card-icon{
-  position:absolute;
-
-  left:18px;
-  top:92px;
-
-  z-index:5;
-
-  width:52px;
-  height:52px;
-
-  display:grid;
-  place-items:center;
-
-  border-radius:50%;
-
-  border:
-    4px solid
-    white;
-
-  background:var(--vino);
-
-  color:white;
-
-  font-size:10px;
-
-  font-weight:900;
-
-  box-shadow:
-    0 7px 15px
-    rgba(0,0,0,.18);
-
-  transition:.3s;
-}
-
-.service-card:hover .card-icon{
-  background:var(--dorado);
-
-  transform:
-    scale(1.06)
-    rotate(-5deg);
-}
-
-
-/* CONTENIDO */
-
-.service-card > div:not(.card-icon){
-  position:absolute;
-
-  left:0;
-  right:0;
-  bottom:0;
-
-  min-height:91px;
-
-  padding:
-    27px
-    42px
-    12px
-    16px;
-
-  background:white;
-
-  z-index:4;
-}
-
-.service-card h3{
-  color:var(--vino);
-
-  font-size:13px;
-
-  line-height:1.25;
-
-  margin-bottom:4px;
-}
-
-.service-card p{
-  color:var(--gris);
-
-  font-size:9px;
-
-  line-height:1.35;
-}
-
-
-/* FLECHA */
-
-.card-arrow{
-  position:absolute;
-
-  right:13px;
-  bottom:19px;
-
-  z-index:6;
-
-  width:29px;
-  height:29px;
-
-  display:grid;
-  place-items:center;
-
-  border-radius:50%;
-
-  background:var(--vino);
-
-  color:white;
-
-  font-size:17px;
-
-  font-weight:900;
-
-  transition:.25s;
-}
-
-.service-card:hover .card-arrow{
-  background:var(--dorado);
-
-  transform:
-    translateX(4px);
-}
-
-
-/* =====================================================
-   SIN RESULTADOS
-===================================================== */
-
-.no-results{
-  display:none;
-
-  position:relative;
-  z-index:3;
-
-  text-align:center;
-
-  padding:40px;
-
-  margin-top:25px;
-
-  border:
-    1px dashed
-    #d8cfc4;
-
-  border-radius:18px;
-
-  background:white;
-
-  color:var(--gris);
-}
-
-.no-results strong{
-  display:block;
-
-  color:var(--vino);
-
-  margin-bottom:5px;
-}
-
-
-/* =====================================================
-   BANNER INSTITUCIONAL
-===================================================== */
-
-.visual-banner{
-  padding:75px 0;
-
-  background:var(--crema);
-}
-
-.visual-banner-inner{
-  display:grid;
-
-  grid-template-columns:
-    1fr
-    380px;
-
-  align-items:center;
-
-  gap:50px;
-
-  background:white;
-
-  padding:45px;
-
-  border-radius:25px;
-
-  box-shadow:var(--sombra);
-}
-
-.visual-banner h2{
-  color:var(--vino);
-
-  font-size:
-    clamp(32px,4vw,48px);
-
-  line-height:1.1;
-
-  margin:
-    10px 0
-    14px;
-}
-
-.visual-banner p{
-  color:var(--gris);
-
-  font-size:14px;
-}
-
-.visual-placeholder{
-  height:240px;
-
-  border-radius:18px;
-
-  overflow:hidden;
-
-  display:grid;
-
-  place-items:center;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--vino),
-      var(--vino-medio)
-    );
-
-  color:white;
-
-  font-size:12px;
-
-  font-weight:900;
-}
-
-.visual-placeholder img{
-  width:100%;
-  height:100%;
-
-  object-fit:cover;
-}
-
-
-/* =====================================================
-   QR
-===================================================== */
-
-.qr-section{
-  padding:90px 0;
-
-  background:
-    linear-gradient(
-      135deg,
-      #fff,
-      #f7f1e5
-    );
-}
-
-.qr-card{
-  max-width:1000px;
-
-  display:grid;
-
-  grid-template-columns:
-    1fr
-    270px;
-
-  align-items:center;
-
-  gap:65px;
-}
-
-.qr-copy h2{
-  color:var(--vino);
-
-  font-size:
-    clamp(34px,4vw,50px);
-
-  line-height:1.05;
-
-  margin:
-    10px 0
-    16px;
-}
-
-.qr-copy p{
-  color:var(--gris);
-
-  font-size:14px;
-}
-
-.qr-note{
-  margin-top:20px;
-
-  padding:
-    14px 17px;
-
-  border-left:
-    4px solid
     var(--dorado);
-
-  background:#fff8e3;
-
-  color:#685d49;
-
-  font-size:11px;
 }
 
-.qr-box{
-  padding:20px;
 
-  background:white;
+.btn-gold:hover {
+
+  background:
+    var(--dorado-claro);
+
+  transform:
+    translateY(-2px);
+}
+
+
+/* Botón transparente */
+
+.btn-outline {
+
+  color:
+    var(--blanco);
 
   border:
     1px solid
-    var(--borde);
-
-  border-radius:22px;
-
-  box-shadow:var(--sombra);
-}
-
-.qr-box img{
-  width:100%;
+    rgba(
+      255,
+      255,
+      255,
+      0.75
+    );
 }
 
 
-/* =====================================================
-   CONTACTO
-===================================================== */
+.btn-outline:hover {
 
-.contact-section{
-  padding:75px 0;
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.10
+    );
 
-  background:white;
+  transform:
+    translateY(-2px);
 }
 
 
-/* =====================================================
-   FOOTER
-===================================================== */
+/* =========================================================
+   TARJETA DEL BUSCADOR
+========================================================= */
 
-footer{
-  background:var(--vino-oscuro);
+.search-card {
 
-  color:white;
+  position: relative;
+
+  padding: 34px;
+
+  color:
+    var(--vino-oscuro);
+
+  background:
+    rgba(
+      255,
+      255,
+      255,
+      0.96
+    );
+
+  border:
+    1px solid
+    rgba(
+      255,
+      255,
+      255,
+      0.7
+    );
+
+  border-radius: 28px;
+
+  box-shadow:
+    0 25px 55px
+    rgba(
+      0,
+      0,
+      0,
+      0.22
+    );
 }
 
-.footer-grid{
-  display:grid;
+
+/* Icono de búsqueda */
+
+.search-icon {
+
+  width: 48px;
+  height: 48px;
+
+  display: grid;
+
+  place-items: center;
+
+  margin-bottom: 20px;
+
+  border-radius: 50%;
+
+  color:
+    var(--vino);
+
+  background:
+    #f3eee5;
+
+  font-size: 31px;
+}
+
+
+/* Título del buscador */
+
+.search-card h2 {
+
+  margin: 0;
+
+  font-size: 27px;
+
+  line-height: 1.15;
+}
+
+
+/* Texto */
+
+.search-card p {
+
+  margin:
+    10px
+    0
+    20px;
+
+  color:
+    var(--gris);
+
+  font-size: 14px;
+}
+
+
+/* =========================================================
+   FORMULARIO DE BÚSQUEDA
+========================================================= */
+
+.search-form {
+
+  display: grid;
 
   grid-template-columns:
-    180px
     1fr
     auto;
 
-  align-items:center;
+  overflow: hidden;
 
-  gap:35px;
+  background:
+    var(--blanco);
 
-  padding:45px 0;
+  border:
+    1px solid
+    #d9d3cb;
+
+  border-radius: 13px;
 }
 
-.footer-brand img{
-  width:145px;
 
-  max-height:80px;
+.search-form input {
 
-  object-fit:contain;
+  width: 100%;
+
+  min-width: 0;
+
+  padding: 17px;
+
+  border: 0;
+
+  outline: 0;
+
+  color:
+    var(--vino-oscuro);
+
+  background:
+    transparent;
 }
 
-.footer-grid strong{
-  font-size:14px;
+
+.search-form button {
+
+  padding:
+    0
+    25px;
+
+  border: 0;
+
+  color:
+    var(--blanco);
+
+  background:
+    var(--vino);
+
+  font-weight: 800;
+
+  cursor: pointer;
 }
 
-.footer-grid p{
-  color:#c9bec2;
 
-  font-size:11px;
+.search-form button:hover {
 
-  margin-top:4px;
+  background:
+    var(--vino-medio);
 }
 
-.footer-links{
-  display:flex;
 
-  gap:18px;
+/* =========================================================
+   SEPARADOR DEL HERO
+========================================================= */
+
+.hero-wave {
+
+  position: absolute;
+
+  z-index: 3;
+
+  left: -5%;
+  right: -5%;
+
+  bottom: -80px;
+
+  height: 150px;
+
+  background:
+    var(--crema);
+
+  border-radius:
+    50%
+    50%
+    0
+    0 /
+    65%
+    65%
+    0
+    0;
+
+  border-top:
+    7px solid
+    var(--dorado);
 }
 
-.footer-links a{
-  color:#ddd;
 
-  font-size:11px;
+/* =========================================================
+   SECCIÓN DE DIRECCIONES
+========================================================= */
+
+.services-section {
+
+  width:
+    min(
+      1180px,
+      calc(100% - 60px)
+    );
+
+  margin:
+    0 auto;
+
+  padding:
+    85px
+    0
+    90px;
 }
 
-.footer-links a:hover{
-  color:var(--dorado);
+
+/* Encabezado */
+
+.section-heading {
+
+  display: flex;
+
+  justify-content:
+    space-between;
+
+  align-items:
+    end;
+
+  gap: 30px;
+
+  margin-bottom:
+    32px;
 }
 
-.footer-bottom{
-  text-align:center;
+
+/* Título pequeño */
+
+.section-kicker {
+
+  display: inline-block;
+
+  margin-bottom:
+    10px;
+
+  color:
+    var(--vino);
+
+  font-size:
+    12px;
+
+  font-weight:
+    800;
+
+  letter-spacing:
+    2px;
+}
+
+
+/* Título principal */
+
+.section-heading h2 {
+
+  margin: 0;
+
+  color:
+    var(--vino);
+
+  font-size:
+    38px;
+}
+
+
+/* Descripción */
+
+.section-heading p {
+
+  margin:
+    8px
+    0
+    0;
+
+  color:
+    var(--gris);
+}
+
+
+/* =========================================================
+   SEGUNDO BUSCADOR
+========================================================= */
+
+.full-search {
+
+  width:
+    min(
+      440px,
+      100%
+    );
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 10px;
+
+  padding:
+    5px
+    12px;
+
+  background:
+    var(--blanco);
+
+  border:
+    1px solid
+    #ddd7ce;
+
+  border-radius:
+    14px;
+
+  box-shadow:
+    0 7px 18px
+    rgba(
+      63,
+      13,
+      27,
+      0.06
+    );
+}
+
+
+.search-symbol {
+
+  color:
+    var(--vino);
+
+  font-size:
+    25px;
+}
+
+
+.full-search input {
+
+  flex: 1;
+
+  min-width: 0;
+
+  padding:
+    12px
+    4px;
+
+  border: 0;
+
+  outline: 0;
+
+  background:
+    transparent;
+}
+
+
+.result-count {
+
+  color:
+    #777;
+
+  white-space:
+    nowrap;
+
+  font-size:
+    12px;
+}
+
+
+/* =========================================================
+   CUADRÍCULA DE DIRECCIONES
+========================================================= */
+
+.cards-grid {
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(
+      3,
+      1fr
+    );
+
+  gap:
+    18px;
+}
+
+
+/* =========================================================
+   TARJETAS
+========================================================= */
+
+.service-card {
+
+  position: relative;
+
+  min-height:
+    190px;
+
+  padding:
+    28px
+    24px
+    23px;
+
+  overflow: hidden;
+
+  display: flex;
+
+  flex-direction: column;
+
+  background:
+    var(--blanco);
+
+  border:
+    1px solid
+    #ebe5dd;
+
+  border-radius:
+    22px;
+
+  box-shadow:
+    var(--sombra);
+
+  transition:
+    0.25s ease;
+}
+
+
+.service-card:hover {
+
+  transform:
+    translateY(-6px);
+
+  border-color:
+    rgba(
+      100,
+      21,
+      43,
+      0.25
+    );
+
+  box-shadow:
+    0 18px 40px
+    rgba(
+      63,
+      13,
+      27,
+      0.19
+    );
+}
+
+
+/* =========================================================
+   NÚMERO DE TARJETA
+========================================================= */
+
+.card-number {
+
+  position: absolute;
+
+  top: 16px;
+  right: 17px;
+
+  color:
+    var(--dorado);
+
+  font-size:
+    12px;
+
+  font-weight:
+    900;
+
+  letter-spacing:
+    1px;
+}
+
+
+/* =========================================================
+   ICONOS
+========================================================= */
+
+.card-icon {
+
+  width:
+    62px;
+
+  height:
+    62px;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  margin-bottom:
+    19px;
+
+  border-radius:
+    50%;
+
+  color:
+    var(--blanco);
+
+  background:
+    var(--vino);
+
+  font-size:
+    28px;
+
+  font-weight:
+    700;
+
+  box-shadow:
+    0 7px 15px
+    rgba(
+      100,
+      21,
+      43,
+      0.22
+    );
+}
+
+
+/* =========================================================
+   CONTENIDO DE LAS TARJETAS
+========================================================= */
+
+.card-content {
+
+  padding-right:
+    25px;
+}
+
+
+.card-content h3 {
+
+  margin:
+    0
+    0
+    8px;
+
+  color:
+    var(--vino);
+
+  font-size:
+    19px;
+
+  line-height:
+    1.15;
+}
+
+
+.card-content p {
+
+  margin: 0;
+
+  color:
+    var(--gris);
+
+  font-size:
+    13px;
+
+  line-height:
+    1.45;
+}
+
+
+/* =========================================================
+   FLECHA
+========================================================= */
+
+.card-arrow {
+
+  position: absolute;
+
+  right: 19px;
+  bottom: 20px;
+
+  width:
+    34px;
+
+  height:
+    34px;
+
+  display:
+    grid;
+
+  place-items:
+    center;
+
+  border-radius:
+    50%;
+
+  color:
+    var(--blanco);
+
+  background:
+    var(--vino);
+
+  font-weight:
+    900;
+}
+
+
+/* =========================================================
+   SIN RESULTADOS
+========================================================= */
+
+.no-results {
+
+  display: none;
+
+  margin-top:
+    20px;
+
+  padding:
+    35px;
+
+  text-align:
+    center;
+
+  color:
+    var(--gris);
+
+  background:
+    var(--blanco);
+
+  border-radius:
+    18px;
+}
+
+
+/* =========================================================
+   SECCIÓN QR
+========================================================= */
+
+.qr-section {
+
+  padding:
+    0
+    0
+    90px;
+}
+
+
+.qr-card {
+
+  width:
+    min(
+      1180px,
+      calc(100% - 60px)
+    );
+
+  margin:
+    0 auto;
+
+  padding:
+    45px;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  justify-content:
+    space-between;
+
+  gap:
+    40px;
+
+  color:
+    var(--blanco);
+
+  background:
+    var(--vino);
+
+  border-radius:
+    28px;
+
+  box-shadow:
+    var(--sombra);
+}
+
+
+.qr-copy h2 {
+
+  margin:
+    0
+    0
+    10px;
+
+  font-size:
+    32px;
+}
+
+
+.qr-copy p {
+
+  max-width:
+    620px;
+
+  margin:
+    0;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.84
+    );
+
+  line-height:
+    1.6;
+}
+
+
+.qr-box {
+
+  min-width:
+    180px;
+
+  padding:
+    15px;
+
+  text-align:
+    center;
+
+  color:
+    var(--vino);
+
+  background:
+    var(--blanco);
+
+  border-radius:
+    18px;
+
+  font-size:
+    12px;
+
+  font-weight:
+    800;
+}
+
+
+.qr-box img {
+
+  display:
+    block;
+
+  width:
+    145px;
+
+  height:
+    145px;
+
+  margin:
+    0
+    auto
+    8px;
+
+  object-fit:
+    contain;
+}
+
+
+/* =========================================================
+   PIE DE PÁGINA
+========================================================= */
+
+.footer {
+
+  padding:
+    38px
+    0
+    20px;
+
+  color:
+    var(--blanco);
+
+  background:
+    var(--vino-oscuro);
+}
+
+
+.footer-inner {
+
+  width:
+    min(
+      1180px,
+      calc(100% - 60px)
+    );
+
+  margin:
+    0 auto;
+
+  display:
+    flex;
+
+  align-items:
+    center;
+
+  gap:
+    18px;
+}
+
+
+.footer-logo {
+
+  width:
+    72px;
+
+  height:
+    72px;
+
+  padding:
+    4px;
+
+  object-fit:
+    contain;
+
+  background:
+    var(--blanco);
+
+  border-radius:
+    12px;
+}
+
+
+.footer-inner strong {
+
+  font-size:
+    17px;
+}
+
+
+.footer-inner p {
+
+  margin:
+    6px
+    0
+    0;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.7
+    );
+
+  font-size:
+    13px;
+}
+
+
+.footer-bottom {
+
+  width:
+    min(
+      1180px,
+      calc(100% - 60px)
+    );
+
+  margin:
+    28px
+    auto
+    0;
+
+  padding-top:
+    18px;
+
+  color:
+    rgba(
+      255,
+      255,
+      255,
+      0.55
+    );
 
   border-top:
     1px solid
-    rgba(255,255,255,.1);
+    rgba(
+      255,
+      255,
+      255,
+      0.14
+    );
 
-  padding:15px;
-
-  color:#aa9ca1;
-
-  font-size:10px;
+  font-size:
+    12px;
 }
 
 
-/* =====================================================
-   BOTÓN ARRIBA
-===================================================== */
+/* =========================================================
+   BOTÓN VOLVER ARRIBA
+========================================================= */
 
-.back-top{
-  position:fixed;
+.back-top {
 
-  right:20px;
-  bottom:20px;
+  position:
+    fixed;
 
-  width:45px;
-  height:45px;
+  right:
+    22px;
 
-  border:0;
+  bottom:
+    22px;
 
-  border-radius:50%;
+  width:
+    45px;
 
-  background:var(--vino);
+  height:
+    45px;
 
-  color:white;
+  border:
+    0;
 
-  font-size:20px;
+  border-radius:
+    50%;
 
-  cursor:pointer;
+  color:
+    var(--vino-oscuro);
 
-  opacity:0;
+  background:
+    var(--dorado);
 
-  pointer-events:none;
+  font-size:
+    21px;
 
-  transition:.25s;
+  font-weight:
+    900;
 
-  z-index:100;
+  cursor:
+    pointer;
+
+  opacity:
+    0;
+
+  visibility:
+    hidden;
+
+  transition:
+    0.25s;
+
+  box-shadow:
+    var(--sombra);
 }
 
-.back-top.show{
-  opacity:1;
 
-  pointer-events:auto;
+.back-top.visible {
+
+  opacity:
+    1;
+
+  visibility:
+    visible;
 }
 
 
-/* =====================================================
+/* =========================================================
    TABLET
-===================================================== */
+========================================================= */
 
-@media(max-width:1050px){
+@media (max-width: 900px) {
 
-  .cards-grid{
+  .hero {
+
+    min-height:
+      auto;
+  }
+
+
+  .hero-content {
+
     grid-template-columns:
-      repeat(3,1fr);
-  }
+      1fr;
 
-  .hero-content{
-    grid-template-columns:
-      1fr
-      .8fr;
-  }
-}
-
-
-/* =====================================================
-   TABLET PEQUEÑA
-===================================================== */
-
-@media(max-width:850px){
-
-  .hero-content{
-    grid-template-columns:1fr;
-
-    gap:35px;
-  }
-
-  .hero-card{
-    max-width:650px;
-  }
-
-  .cards-grid{
-    grid-template-columns:
-      repeat(2,1fr);
-  }
-
-  .visual-banner-inner{
-    grid-template-columns:1fr;
-  }
-
-  .qr-card{
-    grid-template-columns:
-      1fr
-      230px;
-  }
-}
-
-
-/* =====================================================
-   CELULAR
-===================================================== */
-
-@media(max-width:600px){
-
-  .hero{
-    min-height:auto;
-  }
-
-  .hero-content{
-    min-height:auto;
+    gap:
+      25px;
 
     padding:
-      65px 0
-      75px;
+      65px
+      0
+      100px;
   }
 
-  .hero-copy h1{
-    font-size:43px;
+
+  .hero-watermark {
+
+    right:
+      -100px;
+
+    top:
+      5%;
+
+    width:
+      450px;
+
+    height:
+      450px;
   }
 
-  .hero-copy p{
-    font-size:15px;
+
+  .search-card {
+
+    max-width:
+      650px;
   }
 
-  .hero-actions{
-    flex-direction:column;
+
+  .cards-grid {
+
+    grid-template-columns:
+      repeat(
+        2,
+        1fr
+      );
   }
 
-  .btn{
-    width:100%;
+
+  .section-heading {
+
+    align-items:
+      stretch;
+
+    flex-direction:
+      column;
   }
 
-  .quick-grid{
-    grid-template-columns:1fr;
-  }
 
-  .quick-item{
-    border-right:0;
+  .full-search {
 
-    border-bottom:
-      1px solid
-      #ddd4c7;
-
-    padding:12px;
-  }
-
-  .quick-item:last-child{
-    border-bottom:0;
-  }
-
-  .cards-grid{
-    grid-template-columns:1fr;
-  }
-
-  .filters{
-    display:block;
-  }
-
-  .result-count{
-    text-align:center;
-
-    margin-top:10px;
-  }
-
-  .visual-banner-inner{
-    padding:28px;
-  }
-
-  .qr-card{
-    grid-template-columns:1fr;
-
-    text-align:center;
-  }
-
-  .qr-box{
-    width:230px;
-
-    margin:auto;
-  }
-
-  .qr-note{
-    text-align:left;
-  }
-
-  .footer-grid{
-    grid-template-columns:1fr;
-
-    text-align:center;
-  }
-
-  .footer-brand img{
-    margin:auto;
-  }
-
-  .footer-links{
-    justify-content:center;
+    width:
+      100%;
   }
 }
 
 
-/* =====================================================
-   CELULAR PEQUEÑO
-===================================================== */
+/* =========================================================
+   CELULAR
+========================================================= */
 
-@media(max-width:400px){
+@media (max-width: 600px) {
 
-  .hero-copy h1{
-    font-size:37px;
+  .hero-content,
+  .services-section,
+  .qr-card,
+  .footer-inner,
+  .footer-bottom {
+
+    width:
+      min(
+        100% - 30px,
+        1180px
+      );
   }
 
-  .hero-card{
-    padding:22px;
+
+  .hero-content {
+
+    padding-top:
+      45px;
   }
 
-  .service-card{
-    min-height:215px;
+
+  .hero h1 {
+
+    font-size:
+      47px;
+
+    letter-spacing:
+      -1px;
   }
+
+
+  .hero-copy p {
+
+    font-size:
+      16px;
+  }
+
+
+  .search-card {
+
+    padding:
+      24px;
+
+    border-radius:
+      20px;
+  }
+
+
+  .search-card h2 {
+
+    font-size:
+      23px;
+  }
+
+
+  .search-form {
+
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .search-form button {
+
+    min-height:
+      48px;
+  }
+
+
+  .services-section {
+
+    padding-top:
+      55px;
+  }
+
+
+  .section-heading h2 {
+
+    font-size:
+      30px;
+  }
+
+
+  .cards-grid {
+
+    grid-template-columns:
+      1fr;
+  }
+
+
+  .service-card {
+
+    min-height:
+      175px;
+  }
+
+
+  .qr-card {
+
+    padding:
+      28px;
+
+    flex-direction:
+      column;
+
+    text-align:
+      center;
+  }
+
+
+  .footer-inner {
+
+    align-items:
+      flex-start;
+  }
+
 }
