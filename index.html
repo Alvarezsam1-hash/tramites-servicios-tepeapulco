@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Trámites y servicios municipales del Municipio de Tepeapulco, Hidalgo.">
+  <title>Trámites y Servicios | Tepeapulco</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+  <header class="hero">
+    <div class="container">
+      <div class="brand">
+        <div class="logo-box">
+          <img src="./logo-tepeapulco.jpeg" alt="Logo oficial del Municipio de Tepeapulco"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="logo-fallback">TEPEAPULCO</div>
+        </div>
+
+        <div>
+          <p class="eyebrow">MUNICIPIO DE TEPEAPULCO, HIDALGO</p>
+          <h1>Trámites y Servicios Municipales</h1>
+          <p class="subtitle">Consulta información oficial de las diferentes áreas del Ayuntamiento.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="search-section">
+      <div class="container">
+        <label for="buscador">¿Qué trámite o servicio estás buscando?</label>
+
+        <div class="search-wrap">
+          <input
+            id="buscador"
+            type="search"
+            placeholder="Ej. matrimonio, panteón, empleo, catastro..."
+            autocomplete="off">
+          <button id="limpiar" type="button">Limpiar</button>
+        </div>
+
+        <p id="resultado" class="result-text"></p>
+      </div>
+    </section>
+
+    <section class="departments">
+      <div class="container">
+
+        <div class="section-heading">
+          <p class="eyebrow">INFORMACIÓN MUNICIPAL</p>
+          <h2>Selecciona un área</h2>
+          <p>Consulta los trámites, servicios, requisitos, tiempos de respuesta y medios de contacto.</p>
+        </div>
+
+        <div id="tarjetas" class="cards">
+
+          <article class="card" data-search="registro civil nacimiento defuncion matrimonio actas">
+            <span class="number">01</span>
+            <h3>Registro Civil</h3>
+            <p>Nacimientos, defunciones, matrimonios y servicios del Registro Civil.</p>
+            <a href="registro-civil.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="panteones inhumacion exhumacion refrendo fosa misa">
+            <span class="number">02</span>
+            <h3>Dirección de Panteones</h3>
+            <p>Permisos, refrendos y servicios relacionados con panteones municipales.</p>
+            <a href="panteones.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="rastro sacrificio matanza corraleta bovinos porcinos caprinos ovinos">
+            <span class="number">03</span>
+            <h3>Rastro Municipal</h3>
+            <p>Servicios de corraleta, sacrificio e inspección sanitaria.</p>
+            <a href="rastro.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="desarrollo economico bolsa trabajo empleo vacantes empresas">
+            <span class="number">04</span>
+            <h3>Desarrollo Económico</h3>
+            <p>Bolsa de Trabajo, vacantes, vinculación laboral y atención a empresas.</p>
+            <a href="desarrollo-economico.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="desarrollo agropecuario agricultura ganaderia productores ganado apoyos">
+            <span class="number">05</span>
+            <h3>Desarrollo Agropecuario</h3>
+            <p>Servicios, apoyos, constancias y asesorías para productores.</p>
+            <a href="desarrollo-agropecuario.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="desarrollo urbano ordenamiento territorial construccion obras licencias permisos">
+            <span class="number">06</span>
+            <h3>Desarrollo Urbano y Ordenamiento Territorial</h3>
+            <p>Licencias, permisos, constancias y servicios relacionados con obras y predios.</p>
+            <a href="desarrollo-urbano.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="catastro predial inmueble terreno avaluo numero oficial traslado dominio">
+            <span class="number">07</span>
+            <h3>Catastro Municipal</h3>
+            <p>Avalúos, número oficial, traslados de dominio y servicios catastrales.</p>
+            <a href="catastro.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="ecologia medio ambiente residuos arboles poda tala">
+            <span class="number">08</span>
+            <h3>Ecología y Medio Ambiente</h3>
+            <p>Permisos, opiniones técnicas y servicios relacionados con el medio ambiente.</p>
+            <a href="ecologia-y-medio-ambiente.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="servicios municipales basura poda alumbrado jardines">
+            <span class="number">09</span>
+            <h3>Servicios Municipales</h3>
+            <p>Recolección de basura, áreas verdes, poda y alumbrado público.</p>
+            <a href="servicios-municipales.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="dif asistencia familiar social psicologia adultos mayores rehabilitacion">
+            <span class="number">10</span>
+            <h3>DIF Municipal</h3>
+            <p>Servicios de asistencia social, salud, rehabilitación y atención familiar.</p>
+            <a href="dif.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="turismo recorridos artesanos prestadores servicios turisticos">
+            <span class="number">11</span>
+            <h3>Turismo</h3>
+            <p>Información turística, recorridos, artesanos y servicios turísticos.</p>
+            <a href="turismo.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="sipinna niñas niños adolescentes psicologia talleres escuelas derechos">
+            <span class="number">12</span>
+            <h3>SIPINNA</h3>
+            <p>Servicios para la protección de los derechos de niñas, niños y adolescentes.</p>
+            <a href="sipinna.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="servicio medico salud sanidad consulta vacunas animales alimentos">
+            <span class="number">13</span>
+            <h3>Servicio Médico y Sanidad</h3>
+            <p>Atención médica, reportes sanitarios, vacunación y servicios de salud.</p>
+            <a href="servicio-medico-salud.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="secretaria general constancia residencia identidad ingresos dependencia economica">
+            <span class="number">14</span>
+            <h3>Secretaría General Municipal</h3>
+            <p>Constancias de residencia, identidad, ingresos, dependencia económica y otros servicios.</p>
+            <a href="secretaria-general.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="organo interno control quejas denuncias servidores publicos contraloria">
+            <span class="number">15</span>
+            <h3>Órgano Interno de Control</h3>
+            <p>Atención a quejas y denuncias ciudadanas relacionadas con servidores públicos.</p>
+            <a href="organo-interno-control.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="asuntos internos seguridad ciudadana quejas denuncias policia">
+            <span class="number">16</span>
+            <h3>Unidad de Asuntos Internos</h3>
+            <p>Recepción y atención de quejas y denuncias ciudadanas.</p>
+            <a href="asuntos-internos.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="transparencia acceso informacion datos personales solicitud informacion">
+            <span class="number">17</span>
+            <h3>Unidad de Transparencia y Acceso a la Información</h3>
+            <p>Solicitudes de acceso a la información y protección de datos personales.</p>
+            <a href="transparencia.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="tramites servicios generales conciliador agua potable medio ambiente reglamentos mujer finanzas proteccion civil">
+            <span class="number">18</span>
+            <h3>Trámites y Servicios Generales</h3>
+            <p>Consulta general de trámites y servicios de las diferentes áreas municipales.</p>
+            <a href="tramites-servicios-generales.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+        </div>
+
+        <div id="sin-resultados" class="no-results" hidden>
+          <h3>No encontramos coincidencias</h3>
+          <p>Prueba con otra palabra, por ejemplo: <strong>matrimonio</strong>, <strong>panteón</strong>, <strong>empleo</strong> o <strong>catastro</strong>.</p>
+        </div>
+
+      </div>
+    </section>
+
+    <section class="qr-section">
+      <div class="container qr-content">
+        <div>
+          <p class="eyebrow">PARA LA EXPO FERIA</p>
+          <h2>Un solo QR para toda la información</h2>
+          <p>Escanea el código para consultar las 18 áreas y sus infografías oficiales.</p>
+        </div>
+        <div class="qr-placeholder">
+          QR
+          <br>
+          <small>Aquí colocaremos<br>el código final</small>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <strong>Municipio de Tepeapulco, Hidalgo</strong>
+      <span>Trámites y Servicios Municipales</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
