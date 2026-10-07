@@ -1,1755 +1,1461 @@
-/* =========================================================
-   PORTAL DE TRÁMITES Y SERVICIOS - TEPEAPULCO
-   DISEÑO INSTITUCIONAL
-   VINO + DORADO + CREMA
-========================================================= */
+:root{
+  --vino:#650d2b;
+  --vino-oscuro:#3d0719;
+  --vino-medio:#861b3d;
+  --dorado:#c9a34a;
+  --dorado-claro:#ead79b;
+  --crema:#f8f3e9;
+  --blanco:#fff;
+  --texto:#292529;
+  --gris:#777176;
+  --borde:#e5ddd1;
+  --sombra:0 12px 30px rgba(60,15,30,.10);
+  --sombra-fuerte:0 22px 50px rgba(60,15,30,.18);
+}
 
-:root {
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
 
-    --vino: #650d2b;
-    --vino-oscuro: #3d0719;
-    --vino-medio: #861b3d;
+html{
+  scroll-behavior:smooth;
+}
 
-    --dorado: #c9a34a;
-    --dorado-claro: #e8d49a;
+body{
+  font-family:Arial,Helvetica,sans-serif;
+  color:var(--texto);
+  background:#fff;
+  line-height:1.6;
+  overflow-x:hidden;
+}
 
-    --crema: #f8f3e9;
-    --blanco: #ffffff;
+a{
+  text-decoration:none;
+  color:inherit;
+}
 
-    --texto: #2c2528;
-    --gris: #777176;
+img{
+  max-width:100%;
+  display:block;
+}
 
-    --borde: #e8dfd2;
+button,input{
+  font-family:inherit;
+}
 
-    --sombra:
-        0 15px 35px rgba(60, 15, 30, 0.12);
-
-    --sombra-fuerte:
-        0 25px 55px rgba(60, 15, 30, 0.18);
-
-    --radio: 18px;
+.container{
+  width:min(1180px,92%);
+  margin:auto;
 }
 
 
-/* =========================================================
-   CONFIGURACIÓN GENERAL
-========================================================= */
+/* =====================================================
+   ENCABEZADO OCULTO
+===================================================== */
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-
-    font-family:
-        Arial,
-        Helvetica,
-        sans-serif;
-
-    color: var(--texto);
-
-    background:
-        #ffffff;
-
-    line-height: 1.6;
-
-    position: relative;
-
-    overflow-x: hidden;
+.topbar{
+  display:none!important;
 }
 
 
-body::before {
-
-    content: "";
-
-    position: fixed;
-
-    z-index: -1;
-
-    width: 650px;
-    height: 650px;
-
-    right: -170px;
-    top: 30%;
-
-    background-image:
-        url("logo-tepeapulco.jpeg");
-
-    background-size:
-        contain;
-
-    background-repeat:
-        no-repeat;
-
-    background-position:
-        center;
-
-    opacity:
-        0.035;
-
-    pointer-events:
-        none;
-}
-
-
-a {
-    text-decoration: none;
-    color: inherit;
-}
-
-
-img {
-    max-width: 100%;
-    display: block;
-}
-
-
-button,
-input {
-    font-family: inherit;
-}
-
-
-.contenedor {
-
-    width:
-        min(1180px, 92%);
-
-    margin:
-        auto;
-}
-
-
-/* =========================================================
-   ENCABEZADO
-   LO OCULTAMOS PARA DEJAR LA PÁGINA MÁS LIMPIA
-========================================================= */
-
-.encabezado {
-
-    display:
-        none !important;
-}
-
-
-/* =========================================================
+/* =====================================================
    PORTADA
-========================================================= */
+===================================================== */
 
-.portada {
+.hero{
+  position:relative;
+  min-height:590px;
+  overflow:hidden;
+  background:
+    linear-gradient(
+      135deg,
+      var(--vino-oscuro),
+      var(--vino)
+    );
+}
 
-    position:
-        relative;
+.hero-image{
+  position:absolute;
+  inset:0;
 
-    min-height:
-        610px;
+  background-image:url("portada.jpg");
 
-    overflow:
-        hidden;
+  background-size:cover;
+  background-position:center;
 
-    background:
+  opacity:.52;
+}
 
-        linear-gradient(
-            120deg,
-            var(--vino-oscuro),
-            var(--vino)
-        );
+.hero-overlay{
+  position:absolute;
+  inset:0;
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(50,3,18,.96),
+      rgba(101,13,43,.80),
+      rgba(101,13,43,.22)
+    );
 }
 
 
-/* FOTO PRINCIPAL */
+/* MARCA DE AGUA DEL LOGO */
 
-.portada-fondo {
+.hero-copy{
+  position:relative;
+  z-index:2;
+}
 
-    position:
-        absolute;
+.hero-copy::after{
+  content:"";
 
-    inset:
-        0;
+  position:absolute;
 
-    background-image:
+  width:430px;
+  height:430px;
 
-        url("portada.jpg");
+  left:160px;
+  top:50%;
 
-    background-size:
-        cover;
+  transform:
+    translate(-50%,-50%);
 
-    background-position:
-        center;
+  background-image:
+    url("logo-tepeapulco.jpeg");
 
-    opacity:
-        0.58;
+  background-repeat:no-repeat;
+  background-position:center;
+  background-size:contain;
+
+  opacity:.075;
+
+  pointer-events:none;
+
+  z-index:-1;
 }
 
 
-/* CAPA SOBRE LA FOTOGRAFÍA */
+.hero-content{
+  position:relative;
+  z-index:3;
 
-.portada-fondo::after {
+  min-height:590px;
 
-    content:
-        "";
+  display:grid;
 
-    position:
-        absolute;
+  grid-template-columns:
+    1.08fr
+    .72fr;
 
-    inset:
-        0;
+  align-items:center;
 
-    background:
+  gap:65px;
 
-        linear-gradient(
-            90deg,
-            rgba(55, 4, 20, 0.97) 0%,
-            rgba(101, 13, 43, 0.83) 42%,
-            rgba(101, 13, 43, 0.25) 100%
-        );
+  padding:75px 0;
 }
 
 
-/* CONTENIDO */
-
-.portada-contenido {
-
-    position:
-        relative;
-
-    z-index:
-        2;
-
-    min-height:
-        610px;
-
-    display:
-        grid;
-
-    grid-template-columns:
-        1.05fr
-        0.75fr;
-
-    align-items:
-        center;
-
-    gap:
-        60px;
-
-    padding:
-        75px 0;
+.hero-copy{
+  color:white;
 }
 
+.eyebrow{
+  display:inline-block;
 
-/* TEXTO */
+  color:var(--dorado-claro);
 
-.portada-texto {
+  font-size:11px;
 
-    color:
-        white;
+  font-weight:900;
+
+  letter-spacing:3px;
+
+  margin-bottom:15px;
 }
 
+.hero-copy h1{
+  position:relative;
 
-.etiqueta {
+  font-size:
+    clamp(45px,6vw,78px);
 
-    display:
-        inline-block;
+  line-height:.95;
 
-    color:
-        var(--dorado-claro);
+  font-weight:900;
 
-    font-size:
-        12px;
+  letter-spacing:-2px;
 
-    font-weight:
-        900;
+  margin-bottom:25px;
 
-    letter-spacing:
-        3px;
-
-    margin-bottom:
-        15px;
+  text-transform:uppercase;
 }
 
+.hero-copy p{
+  max-width:650px;
 
-.portada-texto h1 {
+  color:#f8eef2;
 
-    font-size:
-        clamp(46px, 6vw, 78px);
-
-    line-height:
-        0.95;
-
-    font-weight:
-        900;
-
-    letter-spacing:
-        -2px;
-
-    margin-bottom:
-        25px;
-
-    text-shadow:
-        0 5px 20px rgba(0,0,0,0.15);
-}
-
-
-.portada-texto p {
-
-    max-width:
-        650px;
-
-    color:
-        #f9f0f3;
-
-    font-size:
-        18px;
-
-    line-height:
-        1.6;
+  font-size:17px;
 }
 
 
 /* BOTONES */
 
-.botones-portada {
+.hero-actions{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px;
+  margin-top:30px;
+}
 
-    display:
-        flex;
+.btn{
+  display:inline-flex;
 
-    flex-wrap:
-        wrap;
+  align-items:center;
+  justify-content:center;
 
-    gap:
-        13px;
+  padding:14px 25px;
 
-    margin-top:
-        32px;
+  border-radius:50px;
+
+  font-size:13px;
+
+  font-weight:900;
+
+  transition:.25s;
+}
+
+.btn-gold{
+  background:
+    linear-gradient(
+      135deg,
+      #d6b35b,
+      #b68b2e
+    );
+
+  color:white;
+
+  box-shadow:
+    0 10px 25px
+    rgba(0,0,0,.2);
+}
+
+.btn-gold:hover{
+  transform:translateY(-4px);
+}
+
+.btn-light{
+  color:white;
+
+  border:
+    1px solid
+    rgba(255,255,255,.7);
+}
+
+.btn-light:hover{
+  background:white;
+  color:var(--vino);
 }
 
 
-.boton {
+/* =====================================================
+   BUSCADOR PORTADA
+===================================================== */
 
-    display:
-        inline-flex;
+.hero-card{
+  position:relative;
+  z-index:5;
 
-    align-items:
-        center;
+  background:
+    rgba(255,255,255,.97);
 
-    justify-content:
-        center;
+  padding:30px;
 
-    padding:
-        14px 26px;
+  border-radius:25px;
 
-    border-radius:
-        50px;
+  border-top:
+    5px solid
+    var(--dorado);
 
-    font-size:
-        13px;
+  box-shadow:
+    0 30px 70px
+    rgba(0,0,0,.25);
+}
 
-    font-weight:
-        900;
+.hero-card-icon{
+  width:50px;
+  height:50px;
 
-    transition:
-        all .25s ease;
+  display:grid;
+  place-items:center;
+
+  border-radius:50%;
+
+  background:var(--crema);
+
+  color:var(--vino);
+
+  font-size:25px;
+
+  margin-bottom:12px;
+}
+
+.hero-card strong{
+  display:block;
+
+  color:var(--vino);
+
+  font-size:22px;
+
+  line-height:1.25;
+
+  margin-bottom:6px;
+}
+
+.hero-card p{
+  color:var(--gris);
+
+  font-size:13px;
+
+  margin-bottom:18px;
 }
 
 
-.boton-dorado {
+/* BUSCADOR */
 
-    color:
-        white;
+.search-box{
+  display:flex;
 
-    background:
-        linear-gradient(
-            135deg,
-            #d6b35b,
-            #b78d2f
-        );
+  align-items:center;
 
-    box-shadow:
-        0 10px 25px
-        rgba(0,0,0,.20);
+  overflow:hidden;
+
+  background:white;
+
+  border:
+    1px solid
+    var(--borde);
+
+  border-radius:12px;
+}
+
+.search-box input{
+  flex:1;
+
+  min-width:0;
+
+  border:0;
+
+  outline:0;
+
+  padding:15px;
+
+  font-size:13px;
+}
+
+.search-box button{
+  border:0;
+
+  background:var(--vino);
+
+  color:white;
+
+  padding:14px 20px;
+
+  font-weight:900;
+
+  cursor:pointer;
+}
+
+.search-box button:hover{
+  background:var(--vino-oscuro);
+}
+
+.gold-line{
+  position:absolute;
+
+  left:0;
+  right:0;
+  bottom:0;
+
+  height:7px;
+
+  background:var(--dorado);
+
+  z-index:10;
 }
 
 
-.boton-dorado:hover {
+/* =====================================================
+   FRANJA
+===================================================== */
 
-    transform:
-        translateY(-4px);
+.quick-strip{
+  background:var(--crema);
 
-    box-shadow:
-        0 15px 30px
-        rgba(0,0,0,.25);
+  border-bottom:
+    1px solid
+    var(--borde);
+}
+
+.quick-grid{
+  display:grid;
+
+  grid-template-columns:
+    repeat(3,1fr);
+
+  padding:23px 0;
+}
+
+.quick-item{
+  display:flex;
+
+  align-items:center;
+  justify-content:center;
+
+  gap:12px;
+
+  border-right:
+    1px solid
+    #ddd4c7;
+}
+
+.quick-item:last-child{
+  border-right:0;
+}
+
+.quick-icon{
+  width:43px;
+  height:43px;
+
+  display:grid;
+  place-items:center;
+
+  border-radius:50%;
+
+  background:var(--vino);
+
+  color:white;
+
+  font-size:11px;
+
+  font-weight:900;
+}
+
+.quick-item strong{
+  display:block;
+
+  color:var(--vino);
+
+  font-size:12px;
+}
+
+.quick-item small{
+  display:block;
+
+  color:var(--gris);
+
+  font-size:10px;
 }
 
 
-.boton-transparente {
+/* =====================================================
+   SERVICIOS
+===================================================== */
 
-    color:
-        white;
+.services-section{
+  position:relative;
 
-    border:
-        1px solid
-        rgba(255,255,255,.7);
+  overflow:hidden;
+
+  padding:
+    90px 0
+    105px;
+
+  background:
+    linear-gradient(
+      180deg,
+      #fff,
+      #faf7f0
+    );
 }
 
 
-.boton-transparente:hover {
+/* MARCA DE AGUA */
 
-    background:
-        white;
+.services-section::after{
+  content:"";
 
-    color:
-        var(--vino);
+  position:absolute;
+
+  width:550px;
+  height:550px;
+
+  right:-260px;
+  bottom:-250px;
+
+  background:
+    url("logo-tepeapulco.jpeg")
+    center/contain
+    no-repeat;
+
+  opacity:.035;
+
+  pointer-events:none;
 }
 
 
-/* =========================================================
-   BUSCADOR DE PORTADA
-========================================================= */
+.section-heading{
+  position:relative;
+  z-index:2;
 
-.buscador-portada {
+  text-align:center;
 
-    background:
-        rgba(255,255,255,.96);
+  max-width:750px;
 
-    padding:
-        30px;
+  margin:
+    0 auto
+    40px;
+}
 
-    border-radius:
-        25px;
+.section-kicker{
+  color:var(--dorado);
 
-    border-top:
-        5px solid
-        var(--dorado);
+  font-size:11px;
 
-    box-shadow:
-        0 30px 70px
-        rgba(0,0,0,.25);
+  font-weight:900;
 
-    backdrop-filter:
-        blur(10px);
+  letter-spacing:3px;
+}
+
+.section-heading h2{
+  color:var(--vino);
+
+  font-size:
+    clamp(34px,4vw,48px);
+
+  line-height:1.1;
+
+  margin:
+    8px 0
+    12px;
+}
+
+.section-heading p{
+  color:var(--gris);
+
+  font-size:14px;
 }
 
 
-.icono-busqueda {
-
-    width:
-        52px;
-
-    height:
-        52px;
-
-    display:
-        grid;
-
-    place-items:
-        center;
-
-    border-radius:
-        50%;
-
-    background:
-        var(--crema);
-
-    color:
-        var(--vino);
-
-    font-size:
-        24px;
-
-    margin-bottom:
-        12px;
-}
-
-
-.buscador-portada h2 {
-
-    color:
-        var(--vino);
-
-    font-size:
-        23px;
-
-    line-height:
-        1.25;
-
-    margin-bottom:
-        6px;
-}
-
-
-.buscador-portada p {
-
-    color:
-        var(--gris);
-
-    font-size:
-        13px;
-
-    margin-bottom:
-        20px;
-}
-
-
-.buscador {
-
-    display:
-        flex;
-
-    overflow:
-        hidden;
-
-    border:
-        1px solid
-        var(--borde);
-
-    border-radius:
-        12px;
-
-    background:
-        white;
-}
-
-
-.buscador input {
-
-    flex:
-        1;
-
-    min-width:
-        0;
-
-    border:
-        none;
-
-    outline:
-        none;
-
-    padding:
-        16px;
-
-    font-size:
-        13px;
-}
-
-
-.buscador button {
-
-    border:
-        none;
-
-    background:
-        var(--vino);
-
-    color:
-        white;
-
-    padding:
-        0 23px;
-
-    font-weight:
-        900;
-
-    cursor:
-        pointer;
-
-    transition:
-        .25s;
-}
-
-
-.buscador button:hover {
-
-    background:
-        var(--vino-oscuro);
-}
-
-
-/* LÍNEA DORADA */
-
-.linea-dorada {
-
-    position:
-        absolute;
-
-    left:
-        0;
-
-    right:
-        0;
-
-    bottom:
-        0;
-
-    height:
-        7px;
-
-    background:
-        var(--dorado);
-
-    z-index:
-        5;
-}
-
-
-/* =========================================================
-   FRANJA INFORMATIVA
-========================================================= */
-
-.franja-informativa {
-
-    background:
-        var(--crema);
-
-    border-bottom:
-        1px solid
-        var(--borde);
-}
-
-
-.informacion-grid {
-
-    display:
-        grid;
-
-    grid-template-columns:
-        repeat(3, 1fr);
-
-    padding:
-        24px 0;
-}
-
-
-.informacion-item {
-
-    display:
-        flex;
-
-    align-items:
-        center;
-
-    justify-content:
-        center;
-
-    gap:
-        13px;
-
-    border-right:
-        1px solid
-        #ddd4c7;
-}
-
-
-.informacion-item:last-child {
-
-    border-right:
-        none;
-}
-
-
-.informacion-icono {
-
-    width:
-        45px;
-
-    height:
-        45px;
-
-    display:
-        grid;
-
-    place-items:
-        center;
-
-    border-radius:
-        50%;
-
-    background:
-        var(--vino);
-
-    color:
-        white;
-
-    font-weight:
-        900;
-
-    font-size:
-        12px;
-
-    box-shadow:
-        0 8px 20px
-        rgba(101,13,43,.18);
-}
-
-
-.informacion-item strong {
-
-    display:
-        block;
-
-    color:
-        var(--vino);
-
-    font-size:
-        12px;
-}
-
-
-.informacion-item small {
-
-    display:
-        block;
-
-    color:
-        var(--gris);
-
-    font-size:
-        10px;
-}
-
-
-/* =========================================================
-   SECCIÓN DIRECCIONES
-========================================================= */
-
-.seccion-direcciones {
-
-    position:
-        relative;
-
-    overflow:
-        hidden;
-
-    padding:
-        85px 0 100px;
-
-    background:
-        linear-gradient(
-            180deg,
-            #fff,
-            #faf7f0
-        );
-}
-
-
-.seccion-direcciones::after {
-
-    content:
-        "";
-
-    position:
-        absolute;
-
-    width:
-        550px;
-
-    height:
-        550px;
-
-    left:
-        -260px;
-
-    bottom:
-        -250px;
-
-    background:
-        url("logo-tepeapulco.jpeg")
-        center / contain
-        no-repeat;
-
-    opacity:
-        .035;
-
-    pointer-events:
-        none;
-}
-
-
-/* TÍTULO */
-
-.titulo-seccion {
-
-    position:
-        relative;
-
-    z-index:
-        2;
-
-    text-align:
-        center;
-
-    max-width:
-        800px;
-
-    margin:
-        0 auto 38px;
-}
-
-
-.titulo-seccion > span {
-
-    color:
-        var(--dorado);
-
-    font-size:
-        11px;
-
-    font-weight:
-        900;
-
-    letter-spacing:
-        3px;
-}
-
-
-.titulo-seccion h2 {
-
-    color:
-        var(--vino);
-
-    font-size:
-        clamp(34px,4vw,48px);
-
-    line-height:
-        1.1;
-
-    margin:
-        9px 0 12px;
-}
-
-
-.titulo-seccion p {
-
-    color:
-        var(--gris);
-
-    font-size:
-        14px;
-}
-
-
-/* =========================================================
+/* =====================================================
    BUSCADOR GENERAL
-========================================================= */
+===================================================== */
 
-.buscador-general {
+.filters{
+  position:relative;
+  z-index:3;
 
-    position:
-        relative;
+  display:flex;
 
-    z-index:
-        3;
+  align-items:center;
 
-    display:
-        flex;
+  gap:15px;
 
-    align-items:
-        center;
+  margin-bottom:28px;
+}
 
-    max-width:
-        850px;
+.full-search{
+  flex:1;
 
-    margin:
-        auto;
+  border-radius:50px;
 
-    background:
-        white;
+  box-shadow:
+    0 8px 25px
+    rgba(50,15,28,.06);
+}
 
-    border:
-        1px solid
-        var(--borde);
+.search-symbol{
+  color:var(--vino);
 
-    border-radius:
-        50px;
+  font-size:20px;
 
-    overflow:
-        hidden;
+  padding-left:20px;
+}
 
-    box-shadow:
-        0 10px 30px
-        rgba(50,15,28,.08);
+.full-search button{
+  border:0;
+
+  background:transparent;
+
+  color:#888;
+
+  font-size:24px;
+
+  padding:0 15px;
+
+  cursor:pointer;
+
+  display:none;
+}
+
+.result-count{
+  color:var(--vino);
+
+  font-size:11px;
+
+  font-weight:900;
+
+  white-space:nowrap;
 }
 
 
-.buscador-general > span {
+/* =====================================================
+   LAS 18 TARJETAS
+===================================================== */
 
-    padding-left:
-        22px;
+.cards-grid{
+  position:relative;
+  z-index:2;
 
-    color:
-        var(--vino);
+  display:grid;
 
-    font-size:
-        20px;
+  grid-template-columns:
+    repeat(4,1fr);
+
+  gap:18px;
 }
 
 
-.buscador-general input {
+.service-card{
+  position:relative;
 
-    flex:
-        1;
+  min-height:205px;
 
-    border:
-        none;
+  overflow:hidden;
 
-    outline:
-        none;
+  display:block;
 
-    padding:
-        17px 12px;
+  background:white;
 
-    font-size:
-        13px;
+  border:
+    1px solid
+    var(--borde);
+
+  border-radius:17px;
+
+  box-shadow:
+    0 7px 20px
+    rgba(45,15,25,.07);
+
+  transition:
+    transform .3s,
+    box-shadow .3s,
+    border-color .3s;
 }
 
 
-.buscador-general button {
+/* IMAGEN */
 
-    display:
-        none;
+.service-card::before{
+  content:"";
 
-    border:
-        none;
+  position:absolute;
 
-    background:
-        transparent;
+  left:0;
+  right:0;
+  top:0;
 
-    color:
-        #888;
+  height:120px;
 
-    font-size:
-        25px;
+  z-index:1;
 
-    padding:
-        0 18px;
+  background-size:cover;
 
-    cursor:
-        pointer;
+  background-position:center;
+
+  background-repeat:no-repeat;
+
+  transition:
+    transform .5s;
 }
 
 
-.contador {
+/* OSCURECER IMAGEN */
 
-    position:
-        relative;
+.service-card::after{
+  content:"";
 
-    z-index:
-        2;
+  position:absolute;
 
-    text-align:
-        center;
+  left:0;
+  right:0;
+  top:0;
 
-    color:
-        var(--vino);
+  height:120px;
 
-    font-size:
-        11px;
+  z-index:2;
 
-    font-weight:
-        900;
-
-    margin:
-        12px 0 28px;
+  background:
+    linear-gradient(
+      180deg,
+      rgba(40,0,15,.05),
+      rgba(60,5,25,.48)
+    );
 }
 
 
-/* =========================================================
-   TARJETAS CON IMÁGENES
-========================================================= */
+/* =====================================================
+   IMÁGENES DE LAS DIRECCIONES
+===================================================== */
 
-.tarjetas {
+.service-card:nth-child(1)::before{
+  background-image:url("foto-01.jpg");
+}
 
-    position:
-        relative;
+.service-card:nth-child(2)::before{
+  background-image:url("foto-02.jpg");
+}
 
-    z-index:
-        2;
+.service-card:nth-child(3)::before{
+  background-image:url("foto-03.jpg");
+}
 
-    display:
-        grid;
+.service-card:nth-child(4)::before{
+  background-image:url("foto-04.jpg");
+}
 
-    grid-template-columns:
-        repeat(4, 1fr);
+.service-card:nth-child(5)::before{
+  background-image:url("foto-05.jpg");
+}
 
-    gap:
-        18px;
+.service-card:nth-child(6)::before{
+  background-image:url("foto-06.jpg");
+}
+
+.service-card:nth-child(7)::before{
+  background-image:url("foto-07.jpg");
+}
+
+.service-card:nth-child(8)::before{
+  background-image:url("foto-08.jpg");
+}
+
+.service-card:nth-child(9)::before{
+  background-image:url("foto-09.jpg");
+}
+
+.service-card:nth-child(10)::before{
+  background-image:url("foto-10.jpg");
+}
+
+.service-card:nth-child(11)::before{
+  background-image:url("foto-11.jpg");
+}
+
+.service-card:nth-child(12)::before{
+  background-image:url("foto-12.jpg");
+}
+
+.service-card:nth-child(13)::before{
+  background-image:url("foto-13.jpg");
+}
+
+.service-card:nth-child(14)::before{
+  background-image:url("foto-14.jpg");
+}
+
+.service-card:nth-child(15)::before{
+  background-image:url("foto-15.jpg");
+}
+
+.service-card:nth-child(16)::before{
+  background-image:url("foto-16.jpg");
+}
+
+.service-card:nth-child(17)::before{
+  background-image:url("foto-17.jpg");
+}
+
+.service-card:nth-child(18)::before{
+  background-image:url("foto-18.jpg");
 }
 
 
-.tarjeta {
+/* EFECTO */
 
-    position:
-        relative;
+.service-card:hover{
+  transform:
+    translateY(-8px);
 
-    display:
-        block;
+  box-shadow:
+    var(--sombra-fuerte);
 
-    min-height:
-        205px;
-
-    overflow:
-        hidden;
-
-    background:
-        white;
-
-    border:
-        1px solid
-        var(--borde);
-
-    border-radius:
-        17px;
-
-    box-shadow:
-        0 7px 20px
-        rgba(45,15,25,.07);
-
-    transition:
-        transform .3s ease,
-        box-shadow .3s ease,
-        border-color .3s ease;
+  border-color:
+    #d3bd8c;
 }
 
-
-/* FOTO */
-
-.tarjeta::after {
-
-    content:
-        "";
-
-    position:
-        absolute;
-
-    left:
-        0;
-
-    right:
-        0;
-
-    top:
-        0;
-
-    height:
-        120px;
-
-    background-size:
-        cover;
-
-    background-position:
-        center;
-
-    transition:
-        transform .5s ease;
-}
-
-
-/* CAPA SOBRE LA FOTO */
-
-.tarjeta::before {
-
-    content:
-        "";
-
-    position:
-        absolute;
-
-    left:
-        0;
-
-    right:
-        0;
-
-    top:
-        0;
-
-    height:
-        120px;
-
-    z-index:
-        1;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(40,0,15,.05),
-            rgba(60,5,25,.45)
-        );
-
-    transition:
-        .3s;
-}
-
-
-/* FOTOS DE LAS 18 DIRECCIONES */
-
-
-/* 01 */
-.tarjeta:nth-child(1)::after {
-    background-image:
-        url("foto-01.jpg");
-}
-
-/* 02 */
-.tarjeta:nth-child(2)::after {
-    background-image:
-        url("foto-02.jpg");
-}
-
-/* 03 */
-.tarjeta:nth-child(3)::after {
-    background-image:
-        url("foto-03.jpg");
-}
-
-/* 04 */
-.tarjeta:nth-child(4)::after {
-    background-image:
-        url("foto-04.jpg");
-}
-
-/* 05 */
-.tarjeta:nth-child(5)::after {
-    background-image:
-        url("foto-05.jpg");
-}
-
-/* 06 */
-.tarjeta:nth-child(6)::after {
-    background-image:
-        url("foto-06.jpg");
-}
-
-/* 07 */
-.tarjeta:nth-child(7)::after {
-    background-image:
-        url("foto-07.jpg");
-}
-
-/* 08 */
-.tarjeta:nth-child(8)::after {
-    background-image:
-        url("foto-08.jpg");
-}
-
-/* 09 */
-.tarjeta:nth-child(9)::after {
-    background-image:
-        url("foto-09.jpg");
-}
-
-/* 10 */
-.tarjeta:nth-child(10)::after {
-    background-image:
-        url("foto-10.jpg");
-}
-
-/* 11 */
-.tarjeta:nth-child(11)::after {
-    background-image:
-        url("foto-11.jpg");
-}
-
-/* 12 */
-.tarjeta:nth-child(12)::after {
-    background-image:
-        url("foto-12.jpg");
-}
-
-/* 13 */
-.tarjeta:nth-child(13)::after {
-    background-image:
-        url("foto-13.jpg");
-}
-
-/* 14 */
-.tarjeta:nth-child(14)::after {
-    background-image:
-        url("foto-14.jpg");
-}
-
-/* 15 */
-.tarjeta:nth-child(15)::after {
-    background-image:
-        url("foto-15.jpg");
-}
-
-/* 16 */
-.tarjeta:nth-child(16)::after {
-    background-image:
-        url("foto-16.jpg");
-}
-
-/* 17 */
-.tarjeta:nth-child(17)::after {
-    background-image:
-        url("foto-17.jpg");
-}
-
-/* 18 */
-.tarjeta:nth-child(18)::after {
-    background-image:
-        url("foto-18.jpg");
-}
-
-
-/* HOVER */
-
-.tarjeta:hover {
-
-    transform:
-        translateY(-8px);
-
-    border-color:
-        #d2bd91;
-
-    box-shadow:
-        var(--sombra-fuerte);
-}
-
-
-.tarjeta:hover::after {
-
-    transform:
-        scale(1.07);
+.service-card:hover::before{
+  transform:
+    scale(1.08);
 }
 
 
 /* NÚMERO */
 
-.numero {
+.card-number{
+  position:absolute;
 
-    position:
-        absolute;
+  left:12px;
+  top:10px;
 
-    top:
-        10px;
+  z-index:5;
 
-    left:
-        12px;
+  width:28px;
+  height:28px;
 
-    z-index:
-        4;
+  display:grid;
+  place-items:center;
 
-    width:
-        27px;
+  border-radius:50%;
 
-    height:
-        27px;
+  background:
+    rgba(255,255,255,.93);
 
-    display:
-        grid;
+  color:var(--vino);
 
-    place-items:
-        center;
+  font-size:9px;
 
-    border-radius:
-        50%;
-
-    background:
-        rgba(255,255,255,.92);
-
-    color:
-        var(--vino);
-
-    font-size:
-        9px;
-
-    font-weight:
-        900;
+  font-weight:900;
 }
 
 
 /* ICONO */
 
-.tarjeta-icono {
+.card-icon{
+  position:absolute;
 
-    position:
-        absolute;
+  left:18px;
+  top:92px;
 
-    top:
-        92px;
+  z-index:5;
 
-    left:
-        18px;
+  width:52px;
+  height:52px;
 
-    z-index:
-        4;
+  display:grid;
+  place-items:center;
 
-    width:
-        52px;
+  border-radius:50%;
 
-    height:
-        52px;
+  border:
+    4px solid
+    white;
 
-    display:
-        grid;
+  background:var(--vino);
 
-    place-items:
-        center;
+  color:white;
 
-    border-radius:
-        50%;
+  font-size:10px;
 
-    border:
-        4px solid
-        white;
+  font-weight:900;
 
-    background:
-        var(--vino);
+  box-shadow:
+    0 7px 15px
+    rgba(0,0,0,.18);
 
-    color:
-        white;
-
-    font-size:
-        10px;
-
-    font-weight:
-        900;
-
-    box-shadow:
-        0 7px 15px
-        rgba(0,0,0,.18);
-
-    transition:
-        .3s;
+  transition:.3s;
 }
 
+.service-card:hover .card-icon{
+  background:var(--dorado);
 
-.tarjeta:hover .tarjeta-icono {
-
-    background:
-        var(--dorado);
-
-    transform:
-        rotate(-5deg)
-        scale(1.06);
+  transform:
+    scale(1.06)
+    rotate(-5deg);
 }
 
 
 /* CONTENIDO */
 
-.tarjeta-contenido {
+.service-card > div:not(.card-icon){
+  position:absolute;
 
-    position:
-        absolute;
+  left:0;
+  right:0;
+  bottom:0;
 
-    left:
-        0;
+  min-height:91px;
 
-    right:
-        0;
+  padding:
+    27px
+    42px
+    12px
+    16px;
 
-    bottom:
-        0;
+  background:white;
 
-    min-height:
-        92px;
-
-    padding:
-        27px 16px 13px;
-
-    background:
-        white;
-
-    z-index:
-        3;
+  z-index:4;
 }
 
+.service-card h3{
+  color:var(--vino);
 
-.tarjeta-contenido h3 {
+  font-size:13px;
 
-    color:
-        var(--vino);
+  line-height:1.25;
 
-    font-size:
-        13px;
-
-    line-height:
-        1.25;
-
-    margin-bottom:
-        4px;
-
-    padding-right:
-        20px;
+  margin-bottom:4px;
 }
 
+.service-card p{
+  color:var(--gris);
 
-.tarjeta-contenido p {
+  font-size:9px;
 
-    color:
-        var(--gris);
-
-    font-size:
-        9px;
-
-    line-height:
-        1.35;
+  line-height:1.35;
 }
 
 
 /* FLECHA */
 
-.flecha {
+.card-arrow{
+  position:absolute;
 
-    position:
-        absolute;
+  right:13px;
+  bottom:19px;
 
-    right:
-        13px;
+  z-index:6;
 
-    bottom:
-        20px;
+  width:29px;
+  height:29px;
 
-    z-index:
-        5;
+  display:grid;
+  place-items:center;
 
-    width:
-        28px;
+  border-radius:50%;
 
-    height:
-        28px;
+  background:var(--vino);
 
-    display:
-        grid;
+  color:white;
 
-    place-items:
-        center;
+  font-size:17px;
 
-    border-radius:
-        50%;
+  font-weight:900;
 
-    background:
-        var(--vino);
+  transition:.25s;
+}
 
-    color:
-        white;
+.service-card:hover .card-arrow{
+  background:var(--dorado);
 
-    font-size:
-        17px;
-
-    font-weight:
-        900;
-
-    transition:
-        .25s;
+  transform:
+    translateX(4px);
 }
 
 
-.tarjeta:hover .flecha {
-
-    background:
-        var(--dorado);
-
-    transform:
-        translateX(4px);
-}
-
-
-/* =========================================================
+/* =====================================================
    SIN RESULTADOS
-========================================================= */
+===================================================== */
 
-.sin-resultados {
+.no-results{
+  display:none;
 
-    display:
-        none;
+  position:relative;
+  z-index:3;
 
-    position:
-        relative;
+  text-align:center;
 
-    z-index:
-        3;
+  padding:40px;
 
-    text-align:
-        center;
+  margin-top:25px;
 
-    padding:
-        45px;
+  border:
+    1px dashed
+    #d8cfc4;
 
-    margin-top:
-        25px;
+  border-radius:18px;
 
-    border:
-        1px dashed
-        #d8cfc4;
+  background:white;
 
-    border-radius:
-        18px;
+  color:var(--gris);
+}
 
-    color:
-        var(--gris);
+.no-results strong{
+  display:block;
 
-    background:
-        white;
+  color:var(--vino);
+
+  margin-bottom:5px;
 }
 
 
-.sin-resultados strong {
+/* =====================================================
+   BANNER INSTITUCIONAL
+===================================================== */
 
-    display:
-        block;
+.visual-banner{
+  padding:75px 0;
 
-    color:
-        var(--vino);
+  background:var(--crema);
+}
 
-    margin-bottom:
-        5px;
+.visual-banner-inner{
+  display:grid;
+
+  grid-template-columns:
+    1fr
+    380px;
+
+  align-items:center;
+
+  gap:50px;
+
+  background:white;
+
+  padding:45px;
+
+  border-radius:25px;
+
+  box-shadow:var(--sombra);
+}
+
+.visual-banner h2{
+  color:var(--vino);
+
+  font-size:
+    clamp(32px,4vw,48px);
+
+  line-height:1.1;
+
+  margin:
+    10px 0
+    14px;
+}
+
+.visual-banner p{
+  color:var(--gris);
+
+  font-size:14px;
+}
+
+.visual-placeholder{
+  height:240px;
+
+  border-radius:18px;
+
+  overflow:hidden;
+
+  display:grid;
+
+  place-items:center;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--vino),
+      var(--vino-medio)
+    );
+
+  color:white;
+
+  font-size:12px;
+
+  font-weight:900;
+}
+
+.visual-placeholder img{
+  width:100%;
+  height:100%;
+
+  object-fit:cover;
 }
 
 
-/* =========================================================
-   INFORMACIÓN MUNICIPAL
-========================================================= */
-
-.seccion-informacion {
-
-    position:
-        relative;
-
-    overflow:
-        hidden;
-
-    padding:
-        80px 0;
-
-    background:
-        var(--crema);
-}
-
-
-.informacion-contenido {
-
-    position:
-        relative;
-
-    z-index:
-        2;
-
-    display:
-        grid;
-
-    grid-template-columns:
-        1fr 400px;
-
-    align-items:
-        center;
-
-    gap:
-        55px;
-
-    background:
-        white;
-
-    padding:
-        45px;
-
-    border-radius:
-        25px;
-
-    box-shadow:
-        var(--sombra);
-}
-
-
-.informacion-contenido h2 {
-
-    color:
-        var(--vino);
-
-    font-size:
-        clamp(32px,4vw,48px);
-
-    line-height:
-        1.08;
-
-    margin:
-        10px 0 15px;
-}
-
-
-.informacion-contenido p {
-
-    color:
-        var(--gris);
-
-    font-size:
-        15px;
-
-    max-width:
-        600px;
-}
-
-
-.imagen-informacion {
-
-    height:
-        250px;
-
-    overflow:
-        hidden;
-
-    border-radius:
-        18px;
-
-    background:
-        linear-gradient(
-            135deg,
-            var(--vino),
-            var(--vino-medio)
-        );
-
-    position:
-        relative;
-}
-
-
-/* =========================================================
+/* =====================================================
    QR
-========================================================= */
+===================================================== */
 
-.seccion-qr {
+.qr-section{
+  padding:90px 0;
 
-    padding:
-        90px 0;
+  background:
+    linear-gradient(
+      135deg,
+      #fff,
+      #f7f1e5
+    );
+}
 
-    background:
+.qr-card{
+  max-width:1000px;
 
-        linear-gradient(
-            135deg,
-            #fff,
-            #f7f1e5
-        );
+  display:grid;
+
+  grid-template-columns:
+    1fr
+    270px;
+
+  align-items:center;
+
+  gap:65px;
+}
+
+.qr-copy h2{
+  color:var(--vino);
+
+  font-size:
+    clamp(34px,4vw,50px);
+
+  line-height:1.05;
+
+  margin:
+    10px 0
+    16px;
+}
+
+.qr-copy p{
+  color:var(--gris);
+
+  font-size:14px;
+}
+
+.qr-note{
+  margin-top:20px;
+
+  padding:
+    14px 17px;
+
+  border-left:
+    4px solid
+    var(--dorado);
+
+  background:#fff8e3;
+
+  color:#685d49;
+
+  font-size:11px;
+}
+
+.qr-box{
+  padding:20px;
+
+  background:white;
+
+  border:
+    1px solid
+    var(--borde);
+
+  border-radius:22px;
+
+  box-shadow:var(--sombra);
+}
+
+.qr-box img{
+  width:100%;
 }
 
 
-.qr-contenido {
-
-    max-width:
-        1000px;
-
-    display:
-        grid;
-
-    grid-template-columns:
-        1fr 270px;
-
-    align-items:
-        center;
-
-    gap:
-        65px;
-}
-
-
-.qr-texto h2 {
-
-    color:
-        var(--vino);
-
-    font-size:
-        clamp(34px,4vw,50px);
-
-    line-height:
-        1.05;
-
-    margin:
-        10px 0 16px;
-}
-
-
-.qr-texto p {
-
-    color:
-        var(--gris);
-
-    font-size:
-        15px;
-}
-
-
-.nota-qr {
-
-    display:
-        flex;
-
-    gap:
-        12px;
-
-    align-items:
-        center;
-
-    margin-top:
-        20px;
-
-    padding:
-        14px 17px;
-
-    border-left:
-        4px solid
-        var(--dorado);
-
-    background:
-        #fff8e3;
-
-    color:
-        #685d49;
-
-    font-size:
-        11px;
-}
-
-
-.contenedor-qr {
-
-    padding:
-        20px;
-
-    background:
-        white;
-
-    border:
-        1px solid
-        var(--borde);
-
-    border-radius:
-        22px;
-
-    box-shadow:
-        var(--sombra);
-}
-
-
-.contenedor-qr img {
-
-    width:
-        100%;
-}
-
-
-/* =========================================================
+/* =====================================================
    CONTACTO
-========================================================= */
+===================================================== */
 
-.seccion-contacto {
+.contact-section{
+  padding:75px 0;
 
-    padding:
-        75px 0;
-
-    background:
-        white;
+  background:white;
 }
 
 
-/* =========================================================
+/* =====================================================
    FOOTER
-========================================================= */
+===================================================== */
 
-foote
+footer{
+  background:var(--vino-oscuro);
+
+  color:white;
+}
+
+.footer-grid{
+  display:grid;
+
+  grid-template-columns:
+    180px
+    1fr
+    auto;
+
+  align-items:center;
+
+  gap:35px;
+
+  padding:45px 0;
+}
+
+.footer-brand img{
+  width:145px;
+
+  max-height:80px;
+
+  object-fit:contain;
+}
+
+.footer-grid strong{
+  font-size:14px;
+}
+
+.footer-grid p{
+  color:#c9bec2;
+
+  font-size:11px;
+
+  margin-top:4px;
+}
+
+.footer-links{
+  display:flex;
+
+  gap:18px;
+}
+
+.footer-links a{
+  color:#ddd;
+
+  font-size:11px;
+}
+
+.footer-links a:hover{
+  color:var(--dorado);
+}
+
+.footer-bottom{
+  text-align:center;
+
+  border-top:
+    1px solid
+    rgba(255,255,255,.1);
+
+  padding:15px;
+
+  color:#aa9ca1;
+
+  font-size:10px;
+}
+
+
+/* =====================================================
+   BOTÓN ARRIBA
+===================================================== */
+
+.back-top{
+  position:fixed;
+
+  right:20px;
+  bottom:20px;
+
+  width:45px;
+  height:45px;
+
+  border:0;
+
+  border-radius:50%;
+
+  background:var(--vino);
+
+  color:white;
+
+  font-size:20px;
+
+  cursor:pointer;
+
+  opacity:0;
+
+  pointer-events:none;
+
+  transition:.25s;
+
+  z-index:100;
+}
+
+.back-top.show{
+  opacity:1;
+
+  pointer-events:auto;
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media(max-width:1050px){
+
+  .cards-grid{
+    grid-template-columns:
+      repeat(3,1fr);
+  }
+
+  .hero-content{
+    grid-template-columns:
+      1fr
+      .8fr;
+  }
+}
+
+
+/* =====================================================
+   TABLET PEQUEÑA
+===================================================== */
+
+@media(max-width:850px){
+
+  .hero-content{
+    grid-template-columns:1fr;
+
+    gap:35px;
+  }
+
+  .hero-card{
+    max-width:650px;
+  }
+
+  .cards-grid{
+    grid-template-columns:
+      repeat(2,1fr);
+  }
+
+  .visual-banner-inner{
+    grid-template-columns:1fr;
+  }
+
+  .qr-card{
+    grid-template-columns:
+      1fr
+      230px;
+  }
+}
+
+
+/* =====================================================
+   CELULAR
+===================================================== */
+
+@media(max-width:600px){
+
+  .hero{
+    min-height:auto;
+  }
+
+  .hero-content{
+    min-height:auto;
+
+    padding:
+      65px 0
+      75px;
+  }
+
+  .hero-copy h1{
+    font-size:43px;
+  }
+
+  .hero-copy p{
+    font-size:15px;
+  }
+
+  .hero-actions{
+    flex-direction:column;
+  }
+
+  .btn{
+    width:100%;
+  }
+
+  .quick-grid{
+    grid-template-columns:1fr;
+  }
+
+  .quick-item{
+    border-right:0;
+
+    border-bottom:
+      1px solid
+      #ddd4c7;
+
+    padding:12px;
+  }
+
+  .quick-item:last-child{
+    border-bottom:0;
+  }
+
+  .cards-grid{
+    grid-template-columns:1fr;
+  }
+
+  .filters{
+    display:block;
+  }
+
+  .result-count{
+    text-align:center;
+
+    margin-top:10px;
+  }
+
+  .visual-banner-inner{
+    padding:28px;
+  }
+
+  .qr-card{
+    grid-template-columns:1fr;
+
+    text-align:center;
+  }
+
+  .qr-box{
+    width:230px;
+
+    margin:auto;
+  }
+
+  .qr-note{
+    text-align:left;
+  }
+
+  .footer-grid{
+    grid-template-columns:1fr;
+
+    text-align:center;
+  }
+
+  .footer-brand img{
+    margin:auto;
+  }
+
+  .footer-links{
+    justify-content:center;
+  }
+}
+
+
+/* =====================================================
+   CELULAR PEQUEÑO
+===================================================== */
+
+@media(max-width:400px){
+
+  .hero-copy h1{
+    font-size:37px;
+  }
+
+  .hero-card{
+    padding:22px;
+  }
+
+  .service-card{
+    min-height:215px;
+  }
+}
