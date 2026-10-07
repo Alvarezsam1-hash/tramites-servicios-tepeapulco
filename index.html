@@ -1,949 +1,928 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Trámites y Servicios Municipales | Tepeapulco</title>
+  <meta
+    name="description"
+    content="Portal de Trámites y Servicios Municipales del Municipio de Tepeapulco, Hidalgo."
+  >
 
-    <meta name="description"
-          content="Portal de trámites y servicios municipales del Municipio de Tepeapulco, Hidalgo.">
+  <title>Trámites y Servicios Municipales | Tepeapulco</title>
 
-    <link rel="stylesheet" href="estilos.css">
+  <link rel="stylesheet" href="estilos.css">
 </head>
 
 <body>
 
-<!-- =========================
-     ENCABEZADO
-========================= -->
+  <main>
 
-<header class="encabezado">
+    <!-- ==========================================
+         ENCABEZADO PRINCIPAL
+    =========================================== -->
+    <section class="hero" id="inicio">
 
-    <div class="contenedor encabezado-contenido">
+      <!-- Logo oficial como marca de agua -->
+      <div class="hero-watermark" aria-hidden="true"></div>
 
-        <a href="#inicio" class="logo">
-            <img src="logo-tepeapulco.jpeg"
-                 alt="Municipio de Tepeapulco">
-        </a>
+      <div class="hero-content">
 
-        <button class="boton-menu"
-                id="botonMenu"
-                aria-label="Abrir menú">
-            ☰
-        </button>
+        <!-- TEXTO PRINCIPAL -->
+        <div class="hero-copy">
 
-        <nav class="menu" id="menu">
+          <span class="eyebrow">
+            MUNICIPIO DE TEPEAPULCO, HIDALGO
+          </span>
 
-            <a href="#inicio">Inicio</a>
+          <h1>
+            TRÁMITES Y<br>
+            <span>SERVICIOS</span><br>
+            MUNICIPALES
+          </h1>
 
-            <a href="#direcciones">
-                Trámites y Servicios
+          <p>
+            Consulta de manera rápida y sencilla la información
+            de las diferentes Direcciones Municipales.
+          </p>
+
+          <div class="hero-actions">
+
+            <a
+              class="btn btn-gold"
+              href="#direcciones"
+            >
+              Consultar servicios
             </a>
 
-            <a href="#informacion">
-                Información
+            <a
+              class="btn btn-outline"
+              href="#qr"
+            >
+              Acceder con QR
             </a>
 
-            <a href="#contacto">
-                Contacto
-            </a>
-
-        </nav>
-
-    </div>
-
-</header>
-
-
-<main id="inicio">
-
-
-<!-- =========================
-     PORTADA
-========================= -->
-
-<section class="portada">
-
-    <!--
-    Si posteriormente quieres colocar
-    una fotografía real de Tepeapulco,
-    podremos agregarla aquí.
-    -->
-
-    <div class="portada-fondo"></div>
-
-    <div class="portada-overlay"></div>
-
-    <div class="contenedor portada-contenido">
-
-        <div class="portada-texto">
-
-            <span class="etiqueta">
-                MUNICIPIO DE TEPEAPULCO, HIDALGO
-            </span>
-
-            <h1>
-                TRÁMITES Y<br>
-                SERVICIOS<br>
-                MUNICIPALES
-            </h1>
-
-            <p>
-                Consulta de manera rápida y sencilla
-                la información de las diferentes
-                Direcciones Municipales.
-            </p>
-
-            <div class="botones-portada">
-
-                <a href="#direcciones"
-                   class="boton boton-dorado">
-                    Consultar servicios
-                </a>
-
-                <a href="#qr"
-                   class="boton boton-transparente">
-                    Acceder con QR
-                </a>
-
-            </div>
+          </div>
 
         </div>
 
 
-        <!-- BUSCADOR DE PORTADA -->
+        <!-- ======================================
+             BUSCADOR
+        ======================================= -->
+        <div class="search-card">
 
-        <div class="buscador-portada">
+          <div class="search-icon">
+            ⌕
+          </div>
 
-            <div class="icono-busqueda">
-                🔎
-            </div>
+          <h2>
+            ¿Qué trámite o servicio estás buscando?
+          </h2>
 
-            <h2>
-                ¿Qué trámite o servicio estás buscando?
-            </h2>
+          <p>
+            Escribe el nombre de una dirección o servicio.
+          </p>
 
-            <p>
-                Escribe el nombre de una dirección
-                o servicio.
-            </p>
-
-            <div class="buscador">
-
-                <input
-                    type="search"
-                    id="buscadorPortada"
-                    placeholder="Buscar trámite o dirección..."
-                    autocomplete="off">
-
-                <button
-                    type="button"
-                    id="botonBuscar">
-                    Buscar
-                </button>
-
-            </div>
-
-        </div>
-
-    </div>
-
-    <div class="linea-dorada"></div>
-
-</section>
-
-
-
-<!-- =========================
-     INFORMACIÓN RÁPIDA
-========================= -->
-
-<section class="franja-informativa">
-
-    <div class="contenedor informacion-grid">
-
-        <div class="informacion-item">
-
-            <span class="informacion-icono">
-                ✓
-            </span>
-
-            <div>
-                <strong>
-                    Información oficial
-                </strong>
-
-                <small>
-                    Información municipal
-                </small>
-            </div>
-
-        </div>
-
-
-        <div class="informacion-item">
-
-            <span class="informacion-icono">
-                ◉
-            </span>
-
-            <div>
-                <strong>
-                    Consulta en cualquier momento
-                </strong>
-
-                <small>
-                    Desde cualquier dispositivo
-                </small>
-            </div>
-
-        </div>
-
-
-        <div class="informacion-item">
-
-            <span class="informacion-icono">
-                QR
-            </span>
-
-            <div>
-                <strong>
-                    Acceso rápido
-                </strong>
-
-                <small>
-                    Escanea nuestro código QR
-                </small>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-
-<!-- =========================
-     DIRECCIONES
-========================= -->
-
-<section
-    class="seccion-direcciones"
-    id="direcciones">
-
-    <div class="contenedor">
-
-        <div class="titulo-seccion">
-
-            <span>
-                DIRECTORIO MUNICIPAL
-            </span>
-
-            <h2>
-                Selecciona una Dirección
-            </h2>
-
-            <p>
-                Consulta los trámites, servicios
-                e información disponible.
-            </p>
-
-        </div>
-
-
-        <!-- BUSCADOR -->
-
-        <div class="buscador-general">
-
-            <span>
-                🔎
-            </span>
+          <form
+            class="search-form"
+            id="heroSearchForm"
+          >
 
             <input
-                type="search"
-                id="buscadorServicios"
-                placeholder="Buscar por dirección o servicio..."
-                autocomplete="off">
+              type="search"
+              id="heroSearch"
+              placeholder="Buscar trámite o dirección..."
+              autocomplete="off"
+              aria-label="Buscar trámite o dirección"
+            >
 
-            <button
-                id="limpiarBusqueda"
-                type="button">
-                ×
+            <button type="submit">
+              Buscar
             </button>
 
+          </form>
+
+        </div>
+
+      </div>
+
+
+      <!-- Separador inferior -->
+      <div class="hero-wave"></div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         DIRECCIONES MUNICIPALES
+    =========================================== -->
+    <section
+      class="services-section"
+      id="direcciones"
+    >
+
+      <div class="section-heading">
+
+        <div>
+
+          <span class="section-kicker">
+            INFORMACIÓN MUNICIPAL
+          </span>
+
+          <h2>
+            Selecciona una Dirección
+          </h2>
+
+          <p>
+            Consulta trámites, servicios e información oficial.
+          </p>
+
         </div>
 
 
-        <div
-            class="contador"
-            id="contador">
-            18 direcciones disponibles
+        <!-- BUSCADOR DE DIRECCIONES -->
+        <div class="full-search">
+
+          <span class="search-symbol">
+            ⌕
+          </span>
+
+          <input
+            type="search"
+            id="serviceSearch"
+            placeholder="Buscar una dirección..."
+            autocomplete="off"
+            aria-label="Buscar una dirección"
+          >
+
+          <span
+            class="result-count"
+            id="resultCount"
+          >
+            18 direcciones
+          </span>
+
+        </div>
+
+      </div>
+
+
+
+      <!-- ======================================
+           TARJETAS DE LAS 18 DIRECCIONES
+      ======================================= -->
+      <div
+        class="cards-grid"
+        id="serviceCards"
+      >
+
+
+        <!-- 01 -->
+        <a
+          class="service-card"
+          data-name="Registro Civil"
+          href="registro-civil.pdf"
+        >
+
+          <span class="card-number">
+            01
+          </span>
+
+          <span class="card-icon">
+            ▣
+          </span>
+
+          <div class="card-content">
+
+            <h3>
+              Registro Civil
+            </h3>
+
+            <p>
+              Trámites y servicios del Registro Civil.
+            </p>
+
+          </div>
+
+          <span class="card-arrow">
+            →
+          </span>
+
+        </a>
+
+
+
+        <!-- 02 -->
+        <a
+          class="service-card"
+          data-name="Dirección de Panteones Panteones"
+          href="panteones.pdf"
+        >
+
+          <span class="card-number">
+            02
+          </span>
+
+          <span class="card-icon">
+            ✚
+          </span>
+
+          <div class="card-content">
+
+            <h3>
+              Dirección de Panteones
+            </h3>
+
+            <p>
+              Información y servicios de panteones municipales.
+            </p>
+
+          </div>
+
+          <span class="card-arrow">
+            →
+          </span>
+
+        </a>
+
+
+
+        <!-- 03 -->
+        <a
+          class="service-card"
+          data-name="Rastro Municipal"
+          href="rastro.pdf"
+        >
+
+          <span class="card-number">
+            03
+          </span>
+
+          <span class="card-icon">
+            ♜
+          </span>
+
+          <div class="card-content">
+
+            <h3>
+              Rastro Municipal
+            </h3>
+
+            <p>
+              Servicios y procedimientos del Rastro Municipal.
+            </p>
+
+          </div>
+
+          <span class="card-arrow">
+            →
+          </span>
+
+        </a>
+
+
+
+        <!-- 04 -->
+        <a
+          class="service-card"
+          data-name="Desarrollo Económico"
+          href="desarrollo-economico.pdf"
+        >
+
+          <span class="card-number">
+            04
+          </span>
+
+          <span class="card-icon">
+            ▥
+          </span>
+
+          <div class="card-content">
+
+            <h3>
+              Desarrollo Económico
+            </h3>
+
+            <p>
+              Empleo, empresas, programas y desarrollo económico.
+            </p>
+
+          </div>
+
+          <span class="card-arrow">
+            →
+          </span>
+
+        </a>
+
+
+
+        <!-- 05 -->
+        <a
+          class="service-card"
+          data-name="Desarrollo Agropecuario"
+          href="desarrollo-agropecuario.pdf"
+        >
+
+          <span class="card-number">
+            05
+          </span>
+
+          <span class="card-icon">
+            ♧
+          </span>
+
+          <div class="card-content">
+
+            <h3>
+              Desarrollo Agropecuario
+            </h3>
+
+            <p>
+              Programas y servicios para el sector agropecuario.
+            </p>
+
+          </div>
+
+          <span class="card-arrow">
+            →
+          </span>
+
+        </a>
+
+
+
+        <!-- 06 -->
+        <a
+          class="service-card"
+          data-name="Desarrollo Urbano y Ordenamiento Territorial"
+          href="desarrollo-urbano.pdf"
+        >
+
+          <span class="card-number">
+            06
+          </span>
+
+          <span class="card-icon">
+            ⌂
+          </span>
+
+          <div class="card-content">
+
+            <h3>
+              Desarrollo Urbano y Ordenamiento Territorial
+            </h3>
+
+            <p>
+              Información y servicios relacionados con desarrollo urbano.
+            </p>
+
+          </div>
+
+          <span class="card-arrow">
+            →
+          </span>
+
+        </a>
+
+
+
+        <!-- 07 -->
+        <a
+          class="service-card"
+          data-name="Catastro Municipal"
+          href="catastro.pdf"
+        >
+
+          <span class="card-number">
+            07
+          </span>
+
+          <span class="card-icon">
+            ⌖
+          </span>
+
+          <div class="card-content">
+
+            <h3>
+              Catastro Municipal
+            </h3>
+
+            <p>
+              Servicios e información catastral.
+            </p>
+
+          </div>
+
+          <span class="card-arrow">
+            →
+          </span>
+
+        </a>
+
+
+
+        <!-- 08 -->
+        <a
+          class="service-card"
+          data-name="Ecología y Medio Ambiente"
+          href="ecologia-y-medio-ambiente.pdf"
+        >
+
+          <span class="card-number">
+            08
+          </span>
+
+          <span class="card-icon">
+            ♧
+          </span>
+
+          <div class="card-content">
+
+            <h3>
+              Ecología y Medio Ambiente
+            </h3>
+
+            <p>
+              Servicios y acciones para el cuidado ambiental.
+            </p>
+
+          </div>
+
+          <span class="card-arrow">
+            →
+          </span>
+
+        </a>
+
+
+
+        <!-- 09 -->
+        <a
+          class="service-card"
+          data-name="Servicios Municipales"
+          href="servicios-municipales.pdf"
+        >
+
+          <span class="card-number">
+            09
+          </span>
+
+          <span class="card-icon">
+            ⚙
+          </span>
+
+          <div class="card-content">
+
+            <h3>
+              Servicios Municipales
+            </h3>
+
+            <p>
+              Servicios públicos y atención municipal.
+            </p>
+
+          </div>
+
+          <span class="card-arrow">
+            →
+          </span>
+
+        </a>
+
+
+
+        <!-- 10 -->
+        <a
+          class="service-card"
+          data-name="DIF Municipal"
+          href="dif.pdf"
+        >
+
+          <span class="card-number">
+            10
+          </span>
+
+          <span class="card-icon">
+            ♧
+          </span>
+
+          <div class="card-content">
+
+            <h3>
+              DIF Municipal
+            </h3>
+
+            <p>
+              Servicios de asistencia y atención social.
+            </p>
+
+          </div>
+
+          <span class="card-arrow">
+            →
+          </span>
+
+        </a>
+
+
+
+        <!-- 11 -->
+        <a
+          class="service-card"
+          data-name="Turismo"
+          href="turismo.pdf"
+        >
+
+          <span class="card-number">
+            11
+          </span>
+
+          <span class="card-icon">
+            ✦
+          </span>
+
+          <div class="card-content">
+
+            <h3>
+              Turismo
+            </h3>
+
+            <p>
+              Información y servicios turísticos de Tepeapulco.
+            </p>
+
+          </div>
+
+          <span class="card-arrow">
+            →
+          </span>
+
+        </a>
+
+
+
+        <!-- 12 -->
+        <a
+          class="service-card"
+          data-name="SIPINNA"
+          href="sipinna.pdf"
+        >
+
+          <span class="card-number">
+            12
+          </span>
+
+          <span class="card-icon">
+            ♧
+          </span>
+
+          <div class="card-content">
+
+            <h3>
+              SIPINNA
+            </h3>
+
+            <p>
+              Protección y promoción de los derechos de niñas,
+              niños y adolescentes.
+            </p>
+
+          </div>
+
+          <span class="card-arrow">
+            →
+          </span>
+
+        </a>
+
+
+
+        <!-- 13 -->
+        <a
+          class="service-card"
+          data-name="Servicio Médico y Sanidad Servicio Médico Salud"
+          href="servicio-medico-salud.pdf"
+        >
+
+          <span class="card-number">
+            13
+          </span>
+
+          <span class="card-icon">
+            ✚
+          </span>
+
+          <div class="card-content">
+
+            <h3>
+              Servicio Médico y Sanidad
+            </h3>
+
+            <p>
+              Servicios de atención médica y sanidad municipal.
+            </p>
+
+          </div>
+
+          <span class="card-arrow">
+            →
+          </span>
+
+        </a>
+
+
+
+        <!-- 14 -->
+        <a
+          class="service-card"
+          data-name="Secretaría General Municipal Secretaría General"
+          href="secretaria-general.pdf"
+        >
+
+          <span class="card-number">
+            14
+          </span>
+
+          <span class="card-icon">
+            ▤
+          </span>
+
+          <div class="card-content">
+
+            <h3>
+              Secretaría General Municipal
+            </h3>
+
+            <p>
+              Información y servicios de la Secretaría General.
+            </p>
+
+          </div>
+
+          <span class="card-arrow">
+            →
+          </span>
+
+        </a>
+
+
+
+        <!-- 15 -->
+        <a
+          class="service-card"
+          data-name="Órgano Interno de Control"
+          href="organo-interno-control.pdf"
+        >
+
+          <span class="card-number">
+            15
+          </span>
+
+          <span class="card-icon">
+            ⚖
+          </span>
+
+          <div class="card-content">
+
+            <h3>
+              Órgano Interno de Control
+            </h3>
+
+            <p>
+              Información de control interno y atención ciudadana.
+            </p>
+
+          </div>
+
+          <span class="card-arrow">
+            →
+          </span>
+
+        </a>
+
+
+
+        <!-- 16 -->
+        <a
+          class="service-card"
+          data-name="Unidad de Asuntos Internos"
+          href="asuntos-internos.pdf"
+        >
+
+          <span class="card-number">
+            16
+          </span>
+
+          <span class="card-icon">
+            ◉
+          </span>
+
+          <div class="card-content">
+
+            <h3>
+              Unidad de Asuntos Internos
+            </h3>
+
+            <p>
+              Información y atención de asuntos internos.
+            </p>
+
+          </div>
+
+          <span class="card-arrow">
+            →
+          </span>
+
+        </a>
+
+
+
+        <!-- 17 -->
+        <a
+          class="service-card"
+          data-name="Unidad de Transparencia y Acceso a la Información Transparencia"
+          href="transparencia.pdf"
+        >
+
+          <span class="card-number">
+            17
+          </span>
+
+          <span class="card-icon">
+            ▤
+          </span>
+
+          <div class="card-content">
+
+            <h3>
+              Unidad de Transparencia
+            </h3>
+
+            <p>
+              Acceso a la información pública y transparencia.
+            </p>
+
+          </div>
+
+          <span class="card-arrow">
+            →
+          </span>
+
+        </a>
+
+
+
+        <!-- 18 -->
+        <a
+          class="service-card"
+          data-name="Trámites y Servicios Generales"
+          href="tramites-servicios-generales.pdf"
+        >
+
+          <span class="card-number">
+            18
+          </span>
+
+          <span class="card-icon">
+            ▣
+          </span>
+
+          <div class="card-content">
+
+            <h3>
+              Trámites y Servicios Generales
+            </h3>
+
+            <p>
+              Consulta general de trámites municipales.
+            </p>
+
+          </div>
+
+          <span class="card-arrow">
+            →
+          </span>
+
+        </a>
+
+      </div>
+
+
+      <!-- MENSAJE CUANDO NO HAY RESULTADOS -->
+      <div
+        class="no-results"
+        id="noResults"
+      >
+        No se encontró ninguna dirección con ese nombre.
+      </div>
+
+    </section>
+
+
+
+    <!-- ==========================================
+         CÓDIGO QR
+    =========================================== -->
+    <section
+      class="qr-section"
+      id="qr"
+    >
+
+      <div class="qr-card">
+
+        <div class="qr-copy">
+
+          <span class="section-kicker">
+            ACCESO DIGITAL
+          </span>
+
+          <h2>
+            Consulta desde cualquier dispositivo
+          </h2>
+
+          <p>
+            Escanea nuestro código QR para acceder al portal
+            de Trámites y Servicios Municipales.
+          </p>
+
         </div>
 
 
+        <div class="qr-box">
 
-        <!-- =====================
-             TARJETAS
-        ====================== -->
+          <img
+            src="qr-portal-tepeapulco.png"
+            alt="Código QR del portal municipal"
+          >
 
-        <div
-            class="tarjetas"
-            id="tarjetas">
+          <span>
+            Escanea para ingresar
+          </span>
 
+        </div>
 
-            <!-- 01 -->
+      </div>
 
-            <a
-                href="registro-civil.pdf"
-                target="_blank"
-                class="tarjeta"
-                data-nombre="Registro Civil">
+    </section>
 
-                <div class="numero">
-                    01
-                </div>
+  </main>
 
-                <div class="tarjeta-icono">
-                    RC
-                </div>
 
-                <div class="tarjeta-contenido">
 
-                    <h3>
-                        Registro Civil
-                    </h3>
+  <!-- ==========================================
+       PIE DE PÁGINA
+  =========================================== -->
+  <footer class="footer">
 
-                    <p>
-                        Nacimientos, defunciones,
-                        matrimonios y servicios.
-                    </p>
+    <div class="footer-inner">
 
-                </div>
+      <img
+        src="logo-tepeapulco.jpeg"
+        alt="Municipio de Tepeapulco"
+        class="footer-logo"
+      >
 
-                <div class="flecha">
-                    →
-                </div>
+      <div>
 
-            </a>
+        <strong>
+          Municipio de Tepeapulco, Hidalgo
+        </strong>
 
+        <p>
+          Portal de Trámites y Servicios Municipales
+        </p>
 
+      </div>
 
-            <!-- 02 -->
+    </div>
 
-            <a
-                href="panteones.pdf"
-                target="_blank"
-                class="tarjeta"
-                data-nombre="Dirección de Panteones">
 
-                <div class="numero">
-                    02
-                </div>
+    <div class="footer-bottom">
 
-                <div class="tarjeta-icono">
-                    PN
-                </div>
+      © 2026 Municipio de Tepeapulco, Hidalgo
 
-                <div class="tarjeta-contenido">
+    </div>
 
-                    <h3>
-                        Dirección de Panteones
-                    </h3>
+  </footer>
 
-                    <p>
-                        Trámites y servicios
-                        relacionados con panteones.
-                    </p>
 
-                </div>
 
-                <div class="flecha">
-                    →
-                </div>
+  <!-- BOTÓN PARA VOLVER ARRIBA -->
+  <button
+    class="back-top"
+    id="backTop"
+    aria-label="Volver arriba"
+  >
+    ↑
+  </button>
 
-            </a>
 
 
+  <!-- JAVASCRIPT -->
+  <script src="script.js"></script>
 
-            <!-- 03 -->
-
-            <a
-                href="rastro.pdf"
-                target="_blank"
-                class="tarjeta"
-                data-nombre="Rastro Municipal">
-
-                <div class="numero">
-                    03
-                </div>
-
-                <div class="tarjeta-icono">
-                    RM
-                </div>
-
-                <div class="tarjeta-contenido">
-
-                    <h3>
-                        Rastro Municipal
-                    </h3>
-
-                    <p>
-                        Información y servicios
-                        del Rastro Municipal.
-                    </p>
-
-                </div>
-
-                <div class="flecha">
-                    →
-                </div>
-
-            </a>
-
-
-
-            <!-- 04 -->
-
-            <a
-                href="desarrollo-economico.pdf"
-                target="_blank"
-                class="tarjeta"
-                data-nombre="Desarrollo Económico">
-
-                <div class="numero">
-                    04
-                </div>
-
-                <div class="tarjeta-icono">
-                    DE
-                </div>
-
-                <div class="tarjeta-contenido">
-
-                    <h3>
-                        Desarrollo Económico
-                    </h3>
-
-                    <p>
-                        Empleo, vinculación,
-                        programas y atención empresarial.
-                    </p>
-
-                </div>
-
-                <div class="flecha">
-                    →
-                </div>
-
-            </a>
-
-
-
-            <!-- 05 -->
-
-            <a
-                href="desarrollo-agropecuario.pdf"
-                target="_blank"
-                class="tarjeta"
-                data-nombre="Desarrollo Agropecuario">
-
-                <div class="numero">
-                    05
-                </div>
-
-                <div class="tarjeta-icono">
-                    DA
-                </div>
-
-                <div class="tarjeta-contenido">
-
-                    <h3>
-                        Desarrollo Agropecuario
-                    </h3>
-
-                    <p>
-                        Programas, servicios
-                        e información agropecuaria.
-                    </p>
-
-                </div>
-
-                <div class="flecha">
-                    →
-                </div>
-
-            </a>
-
-
-
-            <!-- 06 -->
-
-            <a
-                href="desarrollo-urbano.pdf"
-                target="_blank"
-                class="tarjeta"
-                data-nombre="Desarrollo Urbano y Ordenamiento Territorial">
-
-                <div class="numero">
-                    06
-                </div>
-
-                <div class="tarjeta-icono">
-                    DU
-                </div>
-
-                <div class="tarjeta-contenido">
-
-                    <h3>
-                        Desarrollo Urbano y
-                        Ordenamiento Territorial
-                    </h3>
-
-                    <p>
-                        Información relacionada
-                        con desarrollo urbano.
-                    </p>
-
-                </div>
-
-                <div class="flecha">
-                    →
-                </div>
-
-            </a>
-
-
-
-            <!-- 07 -->
-
-            <a
-                href="catastro.pdf"
-                target="_blank"
-                class="tarjeta"
-                data-nombre="Catastro Municipal">
-
-                <div class="numero">
-                    07
-                </div>
-
-                <div class="tarjeta-icono">
-                    CA
-                </div>
-
-                <div class="tarjeta-contenido">
-
-                    <h3>
-                        Catastro Municipal
-                    </h3>
-
-                    <p>
-                        Información y servicios
-                        catastrales.
-                    </p>
-
-                </div>
-
-                <div class="flecha">
-                    →
-                </div>
-
-            </a>
-
-
-
-            <!-- 08 -->
-
-            <a
-                href="ecologia-y-medio-ambiente.pdf"
-                target="_blank"
-                class="tarjeta"
-                data-nombre="Ecología y Medio Ambiente">
-
-                <div class="numero">
-                    08
-                </div>
-
-                <div class="tarjeta-icono">
-                    EA
-                </div>
-
-                <div class="tarjeta-contenido">
-
-                    <h3>
-                        Ecología y
-                        Medio Ambiente
-                    </h3>
-
-                    <p>
-                        Servicios e información
-                        ambiental municipal.
-                    </p>
-
-                </div>
-
-                <div class="flecha">
-                    →
-                </div>
-
-            </a>
-
-
-
-            <!-- 09 -->
-
-            <a
-                href="servicios-municipales.pdf"
-                target="_blank"
-                class="tarjeta"
-                data-nombre="Servicios Municipales">
-
-                <div class="numero">
-                    09
-                </div>
-
-                <div class="tarjeta-icono">
-                    SM
-                </div>
-
-                <div class="tarjeta-contenido">
-
-                    <h3>
-                        Servicios Municipales
-                    </h3>
-
-                    <p>
-                        Servicios públicos
-                        y atención municipal.
-                    </p>
-
-                </div>
-
-                <div class="flecha">
-                    →
-                </div>
-
-            </a>
-
-
-
-            <!-- 10 -->
-
-            <a
-                href="dif.pdf"
-                target="_blank"
-                class="tarjeta"
-                data-nombre="DIF Municipal">
-
-                <div class="numero">
-                    10
-                </div>
-
-                <div class="tarjeta-icono">
-                    DI
-                </div>
-
-                <div class="tarjeta-contenido">
-
-                    <h3>
-                        DIF Municipal
-                    </h3>
-
-                    <p>
-                        Servicios de asistencia
-                        y atención social.
-                    </p>
-
-                </div>
-
-                <div class="flecha">
-                    →
-                </div>
-
-            </a>
-
-
-
-            <!-- 11 -->
-
-            <a
-                href="turismo.pdf"
-                target="_blank"
-                class="tarjeta"
-                data-nombre="Turismo">
-
-                <div class="numero">
-                    11
-                </div>
-
-                <div class="tarjeta-icono">
-                    TU
-                </div>
-
-                <div class="tarjeta-contenido">
-
-                    <h3>
-                        Turismo
-                    </h3>
-
-                    <p>
-                        Información y servicios
-                        turísticos del municipio.
-                    </p>
-
-                </div>
-
-                <div class="flecha">
-                    →
-                </div>
-
-            </a>
-
-
-
-            <!-- 12 -->
-
-            <a
-                href="sipinna.pdf"
-                target="_blank"
-                class="tarjeta"
-                data-nombre="SIPINNA">
-
-                <div class="numero">
-                    12
-                </div>
-
-                <div class="tarjeta-icono">
-                    SI
-                </div>
-
-                <div class="tarjeta-contenido">
-
-                    <h3>
-                        SIPINNA
-                    </h3>
-
-                    <p>
-                        Información y servicios
-                        para niñas, niños y adolescentes.
-                    </p>
-
-                </div>
-
-                <div class="flecha">
-                    →
-                </div>
-
-            </a>
-
-
-
-            <!-- 13 -->
-
-            <a
-                href="servicio-medico-salud.pdf"
-                target="_blank"
-                class="tarjeta"
-                data-nombre="Servicio Médico y Sanidad">
-
-                <div class="numero">
-                    13
-                </div>
-
-                <div class="tarjeta-icono">
-                    SS
-                </div>
-
-                <div class="tarjeta-contenido">
-
-                    <h3>
-                        Servicio Médico y Sanidad
-                    </h3>
-
-                    <p>
-                        Información y servicios
-                        de atención municipal.
-                    </p>
-
-                </div>
-
-                <div class="flecha">
-                    →
-                </div>
-
-            </a>
-
-
-
-            <!-- 14 -->
-
-            <a
-                href="secretaria-general.pdf"
-                target="_blank"
-                class="tarjeta"
-                data-nombre="Secretaría General Municipal">
-
-                <div class="numero">
-                    14
-                </div>
-
-                <div class="tarjeta-icono">
-                    SG
-                </div>
-
-                <div class="tarjeta-contenido">
-
-                    <h3>
-                        Secretaría General
-                        Municipal
-                    </h3>
-
-                    <p>
-                        Información y servicios
-                        de la Secretaría General.
-                    </p>
-
-                </div>
-
-                <div class="flecha">
-                    →
-                </div>
-
-            </a>
-
-
-
-            <!-- 15 -->
-
-            <a
-                href="organo-interno-control.pdf"
-                target="_blank"
-                class="tarjeta"
-                data-nombre="Órgano Interno de Control">
-
-                <div class="numero">
-                    15
-                </div>
-
-                <div class="tarjeta-icono">
-                    OC
-                </div>
-
-                <div class="tarjeta-contenido">
-
-                    <h3>
-                        Órgano Interno
-                        de Control
-                    </h3>
-
-                    <p>
-                        Información y servicios
-                        de control interno.
-                    </p>
-
-                </div>
-
-                <div class="flecha">
-                    →
-                </div>
-
-            </a>
-
-
-
-            <!-- 16 -->
-
-            <a
-                href="asuntos-internos.pdf"
-                target="_blank"
-                class="tarjeta"
-                data-nombre="Unidad de Asuntos Internos">
-
-                <div class="numero">
-                    16
-                </div>
-
-                <div class="tarjeta-icono">
-                    AI
-                </div>
-
-                <div class="tarjeta-contenido">
-
-                    <h3>
-                        Unidad de
-                        Asuntos Internos
-                    </h3>
-
-                    <p>
-                        Información y atención
-                        correspondiente al área.
-                    </p>
-
-                </div>
-
-                <div class="flecha">
-                    →
-                </div>
-
-            </a>
-
-
-
-            <!-- 17 -->
-
-            <a
-                href="transparencia.pdf"
-                target="_blank"
-                class="tarjeta"
-                data-nombre="Unidad de Transparencia y Acceso a la Información">
-
-                <div class="numero">
-                    17
-                </div>
-
-                <div class="tarjeta-icono">
-                    TR
-                </div>
-
-                <div class="tarjeta-contenido">
-
-                    <h3>
-                        Unidad de
-                        Transparencia
-                    </h3>
-
-                    <p>
-                        Acceso a la información
-                        y servicios de transparencia.
-                    </p>
-
-                </div>
-
-                <div class="flecha">
-                    →
-                </div>
-
-            </a>
-
-
-
-            <!-- 18 -->
-
-            <a
-                href="tramites-servicios-generales.pdf"
-                target="_blank"
-                class="tarjeta"
-                data-nombre="Trámites y Servicios Generales">
-
-                <div class="numero">
-                    18
-                </div>
-
-                <div class="tarjeta-icono">
-                    TS
-                </div>
-
-                <div class="tarjeta-contenido">
-
-                    <h3>
+</body>
+</html>
