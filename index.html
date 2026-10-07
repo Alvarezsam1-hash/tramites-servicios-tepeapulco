@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Portal de trámites y servicios del Municipio de Tepeapulco, Hidalgo.">
+  <title>Trámites y Servicios | Tepeapulco</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="estilos.css">
+</head>
+
+<body>
+  <!-- El logo oficial se conserva sin modificar -->
+  <header class="topbar" id="inicio">
+    <div class="container nav-wrap">
+      <a class="brand" href="#inicio" aria-label="Inicio">
+        <img src="logo-tepeapulco.jpeg" alt="Municipio de Tepeapulco">
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+
+      <nav class="main-nav" id="mainNav">
+        <a href="#inicio">Inicio</a>
+        <a href="#direcciones">Trámites y Servicios</a>
+        <a href="#directorio">Directorio</a>
+        <a href="#contacto">Contacto</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- Imagen opcional: sube "portada-expo.jpg" al repositorio para usarla -->
+    <section class="hero">
+      <div class="hero-image" aria-hidden="true"></div>
+      <div class="hero-overlay"></div>
+      <div class="container hero-content">
+        <div class="hero-copy">
+          <span class="eyebrow">Municipio de Tepeapulco, Hidalgo</span>
+          <h1>Trámites y Servicios</h1>
+          <p>Consulta información municipal de forma sencilla, rápida y desde cualquier dispositivo.</p>
+
+          <div class="hero-actions">
+            <a class="btn btn-gold" href="#direcciones">Explorar servicios</a>
+            <a class="btn btn-light" href="#qr">Acceder con QR</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-card-icon">⌕</div>
+          <strong>¿Qué trámite o servicio buscas?</strong>
+          <p>Escribe una palabra para localizar rápidamente una dirección.</p>
+          <div class="search-box hero-search">
+            <input id="heroSearch" type="search" placeholder="Buscar servicio o dirección..." autocomplete="off">
+            <button id="heroSearchBtn" type="button">Buscar</button>
+          </div>
+        </div>
+      </div>
+      <div class="gold-line"></div>
+    </section>
+
+    <section class="quick-strip">
+      <div class="container quick-grid">
+        <div class="quick-item">
+          <span class="quick-icon">✓</span>
+          <div><strong>Información oficial</strong><small>Consulta actualizada</small></div>
+        </div>
+        <div class="quick-item">
+          <span class="quick-icon">⌁</span>
+          <div><strong>Acceso rápido</strong><small>Desde celular o computadora</small></div>
+        </div>
+        <div class="quick-item">
+          <span class="quick-icon">▣</span>
+          <div><strong>Documentos PDF</strong><small>Información por dirección</small></div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services-section" id="direcciones">
+      <div class="container">
+        <div class="section-heading">
+          <span class="section-kicker">Directorio municipal</span>
+          <h2>Selecciona una dirección</h2>
+          <p>Consulta los trámites, servicios e información disponible.</p>
+        </div>
+
+        <div class="filters">
+          <div class="search-box full-search">
+            <span class="search-symbol">⌕</span>
+            <input id="serviceSearch" type="search" placeholder="Buscar por dirección, área o servicio..." autocomplete="off">
+            <button id="clearSearch" type="button" aria-label="Limpiar búsqueda">×</button>
+          </div>
+          <div class="result-count" id="resultCount">18 direcciones</div>
+        </div>
+
+        <div class="cards-grid" id="cardsGrid">
+
+          <a class="service-card" data-name="Registro Civil" href="registro-civil.pdf" target="_blank" rel="noopener">
+            <span class="card-number">01</span><span class="card-icon">RC</span>
+            <div><h3>Registro Civil</h3><p>Nacimientos, defunciones, matrimonios y servicios.</p></div>
+            <span class="card-arrow">→</span>
+          </a>
+
+          <a class="service-card" data-name="Dirección de Panteones Panteones" href="panteones.pdf" target="_blank" rel="noopener">
+            <span class="card-number">02</span><span class="card-icon">PN</span>
+            <div><h3>Dirección de Panteones</h3><p>Trámites y servicios relacionados con panteones.</p></div>
+            <span class="card-arrow">→</span>
+          </a>
+
+          <a class="service-card" data-name="Rastro Municipal Rastro" href="rastro.pdf" target="_blank" rel="noopener">
+            <span class="card-number">03</span><span class="card-icon">RM</span>
+            <div><h3>Rastro Municipal</h3><p>Información y servicios del Rastro Municipal.</p></div>
+            <span class="card-arrow">→</span>
+          </a>
+
+          <a class="service-card" data-name="Desarrollo Económico Bolsa de Trabajo" href="desarrollo-economico.pdf" target="_blank" rel="noopener">
+            <span class="card-number">04</span><span class="card-icon">DE</span>
+            <div><h3>Desarrollo Económico</h3><p>Servicios, empleo, vinculación y atención empresarial.</p></div>
+            <span class="card-arrow">→</span>
+          </a>
+
+          <a class="service-card" data-name="Desarrollo Agropecuario" href="desarrollo-agropecuario.pdf" target="_blank" rel="noopener">
+            <span class="card-number">05</span><span class="card-icon">DA</span>
+            <div><h3>Desarrollo Agropecuario</h3><p>Programas, servicios e información agropecuaria.</p></div>
+            <span class="card-arrow">→</span>
+          </a>
+
+          <a class="service-card" data-name="Desarrollo Urbano Ordenamiento Territorial" href="desarrollo-urbano.pdf" target="_blank" rel="noopener">
+            <span class="card-number">06</span><span class="card-icon">DU</span>
+            <div><h3>Desarrollo Urbano y Ordenamiento Territorial</h3><p>Información y trámites relacionados con desarrollo urbano.</p></div>
+            <span class="card-arrow">→</span>
+          </a>
+
+          <a class="service-card" data-name="Catastro Municipal" href="catastro.pdf" target="_blank" rel="noopener">
+            <span class="card-number">07</span><span class="card-icon">CA</span>
+            <div><h3>Catastro Municipal</h3><p>Información y servicios catastrales.</p></div>
+            <span class="card-arrow">→</span>
+          </a>
+
+          <a class="service-card" data-name="Ecología Medio Ambiente" href="ecologia-y-medio-ambiente.pdf" target="_blank" rel="noopener">
+            <span class="card-number">08</span><span class="card-icon">EA</span>
+            <div><h3>Ecología y Medio Ambiente</h3><p>Servicios e información ambiental municipal.</p></div>
+            <span class="card-arrow">→</span>
+          </a>
+
+          <a class="service-card" data-name="Servicios Municipales" href="servicios-municipales.pdf" target="_blank" rel="noopener">
+            <span class="card-number">09</span><span class="card-icon">SM</span>
+            <div><h3>Servicios Municipales</h3><p>Servicios públicos y atención municipal.</p></div>
+            <span class="card-arrow">→</span>
+          </a>
+
+          <a class="service-card" data-name="DIF Municipal" href="dif.pdf" target="_blank" rel="noopener">
+            <span class="card-number">10</span><span class="card-icon">DI</span>
+            <div><h3>DIF Municipal</h3><p>Servicios de asistencia y atención social.</p></div>
+            <span class="card-arrow">→</span>
+          </a>
+
+          <a class="service-card" data-name="Turismo" href="turismo.pdf" target="_blank" rel="noopener">
+            <span class="card-number">11</span><span class="card-icon">TU</span>
+            <div><h3>Turismo</h3><p>Información y servicios turísticos del municipio.</p></div>
+            <span class="card-arrow">→</span>
+          </a>
+
+          <a class="service-card" data-name="SIPINNA" href="sipinna.pdf" target="_blank" rel="noopener">
+            <span class="card-number">12</span><span class="card-icon">SI</span>
+            <div><h3>SIPINNA</h3><p>Información y servicios para niñas, niños y adolescentes.</p></div>
+            <span class="card-arrow">→</span>
+          </a>
+
+          <a class="service-card" data-name="Servicio Médico Sanidad" href="servicio-medico-salud.pdf" target="_blank" rel="noopener">
+            <span class="card-number">13</span><span class="card-icon">SS</span>
+            <div><h3>Servicio Médico y Sanidad</h3><p>Información y servicios de atención municipal.</p></div>
+            <span class="card-arrow">→</span>
+          </a>
+
+          <a class="service-card" data-name="Secretaría General Municipal" href="secretaria-general.pdf" target="_blank" rel="noopener">
+            <span class="card-number">14</span><span class="card-icon">SG</span>
+            <div><h3>Secretaría General Municipal</h3><p>Información y servicios de la Secretaría General.</p></div>
+            <span class="card-arrow">→</span>
+          </a>
+
+          <a class="service-card" data-name="Órgano Interno de Control" href="organo-interno-control.pdf" target="_blank" rel="noopener">
+            <span class="card-number">15</span><span class="card-icon">OC</span>
+            <div><h3>Órgano Interno de Control</h3><p>Información y servicios de control interno.</p></div>
+            <span class="card-arrow">→</span>
+          </a>
+
+          <a class="service-card" data-name="Unidad de Asuntos Internos" href="asuntos-internos.pdf" target="_blank" rel="noopener">
+            <span class="card-number">16</span><span class="card-icon">AI</span>
+            <div><h3>Unidad de Asuntos Internos</h3><p>Información y atención correspondiente al área.</p></div>
+            <span class="card-arrow">→</span>
+          </a>
+
+          <a class="service-card" data-name="Unidad de Transparencia Acceso a la Información" href="transparencia.pdf" target="_blank" rel="noopener">
+            <span class="card-number">17</span><span class="card-icon">TR</span>
+            <div><h3>Unidad de Transparencia</h3><p>Acceso a la información y servicios de transparencia.</p></div>
+            <span class="card-arrow">→</span>
+          </a>
+
+          <a class="service-card" data-name="Trámites Servicios Generales" href="tramites-servicios-generales.pdf" target="_blank" rel="noopener">
+            <span class="card-number">18</span><span class="card-icon">TS</span>
+            <div><h3>Trámites y Servicios Generales</h3><p>Consulta general de trámites municipales.</p></div>
+            <span class="card-arrow">→</span>
+          </a>
+        </div>
+
+        <div class="no-results" id="noResults">
+          <strong>No encontramos una dirección.</strong>
+          <span>Prueba con otra palabra de búsqueda.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- Imagen opcional: sube "banner-expo.jpg" al repositorio -->
+    <section class="visual-banner">
+      <div class="container">
+        <div class="visual-banner-inner">
+          <div>
+            <span class="section-kicker">Información municipal</span>
+            <h2>Consulta desde cualquier lugar</h2>
+            <p>El portal está pensado para facilitar el acceso a la información municipal desde celular, tableta o computadora.</p>
+          </div>
+          <div class="visual-placeholder">
+            <img src="banner-expo.jpg" alt="Imagen institucional" onerror="this.style.display='none';this.parentElement.classList.add('empty-image');">
+            <span>Imagen institucional</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="qr-section" id="qr">
+      <div class="container qr-card">
+        <div class="qr-copy">
+          <span class="section-kicker">Acceso móvil</span>
+          <h2>Escanea y consulta el portal</h2>
+          <p>Coloca este código QR en la Expo Industrial para que los visitantes puedan acceder rápidamente a todos los trámites y servicios.</p>
+          <div class="qr-note">El QR puede actualizarse posteriormente cuando conectemos el dominio institucional.</div>
+        </div>
+        <div class="qr-box">
+          <img src="qr-portal-tepeapulco.png" alt="Código QR para acceder al portal">
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="directorio">
+      <div class="container">
+        <div class="section-heading compact">
+          <span class="section-kicker">Atención</span>
+          <h2>Directorio y contacto</h2>
+          <p>Consulta la información correspondiente en cada dirección mediante su ficha PDF.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer id="contacto">
+    <div class="container footer-grid">
+      <div class="footer-brand">
+        <img src="logo-tepeapulco.jpeg" alt="Municipio de Tepeapulco">
+      </div>
+      <div>
+        <strong>Municipio de Tepeapulco, Hidalgo</strong>
+        <p>Portal informativo de trámites y servicios municipales.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#inicio">Inicio</a>
+        <a href="#direcciones">Servicios</a>
+        <a href="#qr">Código QR</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© Municipio de Tepeapulco · Información municipal</div>
+  </footer>
+
+  <button class="back-top" id="backTop" aria-label="Volver arriba">↑</button>
+  <script src="script.js"></script>
+</body>
+</html>
