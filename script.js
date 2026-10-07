@@ -1,15 +1,10 @@
-/* =========================================================
-   PORTAL DE TRÁMITES Y SERVICIOS MUNICIPALES
-   MUNICIPIO DE TEPEAPULCO, HIDALGO
-========================================================= */
-
 document.addEventListener("DOMContentLoaded", () => {
 
-  /* =======================================================
-     ELEMENTOS DEL PORTAL
-  ======================================================= */
+  /* =====================================================
+     ELEMENTOS
+  ====================================================== */
 
-  const heroForm =
+  const heroSearchForm =
     document.getElementById("heroSearchForm");
 
   const heroSearch =
@@ -33,36 +28,28 @@ document.addEventListener("DOMContentLoaded", () => {
     document.getElementById("backTop");
 
 
-  /* =======================================================
+  /* =====================================================
      NORMALIZAR TEXTO
-     
-     Permite buscar:
-     "Ecología"
-     aunque se escriba:
-     "ecologia"
-  ======================================================= */
+  ====================================================== */
 
   function normalize(text) {
 
     return text
       .toLowerCase()
       .normalize("NFD")
-      .replace(
-        /[\u0300-\u036f]/g,
-        ""
-      )
+      .replace(/[\u0300-\u036f]/g, "")
       .trim();
 
   }
 
 
-  /* =======================================================
+  /* =====================================================
      FILTRAR DIRECCIONES
-  ======================================================= */
+  ====================================================== */
 
   function filterCards(value) {
 
-    const term =
+    const search =
       normalize(value);
 
     let visible =
@@ -71,32 +58,43 @@ document.addEventListener("DOMContentLoaded", () => {
 
     cards.forEach(card => {
 
-      const name =
+      const title =
+        card.querySelector(
+          ".card-content strong"
+        )?.textContent || "";
+
+      const subtitle =
+        card.querySelector(
+          ".card-content small"
+        )?.textContent || "";
+
+      const dataSearch =
+        card.dataset.search || "";
+
+
+      const completeText =
         normalize(
-          card.dataset.name ||
-          card.innerText
+          title +
+          " " +
+          subtitle +
+          " " +
+          dataSearch
         );
 
 
-      /* Si no hay búsqueda,
-         mostrar todas */
+      const matches =
+        search === "" ||
+        completeText.includes(search);
 
-      if (
-        !term ||
-        name.includes(term)
-      ) {
+
+      if (matches) {
 
         card.style.display =
-          "";
+          "flex";
 
         visible++;
 
-      }
-
-      /* Si no coincide,
-         ocultar */
-
-      else {
+      } else {
 
         card.style.display =
           "none";
@@ -106,48 +104,89 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
 
-    /* =====================================================
-       ACTUALIZAR CONTADOR
-    ===================================================== */
+    /* Contador */
 
     if (resultCount) {
 
-      if (visible === 1) {
-
-        resultCount.textContent =
-          "1 dirección";
-
-      }
-
-      else {
-
-        resultCount.textContent =
-          `${visible} direcciones`;
-
-      }
+      resultCount.textContent =
+        visible === 1
+          ? "1 dirección"
+          : `${visible} direcciones`;
 
     }
 
 
-    /* =====================================================
-       MOSTRAR / OCULTAR MENSAJE
-    ===================================================== */
+    /* Mensaje sin resultados */
 
     if (noResults) {
 
-      noResults.style.display =
-        visible === 0
-          ? "block"
-          : "none";
+      if (visible === 0) {
+
+        noResults.classList.add(
+          "visible"
+        );
+
+      } else {
+
+        noResults.classList.remove(
+          "visible"
+        );
+
+      }
 
     }
 
   }
 
 
-  /* =======================================================
-     BUSCADOR DE LA SECCIÓN DE DIRECCIONES
-  ======================================================= */
+  /* =====================================================
+     BUSCADOR PRINCIPAL
+  ====================================================== */
+
+  if (heroSearchForm) {
+
+    heroSearchForm.addEventListener(
+      "submit",
+      event => {
+
+        event.preventDefault();
+
+
+        const value =
+          heroSearch.value.trim();
+
+
+        /* Bajar a las direcciones */
+
+        document
+          .getElementById("direcciones")
+          ?.scrollIntoView({
+            behavior: "smooth",
+            block: "start"
+          });
+
+
+        /* Copiar búsqueda */
+
+        if (serviceSearch) {
+
+          serviceSearch.value =
+            value;
+
+        }
+
+
+        filterCards(value);
+
+      }
+    );
+
+  }
+
+
+  /* =====================================================
+     BUSCADOR DE DIRECCIONES
+  ====================================================== */
 
   if (serviceSearch) {
 
@@ -165,158 +204,9 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /* =======================================================
-     BUSCADOR PRINCIPAL DEL ENCABEZADO
-  ======================================================= */
-
-  if (heroForm) {
-
-    heroForm.addEventListener(
-      "submit",
-      event => {
-
-        /* Evitar que la página
-           se recargue */
-
-        event.preventDefault();
-
-
-        const value =
-          heroSearch
-            ? heroSearch.value.trim()
-            : "";
-
-
-        /* Ir a la sección
-           de direcciones */
-
-        const directions =
-          document.getElementById(
-            "direcciones"
-          );
-
-
-        if (directions) {
-
-          directions.scrollIntoView({
-            behavior: "smooth"
-          });
-
-        }
-
-
-        /* Pasar la búsqueda
-           al segundo buscador */
-
-        if (serviceSearch) {
-
-          serviceSearch.value =
-            value;
-
-          filterCards(
-            value
-          );
-
-          serviceSearch.focus();
-
-        }
-
-      }
-    );
-
-  }
-
-
-  /* =======================================================
-     BOTÓN "VOLVER ARRIBA"
-  ======================================================= */
-
-  window.addEventListener(
-    "scroll",
-    () => {
-
-      if (!backTop) {
-        return;
-      }
-
-
-      if (
-        window.scrollY > 450
-      ) {
-
-        backTop.classList.add(
-          "visible"
-        );
-
-      }
-
-      else {
-
-        backTop.classList.remove(
-          "visible"
-        );
-
-      }
-
-    }
-  );
-
-
-  /* =======================================================
-     FUNCIONAMIENTO DEL BOTÓN
-  ======================================================= */
-
-  if (backTop) {
-
-    backTop.addEventListener(
-      "click",
-      () => {
-
-        window.scrollTo({
-          top: 0,
-          behavior: "smooth"
-        });
-
-      }
-    );
-
-  }
-
-
-  /* =======================================================
-     BUSCAR AL PRESIONAR ENTER
-     
-     El buscador funciona también
-     directamente con la tecla Enter.
-  ======================================================= */
-
-  if (serviceSearch) {
-
-    serviceSearch.addEventListener(
-      "keydown",
-      event => {
-
-        if (
-          event.key === "Enter"
-        ) {
-
-          event.preventDefault();
-
-          filterCards(
-            serviceSearch.value
-          );
-
-        }
-
-      }
-    );
-
-  }
-
-
-  /* =======================================================
-     LIMPIAR BÚSQUEDA CON ESC
-  ======================================================= */
+  /* =====================================================
+     TECLA ESC
+  ====================================================== */
 
   if (serviceSearch) {
 
@@ -343,13 +233,56 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
 
-  /* =======================================================
+  /* =====================================================
+     BOTÓN REGRESAR ARRIBA
+  ====================================================== */
+
+  window.addEventListener(
+    "scroll",
+    () => {
+
+      if (
+        window.scrollY > 500
+      ) {
+
+        backTop?.classList.add(
+          "visible"
+        );
+
+      } else {
+
+        backTop?.classList.remove(
+          "visible"
+        );
+
+      }
+
+    }
+  );
+
+
+  if (backTop) {
+
+    backTop.addEventListener(
+      "click",
+      () => {
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+
+      }
+    );
+
+  }
+
+
+  /* =====================================================
      INICIO
-     
-     Mostrar las 18 direcciones
-     al cargar el portal.
-  ======================================================= */
+  ====================================================== */
 
   filterCards("");
+
 
 });
