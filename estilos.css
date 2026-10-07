@@ -1,33 +1,35 @@
 /* =========================================================
-   PORTAL DE TRÁMITES Y SERVICIOS MUNICIPALES
-   MUNICIPIO DE TEPEAPULCO, HIDALGO
+   VARIABLES
 ========================================================= */
 
 :root {
-  --vino: #64152b;
-  --vino-oscuro: #3f0d1b;
-  --vino-medio: #7b1d38;
+  --wine: #68152b;
+  --wine-dark: #420c1b;
+  --wine-light: #8b2944;
 
-  --dorado: #d5b35a;
-  --dorado-claro: #f0d98c;
+  --gold: #c7a35a;
+  --gold-light: #e3ca8a;
 
-  --crema: #fbf7ee;
-  --blanco: #ffffff;
+  --cream: #f8f5ef;
+  --white: #ffffff;
 
-  --gris: #66636a;
-  --gris-claro: #ece9e4;
+  --text: #292929;
+  --muted: #737373;
 
-  --sombra:
-    0 12px 30px rgba(63, 13, 27, 0.12);
+  --shadow: 0 18px 45px rgba(58, 15, 28, 0.13);
+
+  --radius: 22px;
 }
 
 
 /* =========================================================
-   CONFIGURACIÓN GENERAL
+   RESET
 ========================================================= */
 
 * {
   box-sizing: border-box;
+  margin: 0;
+  padding: 0;
 }
 
 html {
@@ -35,22 +37,21 @@ html {
 }
 
 body {
-  margin: 0;
-
   font-family:
+    "Segoe UI",
+    Roboto,
     Arial,
-    Helvetica,
     sans-serif;
 
-  color: var(--vino-oscuro);
-
   background:
-    var(--crema);
-}
+    linear-gradient(
+      180deg,
+      #ffffff 0%,
+      #faf8f3 100%
+    );
 
-a {
-  color: inherit;
-  text-decoration: none;
+  color: var(--text);
+  line-height: 1.6;
 }
 
 button,
@@ -58,1274 +59,903 @@ input {
   font: inherit;
 }
 
-
-/* =========================================================
-   HERO / PORTADA
-========================================================= */
-
-.hero {
-
-  position: relative;
-
-  min-height: 650px;
-
-  overflow: hidden;
-
-  color: var(--blanco);
-
-  background:
-    radial-gradient(
-      circle at 80% 20%,
-      rgba(213, 179, 90, 0.18),
-      transparent 25%
-    ),
-    linear-gradient(
-      120deg,
-      #3f0d1b 0%,
-      #64152b 58%,
-      #7d203d 100%
-    );
+a {
+  color: inherit;
+  text-decoration: none;
 }
 
 
-/* Brillo decorativo */
+/* =========================================================
+   HERO
+========================================================= */
 
-.hero::before {
+.hero {
+  position: relative;
+  min-height: 560px;
 
-  content: "";
-
-  position: absolute;
-
-  inset: 0;
+  overflow: hidden;
 
   background:
-    radial-gradient(
-      circle at 20% 30%,
-      rgba(255,255,255,0.06),
-      transparent 22%
-    ),
-    radial-gradient(
-      circle at 85% 70%,
-      rgba(213,179,90,0.10),
-      transparent 25%
+    linear-gradient(
+      120deg,
+      var(--wine-dark),
+      var(--wine) 55%,
+      #7b1e37
     );
+
+  color: white;
+}
+
+
+/* Logo como marca de agua */
+
+.hero-watermark {
+  position: absolute;
+
+  width: 600px;
+  height: 600px;
+
+  right: -100px;
+  top: -70px;
+
+  background-image:
+    url("logo-tepeapulco.jpeg");
+
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  opacity: 0.08;
+
+  filter: grayscale(1) brightness(2);
 
   pointer-events: none;
 }
 
 
-/* =========================================================
-   LOGO COMO MARCA DE AGUA
-========================================================= */
-
-.hero-watermark {
-
+.hero-overlay {
   position: absolute;
+  inset: 0;
 
-  right: 5%;
-  top: 4%;
-
-  width: 560px;
-  height: 560px;
-
-  background-image:
-    url("logo-tepeapulco.jpeg");
-
-  background-position:
-    center;
-
-  background-repeat:
-    no-repeat;
-
-  background-size:
-    contain;
-
-  opacity:
-    0.10;
-
-  filter:
-    grayscale(1)
-    brightness(0)
-    invert(1);
-
-  pointer-events:
-    none;
+  background:
+    radial-gradient(
+      circle at 20% 20%,
+      rgba(255,255,255,0.10),
+      transparent 35%
+    );
 }
 
-
-/* =========================================================
-   CONTENIDO DEL HERO
-========================================================= */
 
 .hero-content {
-
   position: relative;
-
   z-index: 2;
 
-  width:
-    min(
-      1180px,
-      calc(100% - 60px)
-    );
+  width: min(1150px, 92%);
 
-  min-height:
-    610px;
+  margin: auto;
 
-  margin:
-    0 auto;
-
-  display:
-    grid;
-
-  grid-template-columns:
-    1.15fr
-    0.85fr;
-
-  align-items:
-    center;
-
-  gap:
-    60px;
+  padding:
+    95px 0
+    85px;
 }
 
 
-/* =========================================================
-   TEXTO PRINCIPAL
-========================================================= */
-
 .hero-copy {
-
-  position:
-    relative;
-
-  padding:
-    60px 0;
+  max-width: 760px;
 }
 
 
 .eyebrow {
+  display: inline-block;
 
-  display:
-    inline-block;
+  margin-bottom: 18px;
 
-  margin-bottom:
-    14px;
+  color: var(--gold-light);
 
-  color:
-    var(--dorado-claro);
+  font-size: 0.78rem;
+  font-weight: 800;
 
-  font-size:
-    12px;
-
-  font-weight:
-    800;
-
-  letter-spacing:
-    2px;
+  letter-spacing: 3px;
 }
 
 
 .hero h1 {
+  font-size: clamp(2.5rem, 6vw, 5rem);
 
-  position:
-    relative;
+  line-height: 0.98;
 
-  margin:
-    0;
+  font-weight: 900;
 
-  max-width:
-    750px;
+  letter-spacing: -2px;
 
-  font-size:
-    clamp(
-      48px,
-      6vw,
-      82px
-    );
-
-  line-height:
-    0.94;
-
-  letter-spacing:
-    -2px;
-
-  font-weight:
-    900;
+  text-transform: uppercase;
 }
 
 
 .hero h1 span {
+  display: block;
 
-  color:
-    var(--dorado-claro);
+  color: var(--gold-light);
+}
+
+
+.gold-line {
+  width: 100px;
+  height: 4px;
+
+  margin: 28px 0;
+
+  background:
+    linear-gradient(
+      90deg,
+      var(--gold),
+      transparent
+    );
 }
 
 
 .hero-copy p {
+  max-width: 650px;
 
-  max-width:
-    650px;
+  color: rgba(255,255,255,0.84);
 
-  margin:
-    28px
-    0
-    30px;
-
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.90
-    );
-
-  font-size:
-    18px;
-
-  line-height:
-    1.65;
+  font-size: 1.08rem;
 }
 
 
 /* =========================================================
-   BOTONES
-========================================================= */
-
-.hero-actions {
-
-  display:
-    flex;
-
-  gap:
-    14px;
-
-  flex-wrap:
-    wrap;
-}
-
-
-.btn {
-
-  display:
-    inline-flex;
-
-  align-items:
-    center;
-
-  justify-content:
-    center;
-
-  min-height:
-    52px;
-
-  padding:
-    0
-    25px;
-
-  border-radius:
-    30px;
-
-  font-weight:
-    800;
-
-  transition:
-    0.25s ease;
-}
-
-
-.btn-gold {
-
-  color:
-    var(--vino-oscuro);
-
-  background:
-    var(--dorado);
-}
-
-
-.btn-gold:hover {
-
-  background:
-    var(--dorado-claro);
-
-  transform:
-    translateY(-2px);
-}
-
-
-.btn-outline {
-
-  color:
-    var(--blanco);
-
-  border:
-    1px solid
-    rgba(
-      255,
-      255,
-      255,
-      0.75
-    );
-}
-
-
-.btn-outline:hover {
-
-  background:
-    rgba(
-      255,
-      255,
-      255,
-      0.10
-    );
-
-  transform:
-    translateY(-2px);
-}
-
-
-/* =========================================================
-   TARJETA DEL BUSCADOR
+   SEARCH HERO
 ========================================================= */
 
 .search-card {
+  position: relative;
 
-  position:
-    relative;
+  display: flex;
+  align-items: center;
 
-  padding:
-    34px;
+  max-width: 800px;
 
-  color:
-    var(--vino-oscuro);
+  margin-top: 42px;
+
+  padding: 10px;
 
   background:
-    rgba(
-      255,
-      255,
-      255,
-      0.96
-    );
+    rgba(255,255,255,0.97);
 
   border:
-    1px solid
-    rgba(
-      255,
-      255,
-      255,
-      0.7
-    );
+    1px solid rgba(255,255,255,0.5);
 
-  border-radius:
-    28px;
+  border-radius: 18px;
 
   box-shadow:
-    0 25px 55px
-    rgba(
-      0,
-      0,
-      0,
-      0.22
-    );
+    0 20px 50px rgba(0,0,0,0.20);
 }
 
 
 .search-icon {
+  width: 52px;
+  height: 52px;
 
-  width:
-    48px;
+  flex: 0 0 52px;
 
-  height:
-    48px;
+  display: grid;
+  place-items: center;
 
-  display:
-    grid;
-
-  place-items:
-    center;
-
-  margin-bottom:
-    20px;
-
-  border-radius:
-    50%;
-
-  color:
-    var(--vino);
+  color: var(--wine);
 
   background:
-    #f3eee5;
+    #f4eee3;
 
-  font-size:
-    31px;
+  border-radius: 14px;
 }
 
 
-.search-card h2 {
+.search-icon svg {
+  width: 25px;
+  height: 25px;
 
-  margin:
-    0;
+  fill: none;
 
-  font-size:
-    27px;
+  stroke: currentColor;
 
-  line-height:
-    1.15;
+  stroke-width: 2;
 }
 
-
-.search-card p {
-
-  margin:
-    10px
-    0
-    20px;
-
-  color:
-    var(--gris);
-
-  font-size:
-    14px;
-}
-
-
-/* =========================================================
-   BUSCADOR
-========================================================= */
 
 .search-form {
+  display: flex;
+  align-items: center;
 
-  display:
-    grid;
+  gap: 10px;
 
-  grid-template-columns:
-    1fr
-    auto;
-
-  overflow:
-    hidden;
-
-  background:
-    var(--blanco);
-
-  border:
-    1px solid
-    #d9d3cb;
-
-  border-radius:
-    13px;
+  width: 100%;
 }
 
 
 .search-form input {
+  flex: 1;
 
-  width:
-    100%;
+  min-width: 0;
 
-  min-width:
-    0;
+  border: 0;
+  outline: 0;
 
-  padding:
-    17px;
+  padding: 15px;
 
-  border:
-    0;
+  color: var(--text);
 
-  outline:
-    0;
+  background: transparent;
 
-  color:
-    var(--vino-oscuro);
-
-  background:
-    transparent;
+  font-size: 1rem;
 }
 
 
 .search-form button {
+  border: 0;
 
   padding:
-    0
-    25px;
+    14px 25px;
 
-  border:
-    0;
-
-  color:
-    var(--blanco);
+  border-radius: 12px;
 
   background:
-    var(--vino);
+    linear-gradient(
+      135deg,
+      var(--gold),
+      #a9853d
+    );
 
-  font-weight:
-    800;
+  color: var(--wine-dark);
 
-  cursor:
-    pointer;
+  font-weight: 800;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 
 .search-form button:hover {
+  transform: translateY(-2px);
 
-  background:
-    var(--vino-medio);
+  box-shadow:
+    0 8px 20px rgba(0,0,0,0.18);
 }
 
 
 /* =========================================================
-   SEPARADOR HERO
+   HERO WAVE
 ========================================================= */
 
 .hero-wave {
+  position: absolute;
 
-  position:
-    absolute;
+  bottom: -1px;
+  left: 0;
 
-  z-index:
-    3;
+  width: 100%;
+  height: 80px;
 
-  left:
-    -5%;
+  background: var(--cream);
 
-  right:
-    -5%;
-
-  bottom:
-    -80px;
-
-  height:
-    150px;
-
-  background:
-    var(--crema);
-
-  border-radius:
-    50%
-    50%
-    0
-    0 /
-    65%
-    65%
-    0
-    0;
-
-  border-top:
-    7px solid
-    var(--dorado);
+  clip-path:
+    ellipse(70% 65% at 50% 100%);
 }
 
 
 /* =========================================================
-   SECCIÓN DIRECCIONES
+   SERVICES SECTION
 ========================================================= */
 
 .services-section {
+  width: min(1200px, 92%);
 
-  width:
-    min(
-      1180px,
-      calc(100% - 60px)
-    );
-
-  margin:
-    0 auto;
+  margin: auto;
 
   padding:
-    85px
-    0
+    35px 0
     90px;
 }
 
 
 .section-heading {
+  text-align: center;
 
-  display:
-    flex;
+  max-width: 750px;
 
-  justify-content:
-    space-between;
-
-  align-items:
-    end;
-
-  gap:
-    30px;
-
-  margin-bottom:
-    32px;
+  margin:
+    0 auto
+    40px;
 }
 
 
 .section-kicker {
+  display: inline-block;
 
-  display:
-    inline-block;
+  color: var(--wine);
 
-  margin-bottom:
-    10px;
+  font-size: 0.75rem;
 
-  color:
-    var(--vino);
+  font-weight: 900;
 
-  font-size:
-    12px;
-
-  font-weight:
-    800;
-
-  letter-spacing:
-    2px;
+  letter-spacing: 3px;
 }
 
 
 .section-heading h2 {
+  margin-top: 7px;
 
-  margin:
-    0;
+  color: var(--wine-dark);
 
-  color:
-    var(--vino);
+  font-size: clamp(2rem, 4vw, 3rem);
 
-  font-size:
-    38px;
+  line-height: 1.1;
+
+  text-transform: uppercase;
 }
 
 
 .section-heading p {
+  margin-top: 15px;
 
-  margin:
-    8px
-    0
-    0;
+  color: var(--muted);
 
-  color:
-    var(--gris);
+  font-size: 1rem;
+}
+
+
+.heading-line {
+  width: 65px;
+  height: 3px;
+
+  margin: 20px auto 0;
+
+  background: var(--gold);
 }
 
 
 /* =========================================================
-   SEGUNDO BUSCADOR
+   SECOND SEARCH
 ========================================================= */
 
 .full-search {
+  display: flex;
+  align-items: center;
 
-  width:
-    min(
-      440px,
-      100%
-    );
+  width: min(850px, 100%);
 
-  display:
-    flex;
+  margin:
+    0 auto
+    55px;
 
-  align-items:
-    center;
+  padding: 7px 10px;
 
-  gap:
-    10px;
-
-  padding:
-    5px
-    12px;
-
-  background:
-    var(--blanco);
+  background: white;
 
   border:
-    1px solid
-    #ddd7ce;
+    1px solid rgba(104,21,43,0.10);
 
-  border-radius:
-    14px;
+  border-radius: 16px;
 
   box-shadow:
-    0 7px 18px
-    rgba(
-      63,
-      13,
-      27,
-      0.06
-    );
+    0 10px 30px rgba(65,15,30,0.08);
 }
 
 
 .search-symbol {
+  width: 45px;
+  height: 45px;
 
-  color:
-    var(--vino);
+  display: grid;
+  place-items: center;
 
-  font-size:
-    25px;
+  flex: 0 0 45px;
+
+  color: var(--wine);
+
+  background: #f4eee3;
+
+  border-radius: 12px;
+}
+
+
+.search-symbol svg {
+  width: 21px;
+  height: 21px;
+
+  fill: none;
+
+  stroke: currentColor;
+
+  stroke-width: 2;
 }
 
 
 .full-search input {
+  flex: 1;
 
-  flex:
-    1;
+  min-width: 0;
 
-  min-width:
-    0;
+  padding: 13px 15px;
 
-  padding:
-    12px
-    4px;
+  border: 0;
+  outline: 0;
 
-  border:
-    0;
+  background: transparent;
 
-  outline:
-    0;
+  color: var(--text);
 
-  background:
-    transparent;
+  font-size: 0.98rem;
 }
 
 
 .result-count {
+  padding:
+    8px 13px;
 
-  color:
-    #777;
+  color: var(--wine);
 
-  white-space:
-    nowrap;
+  background: #f8f0e4;
 
-  font-size:
-    12px;
+  border-radius: 30px;
+
+  font-size: 0.75rem;
+
+  font-weight: 800;
+
+  white-space: nowrap;
 }
 
 
 /* =========================================================
-   CUADRÍCULA
+   ICON GRID
 ========================================================= */
 
 .cards-grid {
 
-  display:
-    grid;
+  display: grid;
 
   grid-template-columns:
-    repeat(
-      3,
-      1fr
-    );
+    repeat(3, 1fr);
 
   gap:
-    18px;
+    55px 35px;
+
 }
 
 
 /* =========================================================
-   TARJETAS DE DIRECCIONES
+   SERVICE CARD
+   SIN CUADRO BLANCO
 ========================================================= */
 
 .service-card {
 
-  position:
-    relative;
+  position: relative;
 
-  min-height:
-    190px;
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  text-align: center;
 
   padding:
-    28px
-    24px
-    23px;
+    5px 12px
+    20px;
 
-  overflow:
-    hidden;
+  min-height: 215px;
 
-  display:
-    flex;
+  background: transparent;
 
-  flex-direction:
-    column;
+  border: 0;
 
-  background:
-    var(--blanco);
-
-  border:
-    1px solid
-    #ebe5dd;
-
-  border-radius:
-    22px;
-
-  box-shadow:
-    var(--sombra);
+  cursor: pointer;
 
   transition:
-    0.25s ease;
+    transform 0.3s ease;
 }
 
 
 .service-card:hover {
-
   transform:
-    translateY(-6px);
-
-  border-color:
-    rgba(
-      100,
-      21,
-      43,
-      0.25
-    );
-
-  box-shadow:
-    0 18px 40px
-    rgba(
-      63,
-      13,
-      27,
-      0.19
-    );
+    translateY(-8px);
 }
 
 
-/* =========================================================
-   NÚMERO
-========================================================= */
+/* Número */
 
 .card-number {
 
-  position:
-    absolute;
+  position: absolute;
 
-  top:
-    16px;
+  top: -10px;
+  right: 10px;
 
-  right:
-    17px;
+  color: rgba(104,21,43,0.20);
 
-  color:
-    var(--dorado);
+  font-size: 0.72rem;
 
-  font-size:
-    12px;
+  font-weight: 900;
 
-  font-weight:
-    900;
-
-  letter-spacing:
-    1px;
+  letter-spacing: 1px;
 }
 
 
 /* =========================================================
-   ICONOS CIRCULARES INSTITUCIONALES
+   CÍRCULO FLOTANTE
 ========================================================= */
 
 .card-icon {
 
-  position:
-    relative;
+  position: relative;
 
-  width:
-    66px;
+  width: 105px;
+  height: 105px;
 
-  height:
-    66px;
+  display: grid;
+  place-items: center;
 
-  display:
-    grid;
+  margin-bottom: 18px;
 
-  place-items:
-    center;
-
-  margin-bottom:
-    19px;
-
-  border-radius:
-    50%;
-
-  color:
-    #ffffff;
+  color: white;
 
   background:
     linear-gradient(
       145deg,
-      #7b1d38 0%,
-      #64152b 55%,
-      #4b1020 100%
+      var(--wine-light),
+      var(--wine-dark)
     );
 
   border:
-    2px solid
-    var(--dorado);
+    3px solid var(--gold);
+
+  border-radius: 50%;
 
   box-shadow:
-    0 7px 16px
-    rgba(
-      63,
-      13,
-      27,
-      0.22
-    ),
-    inset
-    0 0 0 4px
-    rgba(
-      255,
-      255,
-      255,
-      0.06
-    );
-
-  font-size:
-    28px;
-
-  font-weight:
-    700;
+    0 15px 28px rgba(74,15,32,0.22);
 
   transition:
-    transform
-    0.25s ease,
-
-    box-shadow
-    0.25s ease,
-
-    background
-    0.25s ease;
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    background 0.3s ease;
 }
 
 
-/* =========================================================
-   ICONOS SVG
-========================================================= */
+/* Aro exterior */
 
-.card-icon svg {
+.card-icon::before {
 
-  width:
-    30px;
+  content: "";
 
-  height:
-    30px;
+  position: absolute;
 
-  display:
-    block;
+  inset: -9px;
 
-  color:
-    #ffffff;
+  border:
+    1px solid rgba(199,163,90,0.35);
 
-  stroke:
-    currentColor;
+  border-radius: 50%;
 
   transition:
-    transform
-    0.25s ease;
+    transform 0.3s ease,
+    opacity 0.3s ease;
 }
 
 
-/* =========================================================
-   EFECTO HOVER DEL ICONO
-========================================================= */
-
-.service-card:hover
-.card-icon {
+.service-card:hover .card-icon {
 
   transform:
-    translateY(-3px)
-    scale(1.05);
+    translateY(-7px)
+    scale(1.06);
 
   background:
     linear-gradient(
       145deg,
-      #8b2442 0%,
-      #6f1831 55%,
-      #541225 100%
+      #8f2947,
+      var(--wine)
     );
 
   box-shadow:
-    0 10px 22px
-    rgba(
-      63,
-      13,
-      27,
-      0.28
-    ),
-    0 0 0 4px
-    rgba(
-      213,
-      179,
-      90,
-      0.12
-    );
+    0 20px 40px rgba(74,15,32,0.30);
 }
 
 
-.service-card:hover
+.service-card:hover .card-icon::before {
+
+  transform: scale(1.12);
+
+  opacity: 0.8;
+}
+
+
 .card-icon svg {
 
-  transform:
-    scale(1.08);
+  width: 45px;
+  height: 45px;
+
+  fill: none;
+
+  stroke: currentColor;
+
+  stroke-width: 1.7;
+
+  stroke-linecap: round;
+
+  stroke-linejoin: round;
+
 }
 
 
 /* =========================================================
-   CONTENIDO
+   TEXTO
 ========================================================= */
 
 .card-content {
 
-  padding-right:
-    25px;
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  gap: 5px;
+
+  max-width: 260px;
 }
 
 
-.card-content h3 {
+.card-content strong {
 
-  margin:
-    0
-    0
-    8px;
+  color: var(--wine-dark);
 
-  color:
-    var(--vino);
+  font-size: 1.05rem;
 
-  font-size:
-    19px;
+  line-height: 1.25;
 
-  line-height:
-    1.15;
+  font-weight: 850;
 }
 
 
-.card-content p {
+.card-content small {
 
-  margin:
-    0;
+  color: var(--muted);
 
-  color:
-    var(--gris);
+  font-size: 0.82rem;
 
-  font-size:
-    13px;
-
-  line-height:
-    1.45;
+  line-height: 1.4;
 }
 
 
-/* =========================================================
-   FLECHA
-========================================================= */
+/* Flecha */
 
 .card-arrow {
 
-  position:
-    absolute;
+  display: grid;
+  place-items: center;
 
-  right:
-    19px;
+  width: 28px;
+  height: 28px;
 
-  bottom:
-    20px;
+  margin-top: 12px;
 
-  width:
-    34px;
+  color: var(--gold);
 
-  height:
-    34px;
+  border:
+    1px solid rgba(199,163,90,0.45);
 
-  display:
-    grid;
+  border-radius: 50%;
 
-  place-items:
-    center;
-
-  border-radius:
-    50%;
-
-  color:
-    var(--blanco);
-
-  background:
-    var(--vino);
-
-  font-weight:
-    900;
+  font-size: 0.9rem;
 
   transition:
-    0.25s ease;
+    transform 0.2s ease,
+    background 0.2s ease,
+    color 0.2s ease;
 }
 
 
-.service-card:hover
-.card-arrow {
-
-  background:
-    var(--dorado);
-
-  color:
-    var(--vino-oscuro);
+.service-card:hover .card-arrow {
 
   transform:
-    translateX(3px);
+    translate(3px,-3px);
+
+  color: white;
+
+  background: var(--wine);
+
 }
 
 
 /* =========================================================
-   SIN RESULTADOS
+   NO RESULTS
 ========================================================= */
 
 .no-results {
 
-  display:
-    none;
+  display: none;
 
-  margin-top:
-    20px;
+  text-align: center;
 
   padding:
-    35px;
+    55px 20px;
+}
 
-  text-align:
-    center;
 
-  color:
-    var(--gris);
+.no-results.visible {
+  display: block;
+}
 
-  background:
-    var(--blanco);
 
-  border-radius:
-    18px;
+.no-results-icon {
+
+  width: 60px;
+  height: 60px;
+
+  display: grid;
+  place-items: center;
+
+  margin:
+    0 auto
+    15px;
+
+  color: var(--wine);
+
+  border:
+    2px solid var(--gold);
+
+  border-radius: 50%;
+
+  font-weight: 900;
+}
+
+
+.no-results h3 {
+  color: var(--wine-dark);
+}
+
+
+.no-results p {
+  color: var(--muted);
 }
 
 
 /* =========================================================
-   SECCIÓN QR
+   QR SECTION
 ========================================================= */
 
 .qr-section {
 
   padding:
-    0
-    0
-    90px;
+    80px 5%;
+
+  background:
+    linear-gradient(
+      135deg,
+      var(--wine-dark),
+      var(--wine)
+    );
 }
 
 
 .qr-card {
 
-  width:
-    min(
-      1180px,
-      calc(100% - 60px)
-    );
+  width: min(1000px, 100%);
 
-  margin:
-    0 auto;
+  margin: auto;
 
-  padding:
-    45px;
+  display: flex;
 
-  display:
-    flex;
+  align-items: center;
 
-  align-items:
-    center;
+  justify-content: space-between;
 
-  justify-content:
-    space-between;
+  gap: 50px;
+}
 
-  gap:
-    40px;
 
-  color:
-    var(--blanco);
+.qr-copy {
+  color: white;
 
-  background:
-    var(--vino);
+  max-width: 600px;
+}
 
-  border-radius:
-    28px;
 
-  box-shadow:
-    var(--sombra);
+.qr-copy .section-kicker {
+  color: var(--gold-light);
 }
 
 
 .qr-copy h2 {
 
   margin:
-    0
-    0
-    10px;
+    8px 0
+    15px;
 
   font-size:
-    32px;
+    clamp(2rem,4vw,3rem);
+
+  line-height: 1.05;
 }
 
 
 .qr-copy p {
 
-  max-width:
-    620px;
-
-  margin:
-    0;
-
   color:
-    rgba(
-      255,
-      255,
-      255,
-      0.84
-    );
+    rgba(255,255,255,0.80);
 
-  line-height:
-    1.6;
+  max-width: 550px;
 }
 
 
+.qr-line {
+
+  width: 70px;
+  height: 3px;
+
+  margin:
+    22px 0;
+
+  background: var(--gold);
+}
+
+
+.qr-copy strong {
+
+  color: var(--gold-light);
+
+  font-size: 0.9rem;
+}
+
+
+/* QR */
+
 .qr-box {
 
-  min-width:
-    180px;
+  flex: 0 0 auto;
 
-  padding:
-    15px;
+  display: flex;
 
-  text-align:
-    center;
+  flex-direction: column;
 
-  color:
-    var(--vino);
+  align-items: center;
 
-  background:
-    var(--blanco);
+  gap: 12px;
 
-  border-radius:
-    18px;
+  padding: 18px;
 
-  font-size:
-    12px;
+  background: white;
 
-  font-weight:
-    800;
+  border-radius: 20px;
+
+  box-shadow:
+    0 20px 40px rgba(0,0,0,0.22);
 }
 
 
 .qr-box img {
 
-  display:
-    block;
+  display: block;
 
-  width:
-    145px;
+  width: 190px;
+  height: 190px;
 
-  height:
-    145px;
+  object-fit: contain;
+}
 
-  margin:
-    0
-    auto
-    8px;
 
-  object-fit:
-    contain;
+.qr-box span {
+
+  color: var(--wine);
+
+  font-size: 0.72rem;
+
+  font-weight: 900;
+
+  letter-spacing: 2px;
 }
 
 
@@ -1335,194 +965,147 @@ input {
 
 .footer {
 
-  padding:
-    38px
-    0
-    20px;
-
-  color:
-    var(--blanco);
-
   background:
-    var(--vino-oscuro);
+    #280813;
+
+  color: white;
 }
 
 
 .footer-inner {
 
-  width:
-    min(
-      1180px,
-      calc(100% - 60px)
-    );
+  width: min(1100px, 90%);
 
-  margin:
-    0 auto;
+  margin: auto;
 
-  display:
-    flex;
+  padding:
+    45px 0;
 
-  align-items:
-    center;
+  display: flex;
 
-  gap:
-    18px;
+  align-items: center;
+
+  gap: 25px;
 }
 
 
 .footer-logo {
 
-  width:
-    72px;
+  width: 90px;
+  height: 90px;
 
-  height:
-    72px;
+  object-fit: contain;
 
-  padding:
-    4px;
+  border-radius: 50%;
 
-  object-fit:
-    contain;
+  background: white;
 
-  background:
-    var(--blanco);
-
-  border-radius:
-    12px;
+  padding: 5px;
 }
 
 
-.footer-inner strong {
+.footer-text {
 
-  font-size:
-    17px;
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 3px;
 }
 
 
-.footer-inner p {
+.footer-text strong {
 
-  margin:
-    6px
-    0
-    0;
+  font-size: 1.1rem;
+
+  color: var(--gold-light);
+}
+
+
+.footer-text span {
 
   color:
-    rgba(
-      255,
-      255,
-      255,
-      0.7
-    );
+    rgba(255,255,255,0.65);
 
-  font-size:
-    13px;
+  font-size: 0.85rem;
 }
 
 
 .footer-bottom {
 
-  width:
-    min(
-      1180px,
-      calc(100% - 60px)
-    );
+  padding:
+    18px 5%;
 
-  margin:
-    28px
-    auto
-    0;
-
-  padding-top:
-    18px;
-
-  color:
-    rgba(
-      255,
-      255,
-      255,
-      0.55
-    );
+  text-align: center;
 
   border-top:
-    1px solid
-    rgba(
-      255,
-      255,
-      255,
-      0.14
-    );
+    1px solid rgba(255,255,255,0.08);
 
-  font-size:
-    12px;
+  color:
+    rgba(255,255,255,0.45);
+
+  font-size: 0.72rem;
 }
 
 
 /* =========================================================
-   BOTÓN VOLVER ARRIBA
+   BACK TO TOP
 ========================================================= */
 
 .back-top {
 
-  position:
-    fixed;
+  position: fixed;
 
-  right:
-    22px;
+  right: 20px;
+  bottom: 20px;
 
-  bottom:
-    22px;
+  width: 46px;
+  height: 46px;
 
-  width:
-    45px;
+  display: grid;
+  place-items: center;
 
-  height:
-    45px;
+  border: 0;
 
-  border:
-    0;
-
-  border-radius:
-    50%;
-
-  color:
-    var(--vino-oscuro);
+  border-radius: 50%;
 
   background:
-    var(--dorado);
+    var(--gold);
 
-  font-size:
-    21px;
+  color:
+    var(--wine-dark);
 
-  font-weight:
-    900;
+  font-size: 1.3rem;
 
-  cursor:
-    pointer;
+  font-weight: 900;
 
-  opacity:
-    0;
-
-  visibility:
-    hidden;
-
-  transition:
-    0.25s;
+  cursor: pointer;
 
   box-shadow:
-    var(--sombra);
+    0 10px 25px rgba(0,0,0,0.20);
 
-  z-index:
-    50;
+  opacity: 0;
+
+  visibility: hidden;
+
+  transform:
+    translateY(10px);
+
+  transition:
+    0.3s ease;
+
+  z-index: 100;
 }
 
 
 .back-top.visible {
 
-  opacity:
-    1;
+  opacity: 1;
 
-  visibility:
-    visible;
+  visibility: visible;
+
+  transform:
+    translateY(0);
 }
 
 
@@ -1532,75 +1115,34 @@ input {
 
 @media (max-width: 900px) {
 
-  .hero {
-
-    min-height:
-      auto;
-  }
-
-
-  .hero-content {
-
-    grid-template-columns:
-      1fr;
-
-    gap:
-      25px;
-
-    padding:
-      65px
-      0
-      100px;
-  }
-
-
-  .hero-watermark {
-
-    right:
-      -100px;
-
-    top:
-      5%;
-
-    width:
-      450px;
-
-    height:
-      450px;
-  }
-
-
-  .search-card {
-
-    max-width:
-      650px;
-  }
-
-
   .cards-grid {
 
     grid-template-columns:
-      repeat(
-        2,
-        1fr
-      );
+      repeat(2, 1fr);
+
   }
 
+  .hero-content {
 
-  .section-heading {
+    padding:
+      75px 0
+      80px;
 
-    align-items:
-      stretch;
-
-    flex-direction:
-      column;
   }
 
+  .qr-card {
 
-  .full-search {
+    flex-direction: column;
 
-    width:
-      100%;
+    text-align: center;
+
+  }
+
+  .qr-line {
+
+    margin:
+      20px auto;
+
   }
 
 }
@@ -1612,143 +1154,195 @@ input {
 
 @media (max-width: 600px) {
 
-  .hero-content,
-  .services-section,
-  .qr-card,
-  .footer-inner,
-  .footer-bottom {
+  .hero {
 
-    width:
-      min(
-        100% - 30px,
-        1180px
-      );
+    min-height: 600px;
+
   }
 
 
   .hero-content {
 
-    padding-top:
-      45px;
+    padding:
+      65px 0
+      75px;
+
   }
 
 
   .hero h1 {
 
-    font-size:
-      47px;
+    font-size: 2.55rem;
 
-    letter-spacing:
-      -1px;
+    letter-spacing: -1px;
+
   }
 
 
   .hero-copy p {
 
-    font-size:
-      16px;
+    font-size: 0.95rem;
+
   }
 
 
   .search-card {
 
-    padding:
-      24px;
+    padding: 8px;
 
-    border-radius:
-      20px;
   }
 
 
-  .search-card h2 {
+  .search-icon {
 
-    font-size:
-      23px;
+    display: none;
+
   }
 
 
   .search-form {
 
-    grid-template-columns:
-      1fr;
+    gap: 5px;
+
+  }
+
+
+  .search-form input {
+
+    padding:
+      13px 8px;
+
+    font-size: 0.9rem;
+
   }
 
 
   .search-form button {
 
-    min-height:
-      48px;
-  }
+    padding:
+      12px 14px;
 
-
-  .services-section {
-
-    padding-top:
-      55px;
-  }
-
-
-  .section-heading h2 {
-
-    font-size:
-      30px;
   }
 
 
   .cards-grid {
 
     grid-template-columns:
-      1fr;
+      repeat(2, 1fr);
+
+    gap:
+      42px 15px;
+
   }
 
 
   .service-card {
 
-    min-height:
-      175px;
+    min-height: 195px;
+
+    padding:
+      0 3px
+      15px;
+
   }
 
 
-  /* Iconos ligeramente más pequeños
-     en celular */
-
   .card-icon {
 
-    width:
-      60px;
+    width: 82px;
+    height: 82px;
 
-    height:
-      60px;
+    border-width: 2px;
+
   }
 
 
   .card-icon svg {
 
-    width:
-      28px;
+    width: 36px;
+    height: 36px;
 
-    height:
-      28px;
   }
 
 
-  .qr-card {
+  .card-content strong {
 
-    padding:
-      28px;
+    font-size: 0.88rem;
 
-    flex-direction:
-      column;
+  }
 
-    text-align:
-      center;
+
+  .card-content small {
+
+    font-size: 0.7rem;
+
+  }
+
+
+  .card-arrow {
+
+    width: 25px;
+    height: 25px;
+
+    font-size: 0.75rem;
+
+  }
+
+
+  .full-search {
+
+    margin-bottom: 45px;
+
+  }
+
+
+  .result-count {
+
+    display: none;
+
+  }
+
+
+  .qr-copy h2 {
+
+    font-size: 2rem;
+
+  }
+
+
+  .qr-box img {
+
+    width: 170px;
+    height: 170px;
+
   }
 
 
   .footer-inner {
 
-    align-items:
-      flex-start;
+    flex-direction: column;
+
+    text-align: center;
+
+  }
+
+}
+
+
+/* =========================================================
+   REDUCE MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+
+    scroll-behavior: auto !important;
+
+    transition: none !important;
+
   }
 
 }
