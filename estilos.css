@@ -36,13 +36,16 @@ html {
 
 body {
   margin: 0;
+
   font-family:
     Arial,
     Helvetica,
     sans-serif;
 
   color: var(--vino-oscuro);
-  background: var(--crema);
+
+  background:
+    var(--crema);
 }
 
 a {
@@ -61,6 +64,7 @@ input {
 ========================================================= */
 
 .hero {
+
   position: relative;
 
   min-height: 650px;
@@ -87,6 +91,7 @@ input {
 /* Brillo decorativo */
 
 .hero::before {
+
   content: "";
 
   position: absolute;
@@ -126,18 +131,25 @@ input {
   background-image:
     url("logo-tepeapulco.jpeg");
 
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
+  background-position:
+    center;
 
-  opacity: 0.10;
+  background-repeat:
+    no-repeat;
+
+  background-size:
+    contain;
+
+  opacity:
+    0.10;
 
   filter:
     grayscale(1)
     brightness(0)
     invert(1);
 
-  pointer-events: none;
+  pointer-events:
+    none;
 }
 
 
@@ -157,19 +169,24 @@ input {
       calc(100% - 60px)
     );
 
-  min-height: 610px;
+  min-height:
+    610px;
 
-  margin: 0 auto;
+  margin:
+    0 auto;
 
-  display: grid;
+  display:
+    grid;
 
   grid-template-columns:
     1.15fr
     0.85fr;
 
-  align-items: center;
+  align-items:
+    center;
 
-  gap: 60px;
+  gap:
+    60px;
 }
 
 
@@ -179,39 +196,46 @@ input {
 
 .hero-copy {
 
-  position: relative;
+  position:
+    relative;
 
-  padding: 60px 0;
+  padding:
+    60px 0;
 }
 
-
-/* Texto pequeño superior */
 
 .eyebrow {
 
-  display: inline-block;
+  display:
+    inline-block;
 
-  margin-bottom: 14px;
+  margin-bottom:
+    14px;
 
-  color: var(--dorado-claro);
+  color:
+    var(--dorado-claro);
 
-  font-size: 12px;
+  font-size:
+    12px;
 
-  font-weight: 800;
+  font-weight:
+    800;
 
-  letter-spacing: 2px;
+  letter-spacing:
+    2px;
 }
 
 
-/* Título */
-
 .hero h1 {
 
-  position: relative;
+  position:
+    relative;
 
-  margin: 0;
+  margin:
+    0;
 
-  max-width: 750px;
+  max-width:
+    750px;
 
   font-size:
     clamp(
@@ -220,27 +244,28 @@ input {
       82px
     );
 
-  line-height: 0.94;
+  line-height:
+    0.94;
 
-  letter-spacing: -2px;
+  letter-spacing:
+    -2px;
 
-  font-weight: 900;
+  font-weight:
+    900;
 }
 
-
-/* Palabra SERVICIOS */
 
 .hero h1 span {
 
-  color: var(--dorado-claro);
+  color:
+    var(--dorado-claro);
 }
 
 
-/* Descripción */
-
 .hero-copy p {
 
-  max-width: 650px;
+  max-width:
+    650px;
 
   margin:
     28px
@@ -255,50 +280,59 @@ input {
       0.90
     );
 
-  font-size: 18px;
+  font-size:
+    18px;
 
-  line-height: 1.65;
+  line-height:
+    1.65;
 }
 
 
 /* =========================================================
-   BOTONES DEL HERO
+   BOTONES
 ========================================================= */
 
 .hero-actions {
 
-  display: flex;
+  display:
+    flex;
 
-  gap: 14px;
+  gap:
+    14px;
 
-  flex-wrap: wrap;
+  flex-wrap:
+    wrap;
 }
 
 
 .btn {
 
-  display: inline-flex;
+  display:
+    inline-flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  justify-content: center;
+  justify-content:
+    center;
 
-  min-height: 52px;
+  min-height:
+    52px;
 
   padding:
     0
     25px;
 
-  border-radius: 30px;
+  border-radius:
+    30px;
 
-  font-weight: 800;
+  font-weight:
+    800;
 
   transition:
     0.25s ease;
 }
 
-
-/* Botón dorado */
 
 .btn-gold {
 
@@ -319,8 +353,6 @@ input {
     translateY(-2px);
 }
 
-
-/* Botón transparente */
 
 .btn-outline {
 
@@ -359,9 +391,11 @@ input {
 
 .search-card {
 
-  position: relative;
+  position:
+    relative;
 
-  padding: 34px;
+  padding:
+    34px;
 
   color:
     var(--vino-oscuro);
@@ -383,7 +417,8 @@ input {
       0.7
     );
 
-  border-radius: 28px;
+  border-radius:
+    28px;
 
   box-shadow:
     0 25px 55px
@@ -396,20 +431,25 @@ input {
 }
 
 
-/* Icono de búsqueda */
-
 .search-icon {
 
-  width: 48px;
-  height: 48px;
+  width:
+    48px;
 
-  display: grid;
+  height:
+    48px;
 
-  place-items: center;
+  display:
+    grid;
 
-  margin-bottom: 20px;
+  place-items:
+    center;
 
-  border-radius: 50%;
+  margin-bottom:
+    20px;
+
+  border-radius:
+    50%;
 
   color:
     var(--vino);
@@ -417,23 +457,23 @@ input {
   background:
     #f3eee5;
 
-  font-size: 31px;
+  font-size:
+    31px;
 }
 
-
-/* Título del buscador */
 
 .search-card h2 {
 
-  margin: 0;
+  margin:
+    0;
 
-  font-size: 27px;
+  font-size:
+    27px;
 
-  line-height: 1.15;
+  line-height:
+    1.15;
 }
 
-
-/* Texto */
 
 .search-card p {
 
@@ -445,23 +485,26 @@ input {
   color:
     var(--gris);
 
-  font-size: 14px;
+  font-size:
+    14px;
 }
 
 
 /* =========================================================
-   FORMULARIO DE BÚSQUEDA
+   BUSCADOR
 ========================================================= */
 
 .search-form {
 
-  display: grid;
+  display:
+    grid;
 
   grid-template-columns:
     1fr
     auto;
 
-  overflow: hidden;
+  overflow:
+    hidden;
 
   background:
     var(--blanco);
@@ -470,21 +513,27 @@ input {
     1px solid
     #d9d3cb;
 
-  border-radius: 13px;
+  border-radius:
+    13px;
 }
 
 
 .search-form input {
 
-  width: 100%;
+  width:
+    100%;
 
-  min-width: 0;
+  min-width:
+    0;
 
-  padding: 17px;
+  padding:
+    17px;
 
-  border: 0;
+  border:
+    0;
 
-  outline: 0;
+  outline:
+    0;
 
   color:
     var(--vino-oscuro);
@@ -500,7 +549,8 @@ input {
     0
     25px;
 
-  border: 0;
+  border:
+    0;
 
   color:
     var(--blanco);
@@ -508,9 +558,11 @@ input {
   background:
     var(--vino);
 
-  font-weight: 800;
+  font-weight:
+    800;
 
-  cursor: pointer;
+  cursor:
+    pointer;
 }
 
 
@@ -522,21 +574,28 @@ input {
 
 
 /* =========================================================
-   SEPARADOR DEL HERO
+   SEPARADOR HERO
 ========================================================= */
 
 .hero-wave {
 
-  position: absolute;
+  position:
+    absolute;
 
-  z-index: 3;
+  z-index:
+    3;
 
-  left: -5%;
-  right: -5%;
+  left:
+    -5%;
 
-  bottom: -80px;
+  right:
+    -5%;
 
-  height: 150px;
+  bottom:
+    -80px;
+
+  height:
+    150px;
 
   background:
     var(--crema);
@@ -558,7 +617,7 @@ input {
 
 
 /* =========================================================
-   SECCIÓN DE DIRECCIONES
+   SECCIÓN DIRECCIONES
 ========================================================= */
 
 .services-section {
@@ -579,11 +638,10 @@ input {
 }
 
 
-/* Encabezado */
-
 .section-heading {
 
-  display: flex;
+  display:
+    flex;
 
   justify-content:
     space-between;
@@ -591,18 +649,18 @@ input {
   align-items:
     end;
 
-  gap: 30px;
+  gap:
+    30px;
 
   margin-bottom:
     32px;
 }
 
 
-/* Título pequeño */
-
 .section-kicker {
 
-  display: inline-block;
+  display:
+    inline-block;
 
   margin-bottom:
     10px;
@@ -621,11 +679,10 @@ input {
 }
 
 
-/* Título principal */
-
 .section-heading h2 {
 
-  margin: 0;
+  margin:
+    0;
 
   color:
     var(--vino);
@@ -634,8 +691,6 @@ input {
     38px;
 }
 
-
-/* Descripción */
 
 .section-heading p {
 
@@ -661,11 +716,14 @@ input {
       100%
     );
 
-  display: flex;
+  display:
+    flex;
 
-  align-items: center;
+  align-items:
+    center;
 
-  gap: 10px;
+  gap:
+    10px;
 
   padding:
     5px
@@ -704,17 +762,21 @@ input {
 
 .full-search input {
 
-  flex: 1;
+  flex:
+    1;
 
-  min-width: 0;
+  min-width:
+    0;
 
   padding:
     12px
     4px;
 
-  border: 0;
+  border:
+    0;
 
-  outline: 0;
+  outline:
+    0;
 
   background:
     transparent;
@@ -735,12 +797,13 @@ input {
 
 
 /* =========================================================
-   CUADRÍCULA DE DIRECCIONES
+   CUADRÍCULA
 ========================================================= */
 
 .cards-grid {
 
-  display: grid;
+  display:
+    grid;
 
   grid-template-columns:
     repeat(
@@ -754,12 +817,13 @@ input {
 
 
 /* =========================================================
-   TARJETAS
+   TARJETAS DE DIRECCIONES
 ========================================================= */
 
 .service-card {
 
-  position: relative;
+  position:
+    relative;
 
   min-height:
     190px;
@@ -769,11 +833,14 @@ input {
     24px
     23px;
 
-  overflow: hidden;
+  overflow:
+    hidden;
 
-  display: flex;
+  display:
+    flex;
 
-  flex-direction: column;
+  flex-direction:
+    column;
 
   background:
     var(--blanco);
@@ -818,15 +885,19 @@ input {
 
 
 /* =========================================================
-   NÚMERO DE TARJETA
+   NÚMERO
 ========================================================= */
 
 .card-number {
 
-  position: absolute;
+  position:
+    absolute;
 
-  top: 16px;
-  right: 17px;
+  top:
+    16px;
+
+  right:
+    17px;
 
   color:
     var(--dorado);
@@ -843,16 +914,19 @@ input {
 
 
 /* =========================================================
-   ICONOS
+   ICONOS CIRCULARES INSTITUCIONALES
 ========================================================= */
 
 .card-icon {
 
+  position:
+    relative;
+
   width:
-    62px;
+    66px;
 
   height:
-    62px;
+    66px;
 
   display:
     grid;
@@ -867,10 +941,36 @@ input {
     50%;
 
   color:
-    var(--blanco);
+    #ffffff;
 
   background:
-    var(--vino);
+    linear-gradient(
+      145deg,
+      #7b1d38 0%,
+      #64152b 55%,
+      #4b1020 100%
+    );
+
+  border:
+    2px solid
+    var(--dorado);
+
+  box-shadow:
+    0 7px 16px
+    rgba(
+      63,
+      13,
+      27,
+      0.22
+    ),
+    inset
+    0 0 0 4px
+    rgba(
+      255,
+      255,
+      255,
+      0.06
+    );
 
   font-size:
     28px;
@@ -878,19 +978,92 @@ input {
   font-weight:
     700;
 
-  box-shadow:
-    0 7px 15px
-    rgba(
-      100,
-      21,
-      43,
-      0.22
-    );
+  transition:
+    transform
+    0.25s ease,
+
+    box-shadow
+    0.25s ease,
+
+    background
+    0.25s ease;
 }
 
 
 /* =========================================================
-   CONTENIDO DE LAS TARJETAS
+   ICONOS SVG
+========================================================= */
+
+.card-icon svg {
+
+  width:
+    30px;
+
+  height:
+    30px;
+
+  display:
+    block;
+
+  color:
+    #ffffff;
+
+  stroke:
+    currentColor;
+
+  transition:
+    transform
+    0.25s ease;
+}
+
+
+/* =========================================================
+   EFECTO HOVER DEL ICONO
+========================================================= */
+
+.service-card:hover
+.card-icon {
+
+  transform:
+    translateY(-3px)
+    scale(1.05);
+
+  background:
+    linear-gradient(
+      145deg,
+      #8b2442 0%,
+      #6f1831 55%,
+      #541225 100%
+    );
+
+  box-shadow:
+    0 10px 22px
+    rgba(
+      63,
+      13,
+      27,
+      0.28
+    ),
+    0 0 0 4px
+    rgba(
+      213,
+      179,
+      90,
+      0.12
+    );
+}
+
+
+.service-card:hover
+.card-icon svg {
+
+  transform:
+    scale(1.08);
+}
+
+
+/* =========================================================
+   CONTENIDO
 ========================================================= */
 
 .card-content {
@@ -920,7 +1093,8 @@ input {
 
 .card-content p {
 
-  margin: 0;
+  margin:
+    0;
 
   color:
     var(--gris);
@@ -939,10 +1113,14 @@ input {
 
 .card-arrow {
 
-  position: absolute;
+  position:
+    absolute;
 
-  right: 19px;
-  bottom: 20px;
+  right:
+    19px;
+
+  bottom:
+    20px;
 
   width:
     34px;
@@ -967,6 +1145,23 @@ input {
 
   font-weight:
     900;
+
+  transition:
+    0.25s ease;
+}
+
+
+.service-card:hover
+.card-arrow {
+
+  background:
+    var(--dorado);
+
+  color:
+    var(--vino-oscuro);
+
+  transform:
+    translateX(3px);
 }
 
 
@@ -976,7 +1171,8 @@ input {
 
 .no-results {
 
-  display: none;
+  display:
+    none;
 
   margin-top:
     20px;
@@ -1134,7 +1330,7 @@ input {
 
 
 /* =========================================================
-   PIE DE PÁGINA
+   FOOTER
 ========================================================= */
 
 .footer {
@@ -1314,6 +1510,9 @@ input {
 
   box-shadow:
     var(--sombra);
+
+  z-index:
+    50;
 }
 
 
@@ -1403,6 +1602,7 @@ input {
     width:
       100%;
   }
+
 }
 
 
@@ -1506,6 +1706,29 @@ input {
 
     min-height:
       175px;
+  }
+
+
+  /* Iconos ligeramente más pequeños
+     en celular */
+
+  .card-icon {
+
+    width:
+      60px;
+
+    height:
+      60px;
+  }
+
+
+  .card-icon svg {
+
+    width:
+      28px;
+
+    height:
+      28px;
   }
 
 
