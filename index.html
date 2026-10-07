@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Trámites y servicios municipales del Municipio de Tepeapulco, Hidalgo.">
+  <title>Trámites y Servicios | Tepeapulco</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="container">
+      <div class="brand">
+        <div class="logo-box">
+          <img src="logo/logo-tepeapulco.png" alt="Logo oficial del Municipio de Tepeapulco"
+               onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+          <div class="logo-fallback">TEPEAPULCO</div>
+        </div>
+        <div>
+          <p class="eyebrow">MUNICIPIO DE TEPEAPULCO, HIDALGO</p>
+          <h1>Trámites y Servicios Municipales</h1>
+          <p class="subtitle">Consulta información oficial de las diferentes áreas del Ayuntamiento.</p>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="search-section">
+      <div class="container">
+        <label for="buscador">¿Qué trámite o servicio estás buscando?</label>
+        <div class="search-wrap">
+          <input id="buscador" type="search" placeholder="Ej. matrimonio, panteón, empleo..." autocomplete="off">
+          <button id="limpiar" type="button">Limpiar</button>
+        </div>
+        <p id="resultado" class="result-text"></p>
+      </div>
+    </section>
+
+    <section class="departments">
+      <div class="container">
+        <div class="section-heading">
+          <p class="eyebrow">INFORMACIÓN MUNICIPAL</p>
+          <h2>Selecciona un área</h2>
+          <p>Consulta los trámites, servicios, requisitos, tiempos de respuesta y medios de contacto.</p>
+        </div>
+
+        <div id="tarjetas" class="cards">
+
+          <article class="card" data-search="registro civil nacimiento defuncion matrimonio actas">
+            <span class="number">01</span>
+            <h3>Registro Civil</h3>
+            <p>Nacimientos, defunciones, matrimonios y servicios del Registro Civil.</p>
+            <a href="infografias/registro-civil.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="panteones inhumacion exhumacion refrendo fosa misa">
+            <span class="number">02</span>
+            <h3>Dirección de Panteones</h3>
+            <p>Permisos, refrendos y servicios relacionados con panteones municipales.</p>
+            <a href="infografias/panteones.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="conciliacion acta hechos union libre certificacion conciliaciones">
+            <span class="number">03</span>
+            <h3>Conciliación Municipal</h3>
+            <p>Actas de hechos, constancias, certificaciones y conciliaciones.</p>
+            <a href="infografias/conciliacion.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="desarrollo economico bolsa trabajo empleo vacantes empresas">
+            <span class="number">04</span>
+            <h3>Desarrollo Económico</h3>
+            <p>Bolsa de Trabajo, vacantes, vinculación laboral y atención a empresas.</p>
+            <a href="infografias/desarrollo-economico.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="servicios municipales basura poda alumbrado">
+            <span class="number">05</span>
+            <h3>Servicios Municipales</h3>
+            <p>Recolección de basura, áreas verdes, poda y alumbrado público.</p>
+            <a href="infografias/servicios-municipales.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="rastro sacrificio matanza corraleta bovinos porcinos caprinos ovinos">
+            <span class="number">06</span>
+            <h3>Rastro Municipal</h3>
+            <p>Servicios de corraleta y sacrificio de especies autorizadas.</p>
+            <a href="infografias/rastro.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="turismo cultura eventos atractivos">
+            <span class="number">07</span>
+            <h3>Turismo</h3>
+            <p>Información turística, actividades y servicios del municipio.</p>
+            <a href="infografias/turismo.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="proteccion civil emergencias seguridad riesgos">
+            <span class="number">08</span>
+            <h3>Protección Civil</h3>
+            <p>Información, servicios y recomendaciones de Protección Civil.</p>
+            <a href="infografias/proteccion-civil.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="obras publicas construccion infraestructura">
+            <span class="number">09</span>
+            <h3>Obras Públicas</h3>
+            <p>Información de trámites y servicios relacionados con obra pública.</p>
+            <a href="infografias/obras-publicas.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="catastro predial inmueble terreno">
+            <span class="number">10</span>
+            <h3>Catastro</h3>
+            <p>Información catastral y servicios relacionados con inmuebles.</p>
+            <a href="infografias/catastro.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="ecologia medio ambiente residuos arboles">
+            <span class="number">11</span>
+            <h3>Ecología</h3>
+            <p>Servicios e información ambiental del municipio.</p>
+            <a href="infografias/ecologia.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+          <article class="card" data-search="dif asistencia familiar social">
+            <span class="number">12</span>
+            <h3>DIF Municipal</h3>
+            <p>Servicios de asistencia social y atención a las familias.</p>
+            <a href="infografias/dif.pdf" target="_blank" class="btn">Ver información</a>
+          </article>
+
+        </div>
+
+        <div id="sin-resultados" class="no-results" hidden>
+          <h3>No encontramos coincidencias</h3>
+          <p>Prueba con otra palabra, por ejemplo: <strong>matrimonio</strong>, <strong>panteón</strong> o <strong>empleo</strong>.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="qr-section">
+      <div class="container qr-content">
+        <div>
+          <p class="eyebrow">PARA LA EXPO FERIA</p>
+          <h2>Un solo QR para toda la información</h2>
+          <p>Cuando esta página esté publicada, el código QR podrá dirigir siempre a este portal. Así podremos agregar nuevos departamentos sin cambiar el QR.</p>
+        </div>
+        <div class="qr-placeholder">QR<br><small>Aquí colocaremos<br>el código final</small></div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <strong>Municipio de Tepeapulco, Hidalgo</strong>
+      <span>Trámites y Servicios Municipales</span>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
