@@ -1,1468 +1,813 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
-  >
+  <title>Trámites y Servicios Municipales | Tepeapulco</title>
 
   <meta
     name="description"
-    content="Portal de Trámites y Servicios Municipales del Municipio de Tepeapulco, Hidalgo."
+    content="Consulta los trámites y servicios municipales del Municipio de Tepeapulco, Hidalgo."
   >
 
-  <title>
-    Trámites y Servicios Municipales | Tepeapulco
-  </title>
-
-  <link
-    rel="stylesheet"
-    href="estilos.css"
-  >
-
+  <link rel="stylesheet" href="estilos.css">
 </head>
-
 
 <body>
 
+  <!-- =====================================================
+       HERO
+  ====================================================== -->
 
-<main>
+  <header class="hero">
 
+    <!-- Logo oficial como marca de agua -->
+    <div class="hero-watermark"></div>
 
-<!-- =====================================================
-     HERO
-====================================================== -->
+    <div class="hero-overlay"></div>
 
-<section
-  class="hero"
-  id="inicio"
->
+    <div class="hero-content">
 
+      <div class="hero-copy">
 
-  <!-- LOGO COMO MARCA DE AGUA -->
+        <span class="eyebrow">
+          MUNICIPIO DE TEPEAPULCO, HIDALGO
+        </span>
 
-  <div
-    class="hero-watermark"
-    aria-hidden="true"
-  ></div>
+        <h1>
+          TRÁMITES Y SERVICIOS
+          <span>MUNICIPALES</span>
+        </h1>
 
+        <div class="gold-line"></div>
 
-
-  <div class="hero-content">
-
-
-    <!-- TEXTO PRINCIPAL -->
-
-    <div class="hero-copy">
-
-
-      <span class="eyebrow">
-
-        MUNICIPIO DE TEPEAPULCO, HIDALGO
-
-      </span>
-
-
-
-      <h1>
-
-        TRÁMITES Y<br>
-
-        <span>
-          SERVICIOS
-        </span><br>
-
-        MUNICIPALES
-
-      </h1>
-
-
-
-      <p>
-
-        Consulta de manera rápida y sencilla la información
-        de las diferentes Direcciones Municipales.
-
-      </p>
-
-
-
-      <div class="hero-actions">
-
-
-        <a
-          class="btn btn-gold"
-          href="#direcciones"
-        >
-
-          Consultar servicios
-
-        </a>
-
-
-
-        <a
-          class="btn btn-outline"
-          href="#qr"
-        >
-
-          Acceder con QR
-
-        </a>
-
+        <p>
+          Consulta de manera rápida y sencilla la información oficial
+          de las diferentes Direcciones y Unidades del Municipio.
+        </p>
 
       </div>
 
+      <!-- Buscador principal -->
+
+      <div class="search-card">
+
+        <div class="search-icon">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="M20 20l-4-4"></path>
+          </svg>
+        </div>
+
+        <form id="heroSearchForm" class="search-form">
+
+          <input
+            type="search"
+            id="heroSearch"
+            placeholder="¿Qué trámite o servicio estás buscando?"
+            autocomplete="off"
+          >
+
+          <button type="submit">
+            Buscar
+          </button>
+
+        </form>
+
+      </div>
 
     </div>
 
+    <div class="hero-wave"></div>
+
+  </header>
 
 
-    <!-- =================================================
-         BUSCADOR PRINCIPAL
-    ================================================== -->
+  <!-- =====================================================
+       DIRECCIONES
+  ====================================================== -->
 
-    <div class="search-card">
+  <main>
 
+    <section id="direcciones" class="services-section">
 
-      <div class="search-icon">
+      <div class="section-heading">
 
-        ⌕
+        <span class="section-kicker">
+          INFORMACIÓN MUNICIPAL
+        </span>
+
+        <h2>
+          Selecciona una Dirección
+        </h2>
+
+        <p>
+          Consulta la información, trámites y servicios disponibles
+          en cada área del Municipio de Tepeapulco.
+        </p>
+
+        <div class="heading-line"></div>
 
       </div>
 
 
+      <!-- BUSCADOR DE DIRECCIONES -->
 
-      <h2>
+      <div class="full-search">
 
-        ¿Qué trámite o servicio estás buscando?
-
-      </h2>
-
-
-
-      <p>
-
-        Escribe el nombre de una dirección o servicio.
-
-      </p>
-
-
-
-      <form
-        class="search-form"
-        id="heroSearchForm"
-      >
-
+        <span class="search-symbol">
+          <svg viewBox="0 0 24 24" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="M20 20l-4-4"></path>
+          </svg>
+        </span>
 
         <input
           type="search"
-          id="heroSearch"
-          placeholder="Buscar trámite o dirección..."
+          id="serviceSearch"
+          placeholder="Buscar Dirección, trámite o servicio..."
           autocomplete="off"
-          aria-label="Buscar trámite o dirección"
         >
 
+        <span id="resultCount" class="result-count">
+          18 direcciones
+        </span>
+
+      </div>
 
 
-        <button type="submit">
+      <!-- =================================================
+           ICONOS DE LAS 18 DIRECCIONES
+      ================================================== -->
 
-          Buscar
-
-        </button>
-
-
-      </form>
+      <div class="cards-grid" id="cardsGrid">
 
 
-    </div>
+        <!-- 01 REGISTRO CIVIL -->
+
+        <a
+          class="service-card"
+          href="registro-civil.pdf"
+          target="_blank"
+          data-search="registro civil nacimiento defuncion matrimonio actas"
+        >
+
+          <span class="card-number">01</span>
+
+          <span class="card-icon">
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7l7-4z"></path>
+              <path d="M9 12l2 2 4-4"></path>
+            </svg>
+
+          </span>
+
+          <span class="card-content">
+            <strong>Registro Civil</strong>
+            <small>Actas y registros civiles</small>
+          </span>
+
+          <span class="card-arrow">↗</span>
+
+        </a>
 
 
-  </div>
+        <!-- 02 PANTEONES -->
+
+        <a
+          class="service-card"
+          href="panteones.pdf"
+          target="_blank"
+          data-search="panteones inhumacion exhumacion reinhumacion refrendo misa"
+        >
+
+          <span class="card-number">02</span>
+
+          <span class="card-icon">
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 21V7"></path>
+              <path d="M19 21V7"></path>
+              <path d="M3 21h18"></path>
+              <path d="M4 7h16"></path>
+              <path d="M6 7l6-4 6 4"></path>
+              <path d="M9 11v5"></path>
+              <path d="M15 11v5"></path>
+            </svg>
+
+          </span>
+
+          <span class="card-content">
+            <strong>Dirección de Panteones</strong>
+            <small>Servicios y trámites de panteones</small>
+          </span>
+
+          <span class="card-arrow">↗</span>
+
+        </a>
 
 
+        <!-- 03 RASTRO -->
 
-  <!-- SEPARADOR -->
+        <a
+          class="service-card"
+          href="rastro.pdf"
+          target="_blank"
+          data-search="rastro municipal sacrificio bovinos porcinos caprinos ovinos corraleta"
+        >
 
-  <div class="hero-wave"></div>
+          <span class="card-number">03</span>
 
+          <span class="card-icon">
 
-</section>
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 10h16"></path>
+              <path d="M5 10v8"></path>
+              <path d="M19 10v8"></path>
+              <path d="M3 18h18"></path>
+              <path d="M6 10l3-5 3 5 3-5 3 5"></path>
+              <circle cx="9" cy="15" r="1"></circle>
+              <circle cx="15" cy="15" r="1"></circle>
+            </svg>
 
+          </span>
 
+          <span class="card-content">
+            <strong>Rastro Municipal</strong>
+            <small>Servicios de sacrificio y corraleta</small>
+          </span>
 
-<!-- =====================================================
-     DIRECCIONES
-====================================================== -->
+          <span class="card-arrow">↗</span>
 
-<section
-  class="services-section"
-  id="direcciones"
->
-
-
-  <div class="section-heading">
-
-
-    <div>
-
-
-      <span class="section-kicker">
-
-        INFORMACIÓN MUNICIPAL
-
-      </span>
-
-
-
-      <h2>
-
-        Selecciona una Dirección
-
-      </h2>
+        </a>
 
 
+        <!-- 04 DESARROLLO ECONÓMICO -->
 
-      <p>
+        <a
+          class="service-card"
+          href="desarrollo-economico.pdf"
+          target="_blank"
+          data-search="desarrollo economico bolsa trabajo empleo empresas vacantes vinculacion"
+        >
 
-        Consulta trámites, servicios e información oficial.
+          <span class="card-number">04</span>
 
-      </p>
+          <span class="card-icon">
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <rect x="3" y="7" width="18" height="13" rx="2"></rect>
+              <path d="M8 7V5h8v2"></path>
+              <path d="M3 12h18"></path>
+              <path d="M10 12v2h4v-2"></path>
+            </svg>
+
+          </span>
+
+          <span class="card-content">
+            <strong>Desarrollo Económico</strong>
+            <small>Empleo, empresas y vinculación</small>
+          </span>
+
+          <span class="card-arrow">↗</span>
+
+        </a>
 
 
-    </div>
+        <!-- 05 DESARROLLO AGROPECUARIO -->
+
+        <a
+          class="service-card"
+          href="desarrollo-agropecuario.pdf"
+          target="_blank"
+          data-search="desarrollo agropecuario agricultura ganaderia campo productores"
+        >
+
+          <span class="card-number">05</span>
+
+          <span class="card-icon">
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 21V10"></path>
+              <path d="M12 12c-4-1-6-3-6-7 4 0 6 2 6 7z"></path>
+              <path d="M12 16c4-1 6-3 6-7-4 0-6 2-6 7z"></path>
+              <path d="M12 7c-1-3-3-4-5-4"></path>
+            </svg>
+
+          </span>
+
+          <span class="card-content">
+            <strong>Desarrollo Agropecuario</strong>
+            <small>Campo, agricultura y ganadería</small>
+          </span>
+
+          <span class="card-arrow">↗</span>
+
+        </a>
 
 
+        <!-- 06 DESARROLLO URBANO -->
 
-    <!-- BUSCADOR -->
+        <a
+          class="service-card"
+          href="desarrollo-urbano.pdf"
+          target="_blank"
+          data-search="desarrollo urbano ordenamiento territorial construccion uso suelo"
+        >
 
-    <div class="full-search">
+          <span class="card-number">06</span>
+
+          <span class="card-icon">
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 21V9l8-5 8 5v12"></path>
+              <path d="M8 21v-7h8v7"></path>
+              <path d="M4 21h16"></path>
+              <path d="M10 9h4"></path>
+            </svg>
+
+          </span>
+
+          <span class="card-content">
+            <strong>Desarrollo Urbano</strong>
+            <small>Ordenamiento territorial y construcción</small>
+          </span>
+
+          <span class="card-arrow">↗</span>
+
+        </a>
 
 
-      <span class="search-symbol">
+        <!-- 07 CATASTRO -->
 
-        ⌕
+        <a
+          class="service-card"
+          href="catastro.pdf"
+          target="_blank"
+          data-search="catastro municipal predial inmueble terreno propiedad"
+        >
 
-      </span>
+          <span class="card-number">07</span>
+
+          <span class="card-icon">
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M3 21h18"></path>
+              <path d="M5 21V9h14v12"></path>
+              <path d="M3 9l9-6 9 6"></path>
+              <path d="M8 13h2"></path>
+              <path d="M14 13h2"></path>
+              <path d="M8 17h2"></path>
+              <path d="M14 17h2"></path>
+            </svg>
+
+          </span>
+
+          <span class="card-content">
+            <strong>Catastro Municipal</strong>
+            <small>Información catastral e inmobiliaria</small>
+          </span>
+
+          <span class="card-arrow">↗</span>
+
+        </a>
 
 
+        <!-- 08 ECOLOGÍA -->
 
-      <input
-        type="search"
-        id="serviceSearch"
-        placeholder="Buscar una dirección..."
-        autocomplete="off"
-        aria-label="Buscar una dirección"
+        <a
+          class="service-card"
+          href="ecologia-y-medio-ambiente.pdf"
+          target="_blank"
+          data-search="ecologia medio ambiente residuos arboles ambiental"
+        >
+
+          <span class="card-number">08</span>
+
+          <span class="card-icon">
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 21V9"></path>
+              <path d="M12 12C8 12 5 9 5 5c4 0 7 2 7 7z"></path>
+              <path d="M12 15c4 0 7-3 7-7-4 0-7 2-7 7z"></path>
+              <path d="M8 21h8"></path>
+            </svg>
+
+          </span>
+
+          <span class="card-content">
+            <strong>Ecología y Medio Ambiente</strong>
+            <small>Protección y cuidado ambiental</small>
+          </span>
+
+          <span class="card-arrow">↗</span>
+
+        </a>
+
+
+        <!-- 09 SERVICIOS MUNICIPALES -->
+
+        <a
+          class="service-card"
+          href="servicios-municipales.pdf"
+          target="_blank"
+          data-search="servicios municipales basura alumbrado poda areas verdes jardines"
+        >
+
+          <span class="card-number">09</span>
+
+          <span class="card-icon">
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M4 7h16"></path>
+              <path d="M10 4h4"></path>
+              <path d="M6 7l1 14h10l1-14"></path>
+              <path d="M9 11v6"></path>
+              <path d="M15 11v6"></path>
+            </svg>
+
+          </span>
+
+          <span class="card-content">
+            <strong>Servicios Municipales</strong>
+            <small>Servicios públicos municipales</small>
+          </span>
+
+          <span class="card-arrow">↗</span>
+
+        </a>
+
+
+        <!-- 10 DIF -->
+
+        <a
+          class="service-card"
+          href="dif.pdf"
+          target="_blank"
+          data-search="dif municipal familia asistencia social apoyo"
+        >
+
+          <span class="card-number">10</span>
+
+          <span class="card-icon">
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M20 8c0 5-8 11-8 11S4 13 4 8a4 4 0 0 1 8-1 4 4 0 0 1 8 1z"></path>
+            </svg>
+
+          </span>
+
+          <span class="card-content">
+            <strong>DIF Municipal</strong>
+            <small>Asistencia y desarrollo familiar</small>
+          </span>
+
+          <span class="card-arrow">↗</span>
+
+        </a>
+
+
+        <!-- 11 TURISMO -->
+
+        <a
+          class="service-card"
+          href="turismo.pdf"
+          target="_blank"
+          data-search="turismo cultura atractivos eventos patrimonio"
+        >
+
+          <span class="card-number">11</span>
+
+          <span class="card-icon">
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="12" cy="12" r="9"></circle>
+              <path d="M3 12h18"></path>
+              <path d="M12 3c3 3 4 6 4 9s-1 6-4 9c-3-3-4-6-4-9s1-6 4-9z"></path>
+            </svg>
+
+          </span>
+
+          <span class="card-content">
+            <strong>Turismo</strong>
+            <small>Cultura, patrimonio y atractivos</small>
+          </span>
+
+          <span class="card-arrow">↗</span>
+
+        </a>
+
+
+        <!-- 12 SIPINNA -->
+
+        <a
+          class="service-card"
+          href="sipinna.pdf"
+          target="_blank"
+          data-search="sipinna niñas niños adolescentes derechos infancia"
+        >
+
+          <span class="card-number">12</span>
+
+          <span class="card-icon">
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <circle cx="9" cy="8" r="3"></circle>
+              <circle cx="16" cy="9" r="2.5"></circle>
+              <path d="M3 20c0-4 3-6 6-6s6 2 6 6"></path>
+              <path d="M14 14c3 0 5 2 5 6"></path>
+            </svg>
+
+          </span>
+
+          <span class="card-content">
+            <strong>SIPINNA</strong>
+            <small>Derechos de niñas, niños y adolescentes</small>
+          </span>
+
+          <span class="card-arrow">↗</span>
+
+        </a>
+
+
+        <!-- 13 SERVICIO MÉDICO -->
+
+        <a
+          class="service-card"
+          href="servicio-medico-salud.pdf"
+          target="_blank"
+          data-search="servicio medico salud sanidad atencion medica"
+        >
+
+          <span class="card-number">13</span>
+
+          <span class="card-icon">
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 21s-8-4.5-8-10V5l8-3 8 3v6c0 5.5-8 10-8 10z"></path>
+              <path d="M12 7v7"></path>
+              <path d="M8.5 10.5h7"></path>
+            </svg>
+
+          </span>
+
+          <span class="card-content">
+            <strong>Servicio Médico y Sanidad</strong>
+            <small>Servicios de salud y atención médica</small>
+          </span>
+
+          <span class="card-arrow">↗</span>
+
+        </a>
+
+
+        <!-- 14 SECRETARÍA GENERAL -->
+
+        <a
+          class="service-card"
+          href="secretaria-general.pdf"
+          target="_blank"
+          data-search="secretaria general municipal gobierno documentos constancias"
+        >
+
+          <span class="card-number">14</span>
+
+          <span class="card-icon">
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M5 21V5h14v16"></path>
+              <path d="M3 21h18"></path>
+              <path d="M8 9h8"></path>
+              <path d="M8 13h8"></path>
+              <path d="M8 17h5"></path>
+            </svg>
+
+          </span>
+
+          <span class="card-content">
+            <strong>Secretaría General Municipal</strong>
+            <small>Gestión y documentación municipal</small>
+          </span>
+
+          <span class="card-arrow">↗</span>
+
+        </a>
+
+
+        <!-- 15 ÓRGANO INTERNO DE CONTROL -->
+
+        <a
+          class="service-card"
+          href="organo-interno-control.pdf"
+          target="_blank"
+          data-search="organo interno control contraloria responsabilidades control interno"
+        >
+
+          <span class="card-number">15</span>
+
+          <span class="card-icon">
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7l7-4z"></path>
+              <path d="M9 12l2 2 4-4"></path>
+            </svg>
+
+          </span>
+
+          <span class="card-content">
+            <strong>Órgano Interno de Control</strong>
+            <small>Control, vigilancia y responsabilidades</small>
+          </span>
+
+          <span class="card-arrow">↗</span>
+
+        </a>
+
+
+        <!-- 16 ASUNTOS INTERNOS -->
+
+        <a
+          class="service-card"
+          href="asuntos-internos.pdf"
+          target="_blank"
+          data-search="asuntos internos seguridad quejas denuncias investigación"
+        >
+
+          <span class="card-number">16</span>
+
+          <span class="card-icon">
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M12 3l7 4v5c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V7l7-4z"></path>
+              <path d="M12 8v5"></path>
+              <circle cx="12" cy="16.5" r=".5"></circle>
+            </svg>
+
+          </span>
+
+          <span class="card-content">
+            <strong>Unidad de Asuntos Internos</strong>
+            <small>Atención, seguimiento e investigación</small>
+          </span>
+
+          <span class="card-arrow">↗</span>
+
+        </a>
+
+
+        <!-- 17 TRANSPARENCIA -->
+
+        <a
+          class="service-card"
+          href="transparencia.pdf"
+          target="_blank"
+          data-search="transparencia acceso informacion informacion publica solicitudes"
+        >
+
+          <span class="card-number">17</span>
+
+          <span class="card-icon">
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M2.5 12s3.5-6 9.5-6 9.5 6 9.5 6-3.5 6-9.5 6-9.5-6-9.5-6z"></path>
+              <circle cx="12" cy="12" r="2.5"></circle>
+            </svg>
+
+          </span>
+
+          <span class="card-content">
+            <strong>Unidad de Transparencia</strong>
+            <small>Acceso a la información pública</small>
+          </span>
+
+          <span class="card-arrow">↗</span>
+
+        </a>
+
+
+        <!-- 18 TRÁMITES GENERALES -->
+
+        <a
+          class="service-card"
+          href="tramites-servicios-generales.pdf"
+          target="_blank"
+          data-search="tramites servicios generales municipio requisitos servicios"
+        >
+
+          <span class="card-number">18</span>
+
+          <span class="card-icon">
+
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              <path d="M6 3h9l4 4v14H6z"></path>
+              <path d="M15 3v5h4"></path>
+              <path d="M9 12h6"></path>
+              <path d="M9 16h6"></path>
+            </svg>
+
+          </span>
+
+          <span class="card-content">
+            <strong>Trámites y Servicios Generales</strong>
+            <small>Consulta general de trámites municipales</small>
+          </span>
+
+          <span class="card-arrow">↗</span>
+
+        </a>
+
+
+      </div>
+
+
+      <!-- SIN RESULTADOS -->
+
+      <div id="noResults" class="no-results">
+
+        <div class="no-results-icon">
+          ?
+        </div>
+
+        <h3>No encontramos esa Dirección</h3>
+
+        <p>
+          Intenta con otro nombre, trámite o servicio.
+        </p>
+
+      </div>
+
+    </section>
+
+
+    <!-- =====================================================
+         QR DEL PORTAL
+    ====================================================== -->
+
+    <section class="qr-section">
+
+      <div class="qr-card">
+
+        <div class="qr-copy">
+
+          <span class="section-kicker">
+            ACCESO RÁPIDO
+          </span>
+
+          <h2>
+            Lleva el portal contigo
+          </h2>
+
+          <p>
+            Escanea el código QR para consultar desde tu teléfono
+            todos los trámites y servicios municipales.
+          </p>
+
+          <div class="qr-line"></div>
+
+          <strong>
+            Municipio de Tepeapulco, Hidalgo
+          </strong>
+
+        </div>
+
+
+        <div class="qr-box">
+
+          <img
+            src="qr-portal-tepeapulco.png"
+            alt="Código QR del portal de Trámites y Servicios Municipales"
+          >
+
+          <span>
+            ESCANEA AQUÍ
+          </span>
+
+        </div>
+
+      </div>
+
+    </section>
+
+  </main>
+
+
+  <!-- =====================================================
+       FOOTER
+  ====================================================== -->
+
+  <footer class="footer">
+
+    <div class="footer-inner">
+
+      <img
+        class="footer-logo"
+        src="logo-tepeapulco.jpeg"
+        alt="Municipio de Tepeapulco"
       >
 
+      <div class="footer-text">
 
-
-      <span
-        class="result-count"
-        id="resultCount"
-      >
-
-        18 direcciones
-
-      </span>
-
-
-    </div>
-
-
-  </div>
-
-
-
-  <!-- =================================================
-       TARJETAS
-  ================================================== -->
-
-  <div
-    class="cards-grid"
-    id="serviceCards"
-  >
-
-
-
-<!-- =====================================================
-     01 REGISTRO CIVIL
-====================================================== -->
-
-<a
-  class="service-card"
-  data-name="Registro Civil"
-  href="registro-civil.pdf"
->
-
-
-  <span class="card-number">
-    01
-  </span>
-
-
-
-  <span class="card-icon">
-
-    <!-- Documento -->
-
-    <svg
-      viewBox="0 0 24 24"
-      width="29"
-      height="29"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-
-      <path d="M6 3h9l3 3v15H6z"/>
-      <path d="M15 3v4h3"/>
-      <path d="M9 12h6"/>
-      <path d="M9 16h6"/>
-
-    </svg>
-
-  </span>
-
-
-
-  <div class="card-content">
-
-    <h3>
-      Registro Civil
-    </h3>
-
-    <p>
-      Trámites y servicios del Registro Civil.
-    </p>
-
-  </div>
-
-
-
-  <span class="card-arrow">
-    →
-  </span>
-
-
-</a>
-
-
-
-<!-- =====================================================
-     02 PANTEONES
-====================================================== -->
-
-<a
-  class="service-card"
-  data-name="Dirección de Panteones Panteones"
-  href="panteones.pdf"
->
-
-
-  <span class="card-number">
-    02
-  </span>
-
-
-
-  <span class="card-icon">
-
-    <!-- Memorial -->
-
-    <svg
-      viewBox="0 0 24 24"
-      width="29"
-      height="29"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-
-      <path d="M5 21h14"/>
-      <path d="M7 21V9h10v12"/>
-      <path d="M9 9V6h6v3"/>
-      <path d="M12 3v3"/>
-      <path d="M9 13h6"/>
-      <path d="M9 17h6"/>
-
-    </svg>
-
-  </span>
-
-
-
-  <div class="card-content">
-
-    <h3>
-      Dirección de Panteones
-    </h3>
-
-    <p>
-      Información y servicios de panteones municipales.
-    </p>
-
-  </div>
-
-
-
-  <span class="card-arrow">
-    →
-  </span>
-
-
-</a>
-
-
-
-<!-- =====================================================
-     03 RASTRO MUNICIPAL
-====================================================== -->
-
-<a
-  class="service-card"
-  data-name="Rastro Municipal"
-  href="rastro.pdf"
->
-
-
-  <span class="card-number">
-    03
-  </span>
-
-
-
-  <span class="card-icon">
-
-    <!-- Ganado -->
-
-    <svg
-      viewBox="0 0 24 24"
-      width="30"
-      height="30"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-
-      <path d="M5 10v7"/>
-      <path d="M19 10v7"/>
-      <path d="M7 17v3"/>
-      <path d="M17 17v3"/>
-      <path d="M5 10c0-3 3-5 7-5s7 2 7 5"/>
-      <path d="M8 11h.01"/>
-      <path d="M16 11h.01"/>
-      <path d="M10 15h4"/>
-
-    </svg>
-
-  </span>
-
-
-
-  <div class="card-content">
-
-    <h3>
-      Rastro Municipal
-    </h3>
-
-    <p>
-      Servicios y procedimientos del Rastro Municipal.
-    </p>
-
-  </div>
-
-
-
-  <span class="card-arrow">
-    →
-  </span>
-
-
-</a>
-
-
-
-<!-- =====================================================
-     04 DESARROLLO ECONÓMICO
-====================================================== -->
-
-<a
-  class="service-card"
-  data-name="Desarrollo Económico"
-  href="desarrollo-economico.pdf"
->
-
-
-  <span class="card-number">
-    04
-  </span>
-
-
-
-  <span class="card-icon">
-
-    <!-- Maletín -->
-
-    <svg
-      viewBox="0 0 24 24"
-      width="30"
-      height="30"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-
-      <rect
-        x="3"
-        y="7"
-        width="18"
-        height="13"
-        rx="2"
-      />
-
-      <path d="M8 7V5h8v2"/>
-      <path d="M3 12h18"/>
-      <path d="M10 12v2h4v-2"/>
-
-    </svg>
-
-  </span>
-
-
-
-  <div class="card-content">
-
-    <h3>
-      Desarrollo Económico
-    </h3>
-
-    <p>
-      Empleo, empresas, programas y desarrollo económico.
-    </p>
-
-  </div>
-
-
-
-  <span class="card-arrow">
-    →
-  </span>
-
-
-</a>
-
-
-
-<!-- =====================================================
-     05 DESARROLLO AGROPECUARIO
-====================================================== -->
-
-<a
-  class="service-card"
-  data-name="Desarrollo Agropecuario"
-  href="desarrollo-agropecuario.pdf"
->
-
-
-  <span class="card-number">
-    05
-  </span>
-
-
-
-  <span class="card-icon">
-
-    <!-- Hoja -->
-
-    <svg
-      viewBox="0 0 24 24"
-      width="30"
-      height="30"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-
-      <path
-        d="M20 4C10 4 5 8 5 14c0 4 3 6 6 6 6 0 9-5 9-16z"
-      />
-
-      <path d="M5 20c3-5 7-8 12-10"/>
-
-    </svg>
-
-  </span>
-
-
-
-  <div class="card-content">
-
-    <h3>
-      Desarrollo Agropecuario
-    </h3>
-
-    <p>
-      Programas y servicios para el sector agropecuario.
-    </p>
-
-  </div>
-
-
-
-  <span class="card-arrow">
-    →
-  </span>
-
-
-</a>
-
-
-
-<!-- =====================================================
-     06 DESARROLLO URBANO
-====================================================== -->
-
-<a
-  class="service-card"
-  data-name="Desarrollo Urbano y Ordenamiento Territorial"
-  href="desarrollo-urbano.pdf"
->
-
-
-  <span class="card-number">
-    06
-  </span>
-
-
-
-  <span class="card-icon">
-
-    <!-- Edificio -->
-
-    <svg
-      viewBox="0 0 24 24"
-      width="30"
-      height="30"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-
-      <path d="M4 21V5l8-3 8 3v16"/>
-      <path d="M8 9h2"/>
-      <path d="M14 9h2"/>
-      <path d="M8 13h2"/>
-      <path d="M14 13h2"/>
-      <path d="M10 21v-4h4v4"/>
-
-    </svg>
-
-  </span>
-
-
-
-  <div class="card-content">
-
-    <h3>
-      Desarrollo Urbano y Ordenamiento Territorial
-    </h3>
-
-    <p>
-      Información y servicios relacionados con desarrollo urbano.
-    </p>
-
-  </div>
-
-
-
-  <span class="card-arrow">
-    →
-  </span>
-
-
-</a>
-
-
-
-<!-- =====================================================
-     07 CATASTRO
-====================================================== -->
-
-<a
-  class="service-card"
-  data-name="Catastro Municipal"
-  href="catastro.pdf"
->
-
-
-  <span class="card-number">
-    07
-  </span>
-
-
-
-  <span class="card-icon">
-
-    <!-- Ubicación -->
-
-    <svg
-      viewBox="0 0 24 24"
-      width="30"
-      height="30"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-
-      <path
-        d="M20 10c0 5-8 11-8 11S4 15 4 10a8 8 0 1 1 16 0z"
-      />
-
-      <circle
-        cx="12"
-        cy="10"
-        r="2.5"
-      />
-
-    </svg>
-
-  </span>
-
-
-
-  <div class="card-content">
-
-    <h3>
-      Catastro Municipal
-    </h3>
-
-    <p>
-      Servicios e información catastral.
-    </p>
-
-  </div>
-
-
-
-  <span class="card-arrow">
-    →
-  </span>
-
-
-</a>
-
-
-
-<!-- =====================================================
-     08 ECOLOGÍA
-====================================================== -->
-
-<a
-  class="service-card"
-  data-name="Ecología y Medio Ambiente"
-  href="ecologia-y-medio-ambiente.pdf"
->
-
-
-  <span class="card-number">
-    08
-  </span>
-
-
-
-  <span class="card-icon">
-
-    <!-- Hoja ambiental -->
-
-    <svg
-      viewBox="0 0 24 24"
-      width="30"
-      height="30"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-
-      <path
-        d="M20 4C11 4 5 8 5 14c0 4 3 6 6 6 6 0 9-5 9-16z"
-      />
-
-      <path
-        d="M5 20c3-5 7-8 12-10"
-      />
-
-    </svg>
-
-  </span>
-
-
-
-  <div class="card-content">
-
-    <h3>
-      Ecología y Medio Ambiente
-    </h3>
-
-    <p>
-      Servicios y acciones para el cuidado ambiental.
-    </p>
-
-  </div>
-
-
-
-  <span class="card-arrow">
-    →
-  </span>
-
-
-</a>
-
-
-
-<!-- =====================================================
-     09 SERVICIOS MUNICIPALES
-====================================================== -->
-
-<a
-  class="service-card"
-  data-name="Servicios Municipales"
-  href="servicios-municipales.pdf"
->
-
-
-  <span class="card-number">
-    09
-  </span>
-
-
-
-  <span class="card-icon">
-
-    <!-- Engrane -->
-
-    <svg
-      viewBox="0 0 24 24"
-      width="30"
-      height="30"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-
-      <circle
-        cx="12"
-        cy="12"
-        r="3"
-      />
-
-      <path
-        d="M19.4 15a1.7 1.7 0 0 0 .3 1.9l.1.1-1.8 1.8-.1-.1a1.7 1.7 0 0 0-1.9-.3 1.7 1.7 0 0 0-1 1.5V20h-2.6v-.1a1.7 1.7 0 0 0-1-1.5 1.7 1.7 0 0 0-1.9.3l-.1.1-1.8-1.8.1-.1a1.7 1.7 0 0 0 .3-1.9 1.7 1.7 0 0 0-1.5-1H6v-2.6h.1a1.7 1.7 0 0 0 1.5-1 1.7 1.7 0 0 0-.3-1.9l-.1-.1L9 6.6l.1.1a1.7 1.7 0 0 0 1.9.3 1.7 1.7 0 0 0 1-1.5V5h2.6v.1a1.7 1.7 0 0 0 1 1.5 1.7 1.7 0 0 0 1.9-.3l.1-.1 1.8 1.8-.1.1a1.7 1.7 0 0 0-.3 1.9 1.7 1.7 0 0 0 1.5 1h.1v2.6h-.1a1.7 1.7 0 0 0-1.5 1z"
-      />
-
-    </svg>
-
-  </span>
-
-
-
-  <div class="card-content">
-
-    <h3>
-      Servicios Municipales
-    </h3>
-
-    <p>
-      Servicios públicos y atención municipal.
-    </p>
-
-  </div>
-
-
-
-  <span class="card-arrow">
-    →
-  </span>
-
-
-</a>
-
-
-
-<!-- =====================================================
-     10 DIF
-====================================================== -->
-
-<a
-  class="service-card"
-  data-name="DIF Municipal"
-  href="dif.pdf"
->
-
-
-  <span class="card-number">
-    10
-  </span>
-
-
-
-  <span class="card-icon">
-
-    <!-- Personas -->
-
-    <svg
-      viewBox="0 0 24 24"
-      width="30"
-      height="30"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-
-      <circle
-        cx="9"
-        cy="8"
-        r="3"
-      />
-
-      <circle
-        cx="17"
-        cy="9"
-        r="2.5"
-      />
-
-      <path
-        d="M3 20c0-3.5 2.5-6 6-6s6 2.5 6 6"
-      />
-
-      <path
-        d="M15 14c3 0 5 2 6 5"
-      />
-
-    </svg>
-
-  </span>
-
-
-
-  <div class="card-content">
-
-    <h3>
-      DIF Municipal
-    </h3>
-
-    <p>
-      Servicios de asistencia y atención social.
-    </p>
-
-  </div>
-
-
-
-  <span class="card-arrow">
-    →
-  </span>
-
-
-</a>
-
-
-
-<!-- =====================================================
-     11 TURISMO
-====================================================== -->
-
-<a
-  class="service-card"
-  data-name="Turismo"
-  href="turismo.pdf"
->
-
-
-  <span class="card-number">
-    11
-  </span>
-
-
-
-  <span class="card-icon">
-
-    <!-- Cámara / turismo -->
-
-    <svg
-      viewBox="0 0 24 24"
-      width="30"
-      height="30"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-
-      <path
-        d="M4 7h4l2-2h4l2 2h4v12H4z"
-      />
-
-      <circle
-        cx="12"
-        cy="13"
-        r="3.5"
-      />
-
-    </svg>
-
-  </span>
-
-
-
-  <div class="card-content">
-
-    <h3>
-      Turismo
-    </h3>
-
-    <p>
-      Información y servicios turísticos de Tepeapulco.
-    </p>
-
-  </div>
-
-
-
-  <span class="card-arrow">
-    →
-  </span>
-
-
-</a>
-
-
-
-<!-- =====================================================
-     12 SIPINNA
-====================================================== -->
-
-<a
-  class="service-card"
-  data-name="SIPINNA"
-  href="sipinna.pdf"
->
-
-
-  <span class="card-number">
-    12
-  </span>
-
-
-
-  <span class="card-icon">
-
-    <!-- Familia -->
-
-    <svg
-      viewBox="0 0 24 24"
-      width="30"
-      height="30"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-
-      <circle
-        cx="12"
-        cy="7"
-        r="2.5"
-      />
-
-      <circle
-        cx="6"
-        cy="10"
-        r="2"
-      />
-
-      <circle
-        cx="18"
-        cy="10"
-        r="2"
-      />
-
-      <path
-        d="M8 20c0-3 1.5-5 4-5s4 2 4 5"
-      />
-
-      <path
-        d="M2 19c0-2.5 1.5-4 4-4"
-      />
-
-      <path
-        d="M22 19c0-2.5-1.5-4-4-4"
-      />
-
-    </svg>
-
-  </span>
-
-
-
-  <div class="card-content">
-
-    <h3>
-      SIPINNA
-    </h3>
-
-    <p>
-      Protección y promoción de los derechos de niñas,
-      niños y adolescentes.
-    </p>
-
-  </div>
-
-
-
-  <span class="card-arrow">
-    →
-  </span>
-
-
-</a>
-
-
-
-<!-- =====================================================
-     13 SERVICIO MÉDICO
-====================================================== -->
-
-<a
-  class="service-card"
-  data-name="Servicio Médico y Sanidad Servicio Médico Salud"
-  href="servicio-medico-salud.pdf"
->
-
-
-  <span class="card-number">
-    13
-  </span>
-
-
-
-  <span class="card-icon">
-
-    <!-- Salud -->
-
-    <svg
-      viewBox="0 0 24 24"
-      width="30"
-      height="30"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-
-      <path
-        d="M12 21s-7-4.5-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 11c0 5.5-7 10-7 10z"
-      />
-
-      <path
-        d="M12 8v6"
-      />
-
-      <path
-        d="M9 11h6"
-      />
-
-    </svg>
-
-  </span>
-
-
-
-  <div class="card-content">
-
-    <h3>
-      Servicio Médico y Sanidad
-    </h3>
-
-    <p>
-      Servicios de atención médica y sanidad municipal.
-    </p>
-
-  </div>
-
-
-
-  <span class="card-arrow">
-    →
-  </span>
-
-
-</a>
-
-
-
-<!-- =====================================================
-     14 SECRETARÍA GENERAL
-====================================================== -->
-
-<a
-  class="service-card"
-  data-name="Secretaría General Municipal Secretaría General"
-  href="secretaria-general.pdf"
->
-
-
-  <span class="card-number">
-    14
-  </span>
-
-
-
-  <span class="card-icon">
-
-    <!-- Edificio institucional -->
-
-    <svg
-      viewBox="0 0 24 24"
-      width="30"
-      height="30"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-
-      <path d="M3 21h18"/>
-      <path d="M5 21V8l7-4 7 4v13"/>
-      <path d="M8 10h1"/>
-      <path d="M11.5 10h1"/>
-      <path d="M15 10h1"/>
-      <path d="M8 14h1"/>
-      <path d="M11.5 14h1"/>
-      <path d="M15 14h1"/>
-      <path d="M10 21v-4h4v4"/>
-
-    </svg>
-
-  </span>
-
-
-
-  <div class="card-content">
-
-    <h3>
-      Secretaría General Municipal
-    </h3>
-
-    <p>
-      Información y servicios de la Secretaría General.
-    </p>
-
-  </div>
-
-
-
-  <span class="card-arrow">
-    →
-  </span>
-
-
-</a>
-
-
-
-<!-- =====================================================
-     15 ÓRGANO INTERNO DE CONTROL
-====================================================== -->
-
-<a
-  class="service-card"
-  data-name="Órgano Interno de Control"
-  href="organo-interno-control.pdf"
->
-
-
-  <span class="card-number">
-    15
-  </span>
-
-
-
-  <span class="card-icon">
-
-    <!-- Balanza -->
-
-    <svg
-      viewBox="0 0 24 24"
-      width="30"
-      height="30"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-
-      <path d="M12 4v15"/>
-      <path d="M6 7h12"/>
-      <path d="M4 20h16"/>
-
-      <path d="M6 7l-3 6h6z"/>
-      <path d="M18 7l-3 6h6z"/>
-
-    </svg>
-
-  </span>
-
-
-
-  <div class="card-content">
-
-    <h3>
-      Órgano Interno de Control
-    </h3>
-
-    <p>
-      Información de control interno y atención ciudadana.
-    </p>
-
-  </div>
-
-
-
-  <span class="card-arrow">
-    →
-  </span>
-
-
-</a>
-
-
-
-<!-- =====================================================
-     16 ASUNTOS INTERNOS
-====================================================== -->
-
-<a
-  class="service-card"
-  data-name="Unidad de Asuntos Internos"
-  href="asuntos-internos.pdf"
->
-
-
-  <span class="card-number">
-    16
-  </span>
-
-
-
-  <span class="card-icon">
-
-    <!-- Escudo -->
-
-    <svg
-      viewBox="0 0 24 24"
-      width="30"
-      height="30"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.8"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-
-      <path
-        d="M12 3l8 3v5c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"
-      />
-
-      <path
-        d="M9 12l2 2 4-4"
-      />
-
-    </svg>
-
-  </span>
-
-
-
-  <div class="card-content">
-
-    <h3>
-      Unidad de Asuntos Internos
-    </h3>
-
-    <p>
-      Información y atención de asuntos internos.
-    </p>
-
-  </div>
-
-
-
-  <span class="card-arrow">
-    →
-  </span>
-
-
-</a>
-
-
-
-<!-- =====================================================
-     17 TRANSPARENCIA
-====================================================== -->
-
-<a
-  class="service-card"
-  data-name="Unidad de Transparencia y Acceso a la Información Transparencia"
-  href="transparencia.pdf"
->
-
-
-  <span class="card-number">
-    17
-  </span>
-
-
-
-  <span class="card-icon">
-
-    <!-- Ojo -->
-
-    <svg
-      viewBox="0 0 24 24"
-      width="30"
-      height="30"
-      fill="none"
-      stroke="currentColor"
-      stroke-width="1.8"
-      stroke-linecap="round"
+        <strong>
+          Mun
