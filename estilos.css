@@ -1,25 +1,39 @@
+/* =========================================================
+   PORTAL DE TRÁMITES Y SERVICIOS - TEPEAPULCO
+   DISEÑO INSTITUCIONAL
+   VINO + DORADO + CREMA
+========================================================= */
+
 :root {
-    --vino: #64152b;
-    --vino-oscuro: #430d1c;
-    --vino-claro: #7d2943;
+
+    --vino: #650d2b;
+    --vino-oscuro: #3d0719;
+    --vino-medio: #861b3d;
+
     --dorado: #c9a34a;
-    --dorado-claro: #ead9a5;
-    --crema: #f7f4ed;
+    --dorado-claro: #e8d49a;
+
+    --crema: #f8f3e9;
     --blanco: #ffffff;
-    --texto: #292529;
-    --gris: #747078;
-    --borde: #e7e0d5;
+
+    --texto: #2c2528;
+    --gris: #777176;
+
+    --borde: #e8dfd2;
 
     --sombra:
-        0 15px 40px rgba(50, 15, 28, 0.10);
+        0 15px 35px rgba(60, 15, 30, 0.12);
+
+    --sombra-fuerte:
+        0 25px 55px rgba(60, 15, 30, 0.18);
 
     --radio: 18px;
 }
 
 
-/* =========================
+/* =========================================================
    CONFIGURACIÓN GENERAL
-========================= */
+========================================================= */
 
 * {
     margin: 0;
@@ -32,189 +46,169 @@ html {
 }
 
 body {
-    font-family: Arial, Helvetica, sans-serif;
+
+    font-family:
+        Arial,
+        Helvetica,
+        sans-serif;
+
     color: var(--texto);
-    background: #ffffff;
+
+    background:
+        #ffffff;
+
     line-height: 1.6;
+
+    position: relative;
+
+    overflow-x: hidden;
 }
+
+
+body::before {
+
+    content: "";
+
+    position: fixed;
+
+    z-index: -1;
+
+    width: 650px;
+    height: 650px;
+
+    right: -170px;
+    top: 30%;
+
+    background-image:
+        url("logo-tepeapulco.jpeg");
+
+    background-size:
+        contain;
+
+    background-repeat:
+        no-repeat;
+
+    background-position:
+        center;
+
+    opacity:
+        0.035;
+
+    pointer-events:
+        none;
+}
+
 
 a {
     text-decoration: none;
     color: inherit;
 }
 
+
 img {
     max-width: 100%;
     display: block;
 }
+
 
 button,
 input {
     font-family: inherit;
 }
 
+
 .contenedor {
-    width: min(1180px, 92%);
-    margin: auto;
+
+    width:
+        min(1180px, 92%);
+
+    margin:
+        auto;
 }
 
 
-/* =========================
+/* =========================================================
    ENCABEZADO
-========================= */
+   LO OCULTAMOS PARA DEJAR LA PÁGINA MÁS LIMPIA
+========================================================= */
 
 .encabezado {
-    position: sticky;
-    top: 0;
-    z-index: 1000;
 
-    background: rgba(255,255,255,0.97);
-
-    backdrop-filter: blur(12px);
-
-    border-bottom:
-        1px solid rgba(100,21,43,0.10);
-}
-
-.encabezado-contenido {
-    min-height: 82px;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    gap: 30px;
+    display:
+        none !important;
 }
 
 
-/* LOGO */
-
-.logo img {
-    width: auto;
-    height: 62px;
-
-    object-fit: contain;
-}
-
-
-/* MENÚ */
-
-.menu {
-    display: flex;
-    align-items: center;
-    gap: 32px;
-}
-
-.menu a {
-    position: relative;
-
-    padding: 8px 0;
-
-    font-size: 14px;
-    font-weight: 700;
-
-    color: #4b4145;
-
-    transition: 0.25s;
-}
-
-.menu a::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    bottom: 0;
-
-    width: 0;
-    height: 2px;
-
-    background: var(--dorado);
-
-    transition: 0.25s;
-}
-
-.menu a:hover {
-    color: var(--vino);
-}
-
-.menu a:hover::after {
-    width: 100%;
-}
-
-
-/* BOTÓN MENÚ CELULAR */
-
-.boton-menu {
-    display: none;
-
-    border: none;
-
-    background: transparent;
-
-    color: var(--vino);
-
-    font-size: 28px;
-
-    cursor: pointer;
-}
-
-
-/* =========================
+/* =========================================================
    PORTADA
-========================= */
+========================================================= */
 
 .portada {
-    position: relative;
 
-    min-height: 570px;
+    position:
+        relative;
 
-    overflow: hidden;
+    min-height:
+        610px;
+
+    overflow:
+        hidden;
 
     background:
+
         linear-gradient(
-            135deg,
+            120deg,
             var(--vino-oscuro),
             var(--vino)
         );
 }
 
 
-/* ESPACIO PARA FOTOGRAFÍA */
+/* FOTO PRINCIPAL */
 
 .portada-fondo {
 
-    position: absolute;
+    position:
+        absolute;
 
-    inset: 0;
+    inset:
+        0;
 
     background-image:
+
         url("portada.jpg");
 
-    background-size: cover;
+    background-size:
+        cover;
 
-    background-position: center;
+    background-position:
+        center;
 
-    opacity: 0.50;
+    opacity:
+        0.58;
 }
 
 
-/* SI TODAVÍA NO EXISTE LA FOTO */
+/* CAPA SOBRE LA FOTOGRAFÍA */
 
 .portada-fondo::after {
 
-    content: "";
+    content:
+        "";
 
-    position: absolute;
+    position:
+        absolute;
 
-    inset: 0;
+    inset:
+        0;
 
     background:
+
         linear-gradient(
             90deg,
-            rgba(55,5,18,0.95),
-            rgba(100,21,43,0.75),
-            rgba(100,21,43,0.30)
+            rgba(55, 4, 20, 0.97) 0%,
+            rgba(101, 13, 43, 0.83) 42%,
+            rgba(101, 13, 43, 0.25) 100%
         );
 }
 
@@ -223,73 +217,99 @@ input {
 
 .portada-contenido {
 
-    position: relative;
+    position:
+        relative;
 
-    z-index: 2;
+    z-index:
+        2;
 
-    min-height: 570px;
+    min-height:
+        610px;
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
-        1.15fr
-        0.85fr;
+        1.05fr
+        0.75fr;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 70px;
+    gap:
+        60px;
 
     padding:
-        70px 0;
+        75px 0;
 }
 
 
 /* TEXTO */
 
 .portada-texto {
-    color: white;
+
+    color:
+        white;
 }
+
 
 .etiqueta {
 
-    display: inline-block;
+    display:
+        inline-block;
 
-    color: var(--dorado);
+    color:
+        var(--dorado-claro);
 
-    font-size: 12px;
+    font-size:
+        12px;
 
-    font-weight: 800;
+    font-weight:
+        900;
 
-    letter-spacing: 3px;
+    letter-spacing:
+        3px;
 
-    margin-bottom: 14px;
+    margin-bottom:
+        15px;
 }
 
 
 .portada-texto h1 {
 
     font-size:
-        clamp(44px, 6vw, 76px);
+        clamp(46px, 6vw, 78px);
 
-    line-height: 0.98;
+    line-height:
+        0.95;
 
-    font-weight: 900;
+    font-weight:
+        900;
 
-    margin-bottom: 24px;
+    letter-spacing:
+        -2px;
 
-    letter-spacing: -2px;
+    margin-bottom:
+        25px;
+
+    text-shadow:
+        0 5px 20px rgba(0,0,0,0.15);
 }
 
 
 .portada-texto p {
 
-    max-width: 650px;
+    max-width:
+        650px;
 
-    color: #f5edf0;
+    color:
+        #f9f0f3;
 
-    font-size: 18px;
+    font-size:
+        18px;
 
-    line-height: 1.6;
+    line-height:
+        1.6;
 }
 
 
@@ -297,178 +317,250 @@ input {
 
 .botones-portada {
 
-    display: flex;
+    display:
+        flex;
 
-    flex-wrap: wrap;
+    flex-wrap:
+        wrap;
 
-    gap: 12px;
+    gap:
+        13px;
 
-    margin-top: 30px;
+    margin-top:
+        32px;
 }
 
 
 .boton {
 
-    display: inline-flex;
+    display:
+        inline-flex;
 
-    align-items: center;
+    align-items:
+        center;
 
-    justify-content: center;
+    justify-content:
+        center;
 
     padding:
-        13px 24px;
+        14px 26px;
 
-    border-radius: 50px;
+    border-radius:
+        50px;
 
-    font-size: 13px;
+    font-size:
+        13px;
 
-    font-weight: 800;
+    font-weight:
+        900;
 
-    transition: 0.25s;
+    transition:
+        all .25s ease;
 }
 
 
 .boton-dorado {
 
-    background: var(--dorado);
+    color:
+        white;
 
-    color: white;
+    background:
+        linear-gradient(
+            135deg,
+            #d6b35b,
+            #b78d2f
+        );
 
     box-shadow:
         0 10px 25px
-        rgba(201,163,74,0.25);
+        rgba(0,0,0,.20);
 }
 
 
 .boton-dorado:hover {
 
     transform:
-        translateY(-3px);
+        translateY(-4px);
+
+    box-shadow:
+        0 15px 30px
+        rgba(0,0,0,.25);
 }
 
 
 .boton-transparente {
 
+    color:
+        white;
+
     border:
         1px solid
-        rgba(255,255,255,0.65);
-
-    color: white;
+        rgba(255,255,255,.7);
 }
 
 
 .boton-transparente:hover {
 
-    background: white;
+    background:
+        white;
 
-    color: var(--vino);
+    color:
+        var(--vino);
 }
 
 
-/* =========================
+/* =========================================================
    BUSCADOR DE PORTADA
-========================= */
+========================================================= */
 
 .buscador-portada {
 
     background:
-        rgba(255,255,255,0.97);
+        rgba(255,255,255,.96);
 
-    padding: 30px;
+    padding:
+        30px;
 
-    border-radius: 24px;
+    border-radius:
+        25px;
 
     border-top:
-        4px solid var(--dorado);
+        5px solid
+        var(--dorado);
 
     box-shadow:
         0 30px 70px
-        rgba(0,0,0,0.22);
+        rgba(0,0,0,.25);
+
+    backdrop-filter:
+        blur(10px);
 }
 
 
 .icono-busqueda {
 
-    font-size: 34px;
+    width:
+        52px;
 
-    color: var(--vino);
+    height:
+        52px;
 
-    margin-bottom: 5px;
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--crema);
+
+    color:
+        var(--vino);
+
+    font-size:
+        24px;
+
+    margin-bottom:
+        12px;
 }
 
 
 .buscador-portada h2 {
 
-    color: var(--vino);
+    color:
+        var(--vino);
 
-    font-size: 23px;
+    font-size:
+        23px;
 
-    line-height: 1.25;
+    line-height:
+        1.25;
 
-    margin-bottom: 5px;
+    margin-bottom:
+        6px;
 }
 
 
 .buscador-portada p {
 
-    color: var(--gris);
+    color:
+        var(--gris);
 
-    font-size: 13px;
+    font-size:
+        13px;
 
-    margin-bottom: 18px;
+    margin-bottom:
+        20px;
 }
 
 
-/* BUSCADOR */
-
 .buscador {
 
-    display: flex;
+    display:
+        flex;
 
-    background: white;
+    overflow:
+        hidden;
 
     border:
-        1px solid var(--borde);
+        1px solid
+        var(--borde);
 
-    border-radius: 12px;
+    border-radius:
+        12px;
 
-    overflow: hidden;
+    background:
+        white;
 }
 
 
 .buscador input {
 
-    flex: 1;
+    flex:
+        1;
 
-    min-width: 0;
+    min-width:
+        0;
 
-    border: none;
+    border:
+        none;
 
-    outline: none;
+    outline:
+        none;
 
     padding:
-        15px;
+        16px;
 
-    font-size: 14px;
+    font-size:
+        13px;
 }
 
 
 .buscador button {
 
-    border: none;
+    border:
+        none;
 
-    background: var(--vino);
+    background:
+        var(--vino);
 
-    color: white;
+    color:
+        white;
 
     padding:
-        0 22px;
+        0 23px;
 
-    font-weight: 800;
+    font-weight:
+        900;
 
-    cursor: pointer;
+    cursor:
+        pointer;
 
-    transition: 0.25s;
+    transition:
+        .25s;
 }
 
 
@@ -483,24 +575,32 @@ input {
 
 .linea-dorada {
 
-    position: absolute;
+    position:
+        absolute;
 
-    bottom: 0;
+    left:
+        0;
 
-    left: 0;
+    right:
+        0;
 
-    right: 0;
+    bottom:
+        0;
 
-    height: 6px;
+    height:
+        7px;
 
     background:
         var(--dorado);
+
+    z-index:
+        5;
 }
 
 
-/* =========================
-   FRANJA INFORMACIÓN
-========================= */
+/* =========================================================
+   FRANJA INFORMATIVA
+========================================================= */
 
 .franja-informativa {
 
@@ -508,333 +608,616 @@ input {
         var(--crema);
 
     border-bottom:
-        1px solid var(--borde);
+        1px solid
+        var(--borde);
 }
 
 
 .informacion-grid {
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
         repeat(3, 1fr);
 
-    padding: 24px 0;
+    padding:
+        24px 0;
 }
 
 
 .informacion-item {
 
-    display: flex;
+    display:
+        flex;
 
-    justify-content: center;
+    align-items:
+        center;
 
-    align-items: center;
+    justify-content:
+        center;
 
-    gap: 12px;
+    gap:
+        13px;
 
     border-right:
-        1px solid #ddd4c7;
+        1px solid
+        #ddd4c7;
 }
 
 
 .informacion-item:last-child {
 
-    border-right: none;
+    border-right:
+        none;
 }
 
 
 .informacion-icono {
 
-    width: 42px;
+    width:
+        45px;
 
-    height: 42px;
+    height:
+        45px;
 
-    display: grid;
+    display:
+        grid;
 
-    place-items: center;
+    place-items:
+        center;
 
-    border-radius: 50%;
+    border-radius:
+        50%;
 
-    background: white;
+    background:
+        var(--vino);
 
-    color: var(--vino);
+    color:
+        white;
 
-    font-weight: 900;
+    font-weight:
+        900;
+
+    font-size:
+        12px;
 
     box-shadow:
-        0 5px 15px
-        rgba(0,0,0,0.06);
+        0 8px 20px
+        rgba(101,13,43,.18);
 }
 
 
 .informacion-item strong {
 
-    display: block;
+    display:
+        block;
 
-    font-size: 13px;
+    color:
+        var(--vino);
 
-    color: #342b30;
+    font-size:
+        12px;
 }
 
 
 .informacion-item small {
 
-    display: block;
+    display:
+        block;
 
-    color: var(--gris);
+    color:
+        var(--gris);
 
-    font-size: 11px;
+    font-size:
+        10px;
 }
 
 
-/* =========================
-   DIRECCIONES
-========================= */
+/* =========================================================
+   SECCIÓN DIRECCIONES
+========================================================= */
 
 .seccion-direcciones {
 
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
     padding:
-        90px 0
-        105px;
+        85px 0 100px;
 
     background:
-        #ffffff;
+        linear-gradient(
+            180deg,
+            #fff,
+            #faf7f0
+        );
 }
 
 
+.seccion-direcciones::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    width:
+        550px;
+
+    height:
+        550px;
+
+    left:
+        -260px;
+
+    bottom:
+        -250px;
+
+    background:
+        url("logo-tepeapulco.jpeg")
+        center / contain
+        no-repeat;
+
+    opacity:
+        .035;
+
+    pointer-events:
+        none;
+}
+
+
+/* TÍTULO */
+
 .titulo-seccion {
 
-    text-align: center;
+    position:
+        relative;
 
-    max-width: 760px;
+    z-index:
+        2;
+
+    text-align:
+        center;
+
+    max-width:
+        800px;
 
     margin:
-        0 auto 40px;
+        0 auto 38px;
 }
 
 
 .titulo-seccion > span {
 
-    color: var(--dorado);
+    color:
+        var(--dorado);
 
-    font-size: 12px;
+    font-size:
+        11px;
 
-    font-weight: 900;
+    font-weight:
+        900;
 
-    letter-spacing: 3px;
+    letter-spacing:
+        3px;
 }
 
 
 .titulo-seccion h2 {
 
-    color: var(--vino);
+    color:
+        var(--vino);
 
     font-size:
-        clamp(32px, 4vw, 46px);
+        clamp(34px,4vw,48px);
 
-    line-height: 1.1;
+    line-height:
+        1.1;
 
     margin:
-        8px 0 12px;
+        9px 0 12px;
 }
 
 
 .titulo-seccion p {
 
-    color: var(--gris);
+    color:
+        var(--gris);
 
-    font-size: 15px;
+    font-size:
+        14px;
 }
 
 
-/* =========================
+/* =========================================================
    BUSCADOR GENERAL
-========================= */
+========================================================= */
 
 .buscador-general {
 
-    display: flex;
+    position:
+        relative;
 
-    align-items: center;
+    z-index:
+        3;
 
-    max-width: 850px;
+    display:
+        flex;
+
+    align-items:
+        center;
+
+    max-width:
+        850px;
 
     margin:
-        0 auto 12px;
+        auto;
 
-    background: white;
+    background:
+        white;
 
     border:
-        1px solid var(--borde);
+        1px solid
+        var(--borde);
 
-    border-radius: 14px;
+    border-radius:
+        50px;
 
-    overflow: hidden;
+    overflow:
+        hidden;
 
     box-shadow:
-        0 8px 25px
-        rgba(50,15,28,0.05);
+        0 10px 30px
+        rgba(50,15,28,.08);
 }
 
 
 .buscador-general > span {
 
-    padding-left: 18px;
+    padding-left:
+        22px;
 
-    color: var(--vino);
+    color:
+        var(--vino);
 
-    font-size: 20px;
+    font-size:
+        20px;
 }
 
 
 .buscador-general input {
 
-    flex: 1;
+    flex:
+        1;
 
-    border: none;
+    border:
+        none;
 
-    outline: none;
+    outline:
+        none;
 
     padding:
-        16px 12px;
+        17px 12px;
 
-    font-size: 14px;
+    font-size:
+        13px;
 }
 
 
 .buscador-general button {
 
-    display: none;
+    display:
+        none;
 
-    border: none;
+    border:
+        none;
 
-    background: transparent;
+    background:
+        transparent;
 
-    color: #888;
+    color:
+        #888;
 
-    font-size: 25px;
+    font-size:
+        25px;
 
     padding:
-        0 16px;
+        0 18px;
 
-    cursor: pointer;
+    cursor:
+        pointer;
 }
 
 
 .contador {
 
-    text-align: center;
+    position:
+        relative;
 
-    color: var(--vino);
+    z-index:
+        2;
 
-    font-size: 12px;
+    text-align:
+        center;
 
-    font-weight: 800;
+    color:
+        var(--vino);
 
-    margin-bottom: 28px;
+    font-size:
+        11px;
+
+    font-weight:
+        900;
+
+    margin:
+        12px 0 28px;
 }
 
 
-/* =========================
-   TARJETAS
-========================= */
+/* =========================================================
+   TARJETAS CON IMÁGENES
+========================================================= */
 
 .tarjetas {
 
-    display: grid;
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    display:
+        grid;
 
     grid-template-columns:
-        repeat(3, 1fr);
+        repeat(4, 1fr);
 
-    gap: 18px;
+    gap:
+        18px;
 }
 
 
 .tarjeta {
 
-    position: relative;
+    position:
+        relative;
 
-    display: grid;
+    display:
+        block;
 
-    grid-template-columns:
-        auto auto 1fr auto;
+    min-height:
+        205px;
 
-    align-items: start;
+    overflow:
+        hidden;
 
-    gap: 13px;
-
-    min-height: 155px;
-
-    padding:
-        23px 20px;
-
-    background: white;
+    background:
+        white;
 
     border:
-        1px solid var(--borde);
+        1px solid
+        var(--borde);
 
     border-radius:
-        var(--radio);
-
-    overflow: hidden;
+        17px;
 
     box-shadow:
-        0 5px 20px
-        rgba(40,15,25,0.04);
+        0 7px 20px
+        rgba(45,15,25,.07);
 
     transition:
-        transform 0.28s,
-        box-shadow 0.28s,
-        border-color 0.28s;
+        transform .3s ease,
+        box-shadow .3s ease,
+        border-color .3s ease;
 }
 
+
+/* FOTO */
+
+.tarjeta::after {
+
+    content:
+        "";
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    right:
+        0;
+
+    top:
+        0;
+
+    height:
+        120px;
+
+    background-size:
+        cover;
+
+    background-position:
+        center;
+
+    transition:
+        transform .5s ease;
+}
+
+
+/* CAPA SOBRE LA FOTO */
 
 .tarjeta::before {
 
-    content: "";
+    content:
+        "";
 
-    position: absolute;
+    position:
+        absolute;
 
-    left: 0;
+    left:
+        0;
 
-    top: 0;
+    right:
+        0;
 
-    bottom: 0;
+    top:
+        0;
 
-    width: 4px;
+    height:
+        120px;
+
+    z-index:
+        1;
 
     background:
-        var(--vino);
-
-    transform:
-        scaleY(0);
-
-    transform-origin:
-        bottom;
+        linear-gradient(
+            180deg,
+            rgba(40,0,15,.05),
+            rgba(60,5,25,.45)
+        );
 
     transition:
-        transform 0.28s;
+        .3s;
 }
 
+
+/* FOTOS DE LAS 18 DIRECCIONES */
+
+
+/* 01 */
+.tarjeta:nth-child(1)::after {
+    background-image:
+        url("foto-01.jpg");
+}
+
+/* 02 */
+.tarjeta:nth-child(2)::after {
+    background-image:
+        url("foto-02.jpg");
+}
+
+/* 03 */
+.tarjeta:nth-child(3)::after {
+    background-image:
+        url("foto-03.jpg");
+}
+
+/* 04 */
+.tarjeta:nth-child(4)::after {
+    background-image:
+        url("foto-04.jpg");
+}
+
+/* 05 */
+.tarjeta:nth-child(5)::after {
+    background-image:
+        url("foto-05.jpg");
+}
+
+/* 06 */
+.tarjeta:nth-child(6)::after {
+    background-image:
+        url("foto-06.jpg");
+}
+
+/* 07 */
+.tarjeta:nth-child(7)::after {
+    background-image:
+        url("foto-07.jpg");
+}
+
+/* 08 */
+.tarjeta:nth-child(8)::after {
+    background-image:
+        url("foto-08.jpg");
+}
+
+/* 09 */
+.tarjeta:nth-child(9)::after {
+    background-image:
+        url("foto-09.jpg");
+}
+
+/* 10 */
+.tarjeta:nth-child(10)::after {
+    background-image:
+        url("foto-10.jpg");
+}
+
+/* 11 */
+.tarjeta:nth-child(11)::after {
+    background-image:
+        url("foto-11.jpg");
+}
+
+/* 12 */
+.tarjeta:nth-child(12)::after {
+    background-image:
+        url("foto-12.jpg");
+}
+
+/* 13 */
+.tarjeta:nth-child(13)::after {
+    background-image:
+        url("foto-13.jpg");
+}
+
+/* 14 */
+.tarjeta:nth-child(14)::after {
+    background-image:
+        url("foto-14.jpg");
+}
+
+/* 15 */
+.tarjeta:nth-child(15)::after {
+    background-image:
+        url("foto-15.jpg");
+}
+
+/* 16 */
+.tarjeta:nth-child(16)::after {
+    background-image:
+        url("foto-16.jpg");
+}
+
+/* 17 */
+.tarjeta:nth-child(17)::after {
+    background-image:
+        url("foto-17.jpg");
+}
+
+/* 18 */
+.tarjeta:nth-child(18)::after {
+    background-image:
+        url("foto-18.jpg");
+}
+
+
+/* HOVER */
 
 .tarjeta:hover {
 
     transform:
-        translateY(-6px);
+        translateY(-8px);
 
     border-color:
-        #d7c8af;
+        #d2bd91;
 
     box-shadow:
-        var(--sombra);
+        var(--sombra-fuerte);
 }
 
 
-.tarjeta:hover::before {
+.tarjeta:hover::after {
 
     transform:
-        scaleY(1);
+        scale(1.07);
 }
 
 
@@ -842,13 +1225,44 @@ input {
 
 .numero {
 
-    color: #aaa0a4;
+    position:
+        absolute;
 
-    font-size: 10px;
+    top:
+        10px;
 
-    font-weight: 900;
+    left:
+        12px;
 
-    padding-top: 4px;
+    z-index:
+        4;
+
+    width:
+        27px;
+
+    height:
+        27px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border-radius:
+        50%;
+
+    background:
+        rgba(255,255,255,.92);
+
+    color:
+        var(--vino);
+
+    font-size:
+        9px;
+
+    font-weight:
+        900;
 }
 
 
@@ -856,62 +1270,128 @@ input {
 
 .tarjeta-icono {
 
-    width: 42px;
+    position:
+        absolute;
 
-    height: 42px;
+    top:
+        92px;
 
-    display: grid;
+    left:
+        18px;
 
-    place-items: center;
+    z-index:
+        4;
 
-    border-radius: 12px;
+    width:
+        52px;
+
+    height:
+        52px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border-radius:
+        50%;
+
+    border:
+        4px solid
+        white;
 
     background:
-        var(--crema);
-
-    color:
         var(--vino);
 
-    font-size: 11px;
+    color:
+        white;
 
-    font-weight: 900;
+    font-size:
+        10px;
+
+    font-weight:
+        900;
+
+    box-shadow:
+        0 7px 15px
+        rgba(0,0,0,.18);
 
     transition:
-        background 0.25s,
-        color 0.25s;
+        .3s;
 }
 
 
 .tarjeta:hover .tarjeta-icono {
 
     background:
-        var(--vino);
+        var(--dorado);
 
-    color: white;
+    transform:
+        rotate(-5deg)
+        scale(1.06);
 }
 
 
 /* CONTENIDO */
 
+.tarjeta-contenido {
+
+    position:
+        absolute;
+
+    left:
+        0;
+
+    right:
+        0;
+
+    bottom:
+        0;
+
+    min-height:
+        92px;
+
+    padding:
+        27px 16px 13px;
+
+    background:
+        white;
+
+    z-index:
+        3;
+}
+
+
 .tarjeta-contenido h3 {
 
-    color: #342b30;
+    color:
+        var(--vino);
 
-    font-size: 15px;
+    font-size:
+        13px;
 
-    line-height: 1.25;
+    line-height:
+        1.25;
 
-    margin-bottom: 6px;
+    margin-bottom:
+        4px;
+
+    padding-right:
+        20px;
 }
 
 
 .tarjeta-contenido p {
 
-    color: var(--gris);
+    color:
+        var(--gris);
 
-    font-size: 11px;
+    font-size:
+        9px;
 
-    line-height: 1.5;
+    line-height:
+        1.35;
 }
 
 
@@ -919,70 +1399,126 @@ input {
 
 .flecha {
 
+    position:
+        absolute;
+
+    right:
+        13px;
+
+    bottom:
+        20px;
+
+    z-index:
+        5;
+
+    width:
+        28px;
+
+    height:
+        28px;
+
+    display:
+        grid;
+
+    place-items:
+        center;
+
+    border-radius:
+        50%;
+
+    background:
+        var(--vino);
+
     color:
-        var(--dorado);
+        white;
 
-    font-size: 22px;
+    font-size:
+        17px;
 
-    font-weight: 900;
+    font-weight:
+        900;
 
     transition:
-        transform 0.25s;
+        .25s;
 }
 
 
 .tarjeta:hover .flecha {
 
+    background:
+        var(--dorado);
+
     transform:
-        translateX(5px);
+        translateX(4px);
 }
 
 
-/* SIN RESULTADOS */
+/* =========================================================
+   SIN RESULTADOS
+========================================================= */
 
 .sin-resultados {
 
-    display: none;
+    display:
+        none;
 
-    text-align: center;
+    position:
+        relative;
 
-    padding: 40px;
+    z-index:
+        3;
 
-    margin-top: 20px;
+    text-align:
+        center;
+
+    padding:
+        45px;
+
+    margin-top:
+        25px;
 
     border:
-        1px dashed #d8cfc4;
+        1px dashed
+        #d8cfc4;
 
-    border-radius: 18px;
+    border-radius:
+        18px;
 
-    color: var(--gris);
+    color:
+        var(--gris);
+
+    background:
+        white;
 }
 
 
 .sin-resultados strong {
 
-    display: block;
+    display:
+        block;
 
-    color: var(--vino);
+    color:
+        var(--vino);
 
-    margin-bottom: 5px;
+    margin-bottom:
+        5px;
 }
 
 
-.sin-resultados span {
-
-    font-size: 13px;
-}
-
-
-/* =========================
+/* =========================================================
    INFORMACIÓN MUNICIPAL
-========================= */
+========================================================= */
 
 .seccion-informacion {
 
+    position:
+        relative;
+
+    overflow:
+        hidden;
+
     padding:
-        75px 0;
+        80px 0;
 
     background:
         var(--crema);
@@ -991,14 +1527,23 @@ input {
 
 .informacion-contenido {
 
-    display: grid;
+    position:
+        relative;
+
+    z-index:
+        2;
+
+    display:
+        grid;
 
     grid-template-columns:
-        1fr 380px;
+        1fr 400px;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 55px;
+    gap:
+        55px;
 
     background:
         white;
@@ -1014,31 +1559,19 @@ input {
 }
 
 
-.etiqueta-seccion {
-
-    color:
-        var(--dorado);
-
-    font-size: 11px;
-
-    font-weight: 900;
-
-    letter-spacing: 3px;
-}
-
-
 .informacion-contenido h2 {
 
     color:
         var(--vino);
 
     font-size:
-        clamp(30px,4vw,45px);
+        clamp(32px,4vw,48px);
 
-    line-height: 1.1;
+    line-height:
+        1.08;
 
     margin:
-        10px 0 14px;
+        10px 0 15px;
 }
 
 
@@ -1051,52 +1584,36 @@ input {
         15px;
 
     max-width:
-        650px;
+        600px;
 }
 
 
-/* IMAGEN */
-
 .imagen-informacion {
 
-    height: 240px;
+    height:
+        250px;
 
-    border-radius: 18px;
+    overflow:
+        hidden;
 
-    overflow: hidden;
+    border-radius:
+        18px;
 
     background:
         linear-gradient(
             135deg,
             var(--vino),
-            var(--vino-claro)
+            var(--vino-medio)
         );
+
+    position:
+        relative;
 }
 
 
-.imagen-placeholder {
-
-    width: 100%;
-
-    height: 100%;
-
-    display: grid;
-
-    place-items: center;
-
-    color: white;
-
-    font-size: 12px;
-
-    font-weight: 800;
-
-    letter-spacing: 1px;
-}
-
-
-/* =========================
+/* =========================================================
    QR
-========================= */
+========================================================= */
 
 .seccion-qr {
 
@@ -1104,26 +1621,31 @@ input {
         90px 0;
 
     background:
+
         linear-gradient(
             135deg,
             #fff,
-            #f8f4ec
+            #f7f1e5
         );
 }
 
 
 .qr-contenido {
 
-    max-width: 1000px;
+    max-width:
+        1000px;
 
-    display: grid;
+    display:
+        grid;
 
     grid-template-columns:
         1fr 270px;
 
-    align-items: center;
+    align-items:
+        center;
 
-    gap: 70px;
+    gap:
+        65px;
 }
 
 
@@ -1133,9 +1655,10 @@ input {
         var(--vino);
 
     font-size:
-        clamp(32px,4vw,48px);
+        clamp(34px,4vw,50px);
 
-    line-height: 1.05;
+    line-height:
+        1.05;
 
     margin:
         10px 0 16px;
@@ -1149,27 +1672,29 @@ input {
 
     font-size:
         15px;
-
-    max-width:
-        600px;
 }
 
 
 .nota-qr {
 
-    display: flex;
+    display:
+        flex;
 
-    gap: 12px;
+    gap:
+        12px;
 
-    align-items: center;
+    align-items:
+        center;
 
-    margin-top: 20px;
+    margin-top:
+        20px;
 
     padding:
         14px 17px;
 
     border-left:
-        3px solid var(--dorado);
+        4px solid
+        var(--dorado);
 
     background:
         #fff8e3;
@@ -1191,7 +1716,8 @@ input {
         white;
 
     border:
-        1px solid var(--borde);
+        1px solid
+        var(--borde);
 
     border-radius:
         22px;
@@ -1203,15 +1729,14 @@ input {
 
 .contenedor-qr img {
 
-    width: 100%;
-
-    height: auto;
+    width:
+        100%;
 }
 
 
-/* =========================
+/* =========================================================
    CONTACTO
-========================= */
+========================================================= */
 
 .seccion-contacto {
 
@@ -1223,500 +1748,8 @@ input {
 }
 
 
-/* =========================
+/* =========================================================
    FOOTER
-========================= */
+========================================================= */
 
-footer {
-
-    background:
-        #260b15;
-
-    color:
-        #eeeeee;
-}
-
-
-.footer-contenido {
-
-    display: grid;
-
-    grid-template-columns:
-        180px 1fr auto;
-
-    align-items: center;
-
-    gap: 35px;
-
-    padding:
-        45px 0;
-}
-
-
-.footer-logo img {
-
-    width:
-        145px;
-
-    max-height:
-        80px;
-
-    object-fit:
-        contain;
-}
-
-
-.footer-contenido strong {
-
-    font-size:
-        14px;
-}
-
-
-.footer-contenido p {
-
-    color:
-        #c9bec2;
-
-    font-size:
-        11px;
-
-    margin-top:
-        4px;
-}
-
-
-.footer-enlaces {
-
-    display:
-        flex;
-
-    gap:
-        18px;
-}
-
-
-.footer-enlaces a {
-
-    color:
-        #ddd;
-
-    font-size:
-        11px;
-
-    transition:
-        0.2s;
-}
-
-
-.footer-enlaces a:hover {
-
-    color:
-        var(--dorado);
-}
-
-
-.footer-final {
-
-    text-align:
-        center;
-
-    border-top:
-        1px solid
-        rgba(255,255,255,0.10);
-
-    padding:
-        15px;
-
-    color:
-        #aa9ca1;
-
-    font-size:
-        10px;
-}
-
-
-/* =========================
-   VOLVER ARRIBA
-========================= */
-
-.volver-arriba {
-
-    position:
-        fixed;
-
-    right:
-        20px;
-
-    bottom:
-        20px;
-
-    width:
-        45px;
-
-    height:
-        45px;
-
-    border:
-        none;
-
-    border-radius:
-        50%;
-
-    background:
-        var(--vino);
-
-    color:
-        white;
-
-    font-size:
-        20px;
-
-    cursor:
-        pointer;
-
-    opacity:
-        0;
-
-    pointer-events:
-        none;
-
-    transition:
-        0.25s;
-
-    box-shadow:
-        0 10px 25px
-        rgba(0,0,0,0.20);
-
-    z-index:
-        500;
-}
-
-
-.volver-arriba.visible {
-
-    opacity:
-        1;
-
-    pointer-events:
-        auto;
-}
-
-
-/* =========================
-   TABLET
-========================= */
-
-@media (max-width: 950px) {
-
-    .portada-contenido {
-
-        grid-template-columns:
-            1fr;
-
-        gap:
-            35px;
-
-        padding:
-            75px 0;
-    }
-
-
-    .portada {
-
-        min-height:
-            auto;
-    }
-
-
-    .portada-contenido {
-
-        min-height:
-            auto;
-    }
-
-
-    .buscador-portada {
-
-        max-width:
-            650px;
-    }
-
-
-    .tarjetas {
-
-        grid-template-columns:
-            repeat(2, 1fr);
-    }
-
-
-    .informacion-contenido {
-
-        grid-template-columns:
-            1fr;
-    }
-
-
-    .qr-contenido {
-
-        grid-template-columns:
-            1fr 230px;
-    }
-
-}
-
-
-/* =========================
-   CELULAR
-========================= */
-
-@media (max-width: 700px) {
-
-    .encabezado-contenido {
-
-        min-height:
-            70px;
-    }
-
-
-    .logo img {
-
-        height:
-            52px;
-    }
-
-
-    .boton-menu {
-
-        display:
-            block;
-    }
-
-
-    .menu {
-
-        display:
-            none;
-
-        position:
-            absolute;
-
-        left:
-            4%;
-
-        right:
-            4%;
-
-        top:
-            70px;
-
-        padding:
-            12px;
-
-        background:
-            white;
-
-        border-radius:
-            14px;
-
-        box-shadow:
-            var(--sombra);
-
-        flex-direction:
-            column;
-
-        gap:
-            3px;
-
-        align-items:
-            stretch;
-    }
-
-
-    .menu.abierto {
-
-        display:
-            flex;
-    }
-
-
-    .menu a {
-
-        padding:
-            12px 15px;
-    }
-
-
-    .portada-texto h1 {
-
-        font-size:
-            45px;
-    }
-
-
-    .portada-texto p {
-
-        font-size:
-            15px;
-    }
-
-
-    .botones-portada {
-
-        flex-direction:
-            column;
-    }
-
-
-    .boton {
-
-        width:
-            100%;
-    }
-
-
-    .informacion-grid {
-
-        grid-template-columns:
-            1fr;
-    }
-
-
-    .informacion-item {
-
-        border-right:
-            none;
-
-        border-bottom:
-            1px solid #ddd4c7;
-
-        padding:
-            12px;
-    }
-
-
-    .informacion-item:last-child {
-
-        border-bottom:
-            none;
-    }
-
-
-    .tarjetas {
-
-        grid-template-columns:
-            1fr;
-    }
-
-
-    .seccion-direcciones {
-
-        padding:
-            70px 0;
-    }
-
-
-    .informacion-contenido {
-
-        padding:
-            28px;
-    }
-
-
-    .qr-contenido {
-
-        grid-template-columns:
-            1fr;
-
-        text-align:
-            center;
-    }
-
-
-    .contenedor-qr {
-
-        width:
-            230px;
-
-        margin:
-            auto;
-    }
-
-
-    .nota-qr {
-
-        text-align:
-            left;
-    }
-
-
-    .footer-contenido {
-
-        grid-template-columns:
-            1fr;
-
-        text-align:
-            center;
-    }
-
-
-    .footer-logo img {
-
-        margin:
-            auto;
-    }
-
-
-    .footer-enlaces {
-
-        justify-content:
-            center;
-    }
-
-}
-
-
-/* =========================
-   CELULAR PEQUEÑO
-========================= */
-
-@media (max-width: 430px) {
-
-    .portada-texto h1 {
-
-        font-size:
-            38px;
-    }
-
-
-    .buscador-portada {
-
-        padding:
-            22px;
-    }
-
-
-    .buscador {
-
-        flex-direction:
-            column;
-    }
-
-
-    .buscador button {
-
-        padding:
-            13px;
-    }
-
-
-    .tarjeta {
-
-        grid-template-columns:
-            auto auto 1fr auto;
-
-        padding:
-            20px 15px;
-    }
-
-}
+foote
